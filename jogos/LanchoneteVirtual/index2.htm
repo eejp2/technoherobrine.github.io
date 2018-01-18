@@ -1,0 +1,245 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="pt-br" charset=utf-8">
+
+<title>Lanchonete Virtual v2</title>
+</head>
+<body onselectstart="return false">
+<div id="Comprasuplementos" style="display:none;border:2px outset #008800; position:absolute;left:3;top:111;width:260;height:181; z-index:99999;background-color:#Ffffff"><tt>
+<nobr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comprar suplementos&nbsp;&nbsp;&nbsp;&nbsp; <b 
+onClick="Comprasuplementos.style.display='none'" style="cursor:pointer;">X</b></nobr><br>
+<div style="overflow-y:scroll"><tt><nobr>
+Batata&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b onClick="buySupplement(0)" ondblClick="buySupplement(0)" style="cursor:pointer;">[comprar]</b><br>
+Catchup&nbsp;&nbsp; &nbsp; <b onClick="buySupplement(1)" ondblClick="buySupplement(1)" style="cursor:pointer;">[comprar]</b><br>
+Maionese&nbsp;&nbsp;&nbsp; <b onClick="buySupplement(2)" ondblClick="buySupplement(2)" style="cursor:pointer;">[comprar]</b><br>
+Mostarda&nbsp;&nbsp;&nbsp;&nbsp;<b onClick="buySupplement(3)" ondblClick="buySupplement(3)" style="cursor:pointer;">[comprar]</b><br>
+  Salsicha&nbsp;&nbsp;&nbsp;&nbsp;<b onClick="buySupplement(4)" ondblClick="buySupplement(4)" style="cursor:pointer;">[comprar]</b><br>
+  Hambúrguer&nbsp;&nbsp;<b onClick="buySupplement(5)" ondblClick="buySupplement(5)" style="cursor:pointer;">[comprar]</b><br>
+Prato&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b onClick="buySupplement(6)" ondblClick="buySupplement(6)" style="cursor:pointer;">[comprar]</b><br>
+Pão&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b onClick="buySupplement(7)" ondblClick="buySupplement(7)" style="cursor:pointer;">[comprar]</b><br>
+Ovo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b onClick="buySupplement(8)" ondblClick="buySupplement(8)" style="cursor:pointer;">[comprar]</b><br>
+
+
+</nobr>
+</tt>
+</div>
+
+&nbsp;</tt></div>
+
+<div style="position:absolute;border-top:1px solid #008800; left:0; top:58; width:272; height:96"><tt>
+<nobr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ações:<br>
+  </nobr><br>
+  <nobr onClick="vendeBatataFrita()" ondblClick="vendeBatataFrita()" style="cursor:pointer;">Vender 1 Batata Frita</nobr><br>
+  <nobr onClick="vendeCachorroQuente()" ondblClick="vendeCachorroQuente()" style="cursor:pointer;">Vender 1 Cachorro quente com fritas</nobr><br>
+  <nobr onClick="vendeCompleto()" ondblClick="vendeCompleto()" style="cursor:pointer;">Vender 1 Completo com fritas</nobr><br>
+  <nobr onClick="Comprasuplementos.style.display=''" style="cursor:pointer;">Comprar suplementos (ingredientes)</nobr><br>
+&nbsp;</tt></div>
+
+<div style="border-left:1px solid #008800;border-top:1px solid #008800;position:absolute; left:272; top:58; width:370; height:211"><tt>
+<nobr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Informações:</nobr><br><br>
+<nobr>Dinheiro total......: <span id="dinheiro">500000,00</span></nobr><br>
+<nobr>Pessoas na fila.....: <span id="pessoasNaFila">0</span></nobr><br>
+<nobr>Ingredientes padrão.: <br>
+  -Batata.............: <span id="elm0">1000</span><br>
+  -Catchup............: <span id="elm1">1000</span><br>
+  -Maionese...........: <span id="elm2">1000</span><br>
+  -Mostarda...........: <span id="elm3">1000</span><br>
+  -Salsicha...........: <span id="elm4">1000</span><br>
+  -Hambúrguer.........: <span id="elm5">1000</span><br>
+  -Prato descartável..: <span id="elm6">1000</span><br>
+  -Pão................: <span id="elm7">1000</span><br>
+  -Ovo................: <span id="elm8">1000</span><br>
+
+
+
+</nobr><br></tt></div>
+
+
+
+<script>
+/* Feito por: Diego Silva 
+Atualizado por: Ladstone Dantas(v2.0) *\
+/* Atenção: Não copie o que é dos outros... Não copie este código javascript. */
+/*Lembrete para mim:  
+/ Lembrete melhor vizualizado no "Microsoft FrontPage" em modo "HTML" \
+|-------SUPLEMENTOS E OBJETOS--------|
+|____________________________________|
+|NOME                | ID |   PREÇO  |
+|''''''''''''''''''''|''''|''''''''''|
+|                    |    |          |
+|BATATA..............| 00 |  R$ 0.10 |
+|CATCHUP.............| 01 |  R$ 0.20 |
+|MAIONESE............| 02 |  R$ 0.20 |
+|MOSTARDA............| 03 |  R$ 0.20 |
+|SALSICHA............| 04 |  R$ 0.50 |
+|HAMBÚRGUER..........| 05 |  R$ 0.40 |
+|PRATO DESCARTÁVEL...| 06 |  R$ 0.40 |
+|PÃO.................| 07 |  R$ 0.97 |
+|OVO.................| 08 |  R$ 1.00 |
+''''''''''''''''''''''''''''''''''''''
+*/
+dinheiroTotal=500.00
+var precos=new Array() //preço dos suplementos
+precos[0]=0.10 //batata
+precos[1]=0.20 //catchup
+precos[2]=0.20 //maionese
+precos[3]=0.20 //mostarda
+precos[4]=0.50 //salsicha
+precos[5]=0.40 //hambúrguer
+precos[6]=0.40 //prato
+precos[7]=0.97 //pão
+precos[8]=1.00 //ovo
+
+
+suplements=new Array() //quantidade
+suplements[0]=100/*nem preciso falar né? só observar o número (o numero entre colchetes) e ver na tabela que equivale.*/
+suplements[1]=100
+suplements[2]=100
+suplements[3]=100
+suplements[4]=100
+suplements[5]=100
+suplements[6]=100
+suplements[7]=100
+suplements[8]=100
+
+
+function buySupplement(numb){ /* função de compra de suplementos. 
+--------------------------------------------------
+O numb é a id do suplemento. para comprar um suplemento
+por linha de comando (pela barra de endereço através de javascript:buySupplement(1);void(0);), deverá substituir o numb pela id do suplemento.*/
+
+	if(dinheiroTotal > precos[numb]){ //se tiver dinheiro
+	suplements[numb]+=1//comprado um suplemento
+	dinheiroTotal-=precos[numb]//dinheiro subtraído
+	}
+	else { //se não tiver dinheiro
+	alert("você não tem dinheiro suficiente para comprar este suplemento/objeto")//janela de alerta dando a explicação
+	}
+}
+pessoasnafila=0 //variável de pessoas na fila
+function aumentaFila(){ /* função aumentaFila()
+
+o próprio nome fala: quando uma "pessoa" chega, ele conta e aumenta a fila.
+
+*/
+var continua = Math.round(Math.random()) // resposta do script em relação a deixar que uma pessoa chegue..
+	if(continua == 1){ //se a resposta for sim
+	pessoasnafila=pessoasnafila+(Math.round(Math.random()*1)) //aumenta pessoas da fila para +1
+	}
+setTimeout("aumentaFila()",(Math.round(Math.random()*800)+400));//timer (!)
+}
+function vendeBatataFrita(){ /* função de vender uma batata frita (hnnnnn. :p)
+
+A função é executada quando você clica no botão vender uma batata frita
+*/
+passeVende=true //elemento do script (bloqueador)
+	for(o=0;o<2;o++){
+		if(suplements[o] < 0){ //se não se tem suplementos 
+		passeVende=false //ativa o bloqueador
+		}
+	}
+	if(passeVende == true){ //se o bloqueador acima estiver desativado
+		if(pessoasnafila > 0){ //se tiver pessoas na fila (claro né. para se fazer um negocio tem que ter o vendedor e o comprador. No caso faltaria o comprador...)
+			for(o=0;o<2;o++){
+				suplements[o]-=1 //pega um suplemento para fazer o lanche
+			}
+		dinheiroTotal+=2.00//retorna o lucro ($$)
+		pessoasnafila-=1//a pessoa vai embora satisfeita com o lanche (:p)
+		}
+		else {
+		
+		}
+	}
+	else {// se o bloqueador estiver ativado
+	alert("você não tem suplemento(s) suficiente(s)"); //janela de explicação
+	}
+}
+function vendeCachorroQuente(){ /* função de vender um cachorro quente (hnnnnn. :p)
+
+A função é executada quando você clica no botão vender um cachorro quente
+*/
+passeVende=true //elemento do script (bloqueador)
+	for(o=0;o<8;o++){
+		if(suplements[o] < 0){ //se não se tem suplementos 
+		passeVende=false //ativa o bloqueador
+		}
+	}
+	if(passeVende == true){ //se o bloqueador acima estiver desativado
+		if(pessoasnafila > 0){ //se tiver pessoas na fila (claro né. para se fazer um negocio tem que ter o vendedor e o comprador. No caso faltaria o comprador...)
+			for(o=0;o<8;o++){
+				suplements[o]-=1 //pega um suplemento para fazer o lanche
+			}
+		dinheiroTotal+=5.00//retorna o lucro ($$)
+		pessoasnafila-=1//a pessoa vai embora satisfeita com o lanche (:p)
+		}
+		else {
+		
+		}
+	}
+	else {// se o bloqueador estiver ativado
+	alert("você não tem suplemento(s) suficiente(s)"); //janela de explicação
+	}
+}
+function vendeCompleto(){ /* função de vender um completo (hnnnnn. :p)
+
+A função é executada quando você clica no botão vender um completo
+*/
+passeVende=true //elemento do script (bloqueador)
+	for(o=0;o<9;o++){
+		if(suplements[o] < 0){ //se não se tem suplementos 
+		passeVende=false //ativa o bloqueador
+		}
+	}
+	if(passeVende == true){ //se o bloqueador acima estiver desativado
+		if(pessoasnafila > 0){ //se tiver pessoas na fila (claro né. para se fazer um negocio tem que ter o vendedor e o comprador. No caso faltaria o comprador...)
+			for(o=0;o<9;o++){
+				suplements[o]-=1 //pega um suplemento para fazer o lanche
+			}
+		dinheiroTotal+=6.00//retorna o lucro ($$)
+		pessoasnafila-=1//a pessoa vai embora satisfeita com o lanche (:p)
+		}
+		else {
+		
+		}
+	}
+	else {// se o bloqueador estiver ativado
+	alert("você não tem suplemento(s) suficiente(s)"); //janela de explicação
+	}
+}
+function atualiza(){
+dinheiroLique=dinheiroTotal.toString();
+	if(dinheiroLique.indexOf(".") != -1){
+	dinheiro.innerHTML="R$ "+dinheiroLique.substring(0,dinheiroLique.indexOf(".")+3);
+	}
+	else {
+	dinheiro.innerHTML="R$ "+dinheiroTotal+".00";
+	}
+
+pessoasNaFila.innerHTML=pessoasnafila
+	for(i=0;i<9;i++){
+	document.all["elm"+i].innerHTML=suplements[i];
+	}
+
+setTimeout("atualiza()",10)
+}
+atualiza()
+aumentaFila()
+  </script>
+
+
+
+
+<img border="0" src="logo.png" width="234" height="120" style="position: absolute; left: 21; top: 340" id="logodaLanchonete">
+
+<script>
+/* Posiciona o logo */
+function posiciona(){
+logodaLanchonete.style.top=document.body.scrollTop;
+logodaLanchonete.style.left=document.body.clientWidth-234+document.body.scrollLeft;
+}
+setInterval("posiciona()",1);
+  </script>
+
+
+</body>
+</html>

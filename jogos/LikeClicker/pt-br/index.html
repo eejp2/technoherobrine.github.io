@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8">
+		<title>Like Clicker</title>
+		<link rel="stylesheet" type="text/css" href="style.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="dialog-polyfill.css" />
+	</head>
+	<body>
+		<input type="button" value="Curtir" onClick="likeClick(number)">
+		<span id="likes">Você tem: 0 curtidas!</span>
+		<br>
+		<input id="reset" type="button" value="Reset">
+		<!--<input id="SaveNLoad" type="button" value="Salvar Jogo" onClick="saveGame()">
+		<input id="SaveNLoad" type="button" value="Carregar Jogo" onClick="loadGame()">-->
+		<div id="NotEnoughLikes" style="display: none; visibility: hidden;">
+			<span>Você não tem curtidas suficientes.</span>
+		</div>
+		<br>
+		<div id="Shop">
+		<div id="FanDiv">
+			<div id="AddFan">
+				<p><input type="button" value="+1 Fã" onClick="addFan()"><br />
+				Fãs: <span id="fans">0</span></p>
+				<p>Custo: <span id="fanCost">10</span></p>
+			</div>
+			<div id="DoubleFans">
+				<p><input type="button" value="x2 Fãs" onClick="doubleFan()"><br />
+				<span>Atenção: Você só pode usar isso uma vez!</span></p>
+				<p>Custo: <span id="doubleFanCost">500</span></p>
+			</div>
+			<br>
+		</div>
+		<div id="SuperFanDiv">
+			<div id="AddSuperFan">
+				<p><input type="button" value="+1 Super Fã" onClick="addSuperFan()"><br />
+				Super Fãs: <span id="superfans">0</span></p>
+				<p>Custo: <span id="superFanCost">100</span></p>
+			</div>
+			<div id="DoubleSuperFans">
+				<p><input type="button" value="x2 Super Fãs" onClick="doubleSuperFan()"><br />
+				<span>Atenção: Você só pode usar isso uma vez!</span></p>
+				<p>Custo: <span id="doubleSuperFanCost">1000</span></p>
+			</div>
+			<br>
+		</div>
+		<div id="MegaFanDiv">
+			<div id="AddMegaFan">
+				<p><input type="button" value="+1 Mega Fã" onClick="addMegaFan()"><br />
+				Mega Fãs: <span id="megafans">0</span></p>
+				Custo: <span id="megaFanCost">500</span>
+			</div>
+			<div id="DoubleMegaFans">
+				<p><input type="button" value="x2 Mega Fãs" onClick="doubleMegaFan()"><br />
+				<span>Atenção: Você só pode usar isso uma vez!</span></p>
+				<p>Custo: <span id="doubleMegaFanCost">6000</span></p>
+			</div>
+			<br>
+		</div>
+		<div id="BotDiv">
+			<div id="AddBot">
+				<p><input type="button" value="+1 Bot" onClick="addBot()"><br />
+				Bots: <span id="bots">0</span></p>
+				Custo: <span id="botCost">5000</span>
+			</div>
+			<div id="DoubleBots">
+				<p><input type="button" value="x2 Bots" onClick="doubleBots()"><br />
+				<span>Atenção: Você só pode usar isso uma vez!</span></p>
+				Custo: <span id="doubleBotsCost">25000</span>
+			</div>
+			<br>
+		</div>
+		<div id="ClickDiv">
+			<div id="AddClick">
+				<p><input type="button" value="+1 Click" onClick="addClick()"><br />
+				Clicks: <span id="number">1</span></p>
+				Custo: <span id="addClickCost">22000</span>
+			</div>
+			<div id="DoubleClick">
+				<p><input type="button" value="x2 Clicks" onClick="doubleClick()"><br />
+				<span>Atenção: Você só pode usar isso uma vez!</span></p>
+				Custo: <span id="doubleClickCost">45000</span>
+			</div>
+		</div>
+		</div>
+		<dialog class="dialog">
+    <h4 class="dialog__title">Changelog</h4>
+    <div class="dialog__content">
+		<iframe src="changelog.html" height="305" width="550" style="border: none;"></iframe>
+    </div>
+    <div class="dialog__actions">
+		<input type="button" value="Close" class="close">
+    </div>
+  </dialog>
+  <dialog id="resetDialog">
+    <h4 class="dialog__title">Resetar o jogo</h4>
+    <div class="dialog__content">
+		<center>Você quer mesmo resetar o jogo?</center>
+    </div>
+    <div class="dialog__actions">
+		<input type="button" value="Sim" class="resetgame" onClick="resetGame()">
+		<input type="button" value="Não" class="close">
+    </div>
+  </dialog>
+	<script src="dialog-polyfill.js"></script>
+		<div id="info">
+			<span id="InfoTxt">Like Clicker by TechHero - <a href="#" id="showchangelog">Versão 0.2</a></span>
+		</div>
+		<script>
+    var dialog = document.querySelector('dialog');
+    var showDialogButton = document.querySelector('#showchangelog');
+    if (! dialog.showModal) {
+      dialogPolyfill.registerDialog(dialog);
+    }
+    showDialogButton.addEventListener('click', function() {
+      dialog.showModal();
+    });
+    dialog.querySelector('.close').addEventListener('click', function() {
+      dialog.close();
+    });
+	
+	var dialogReset = document.querySelector('#resetDialog');
+    var showDialogResetButton = document.querySelector('#reset');
+    if (! dialogReset.showModal) {
+      dialogPolyfill.registerDialog(dialogReset);
+    }
+    showDialogResetButton.addEventListener('click', function() {
+      dialogReset.showModal();
+    });
+    dialogReset.querySelector('.close').addEventListener('click', function() {
+      dialogReset.close();
+    });
+	dialogReset.querySelector('.resetgame').addEventListener('click', function() {
+      dialogReset.close();
+    });
+  </script>
+		<script type="text/javascript" src="main.js"></script>
+	</body>
+</html>

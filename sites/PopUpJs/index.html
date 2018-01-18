@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+		<title>Janela Pop-up em HTML5</title>
+		
+		<link rel = "stylesheet" 
+         href = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-blue.min.css">
+      <script src = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js">
+      </script>
+      <link rel = "stylesheet" 
+         href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+		
+		<style>
+			textarea {
+				border: none;
+				resize: none;
+				background-color: #c9cacc;
+			}
+			span#docname {
+				padding-left: 350px;
+			}
+		</style>
+		
+		<script>
+			function abrir(URL) {
+				var width = 500;
+				var height = 500;
+				var left = 99;
+				var top = 99;
+				window.open(URL,'janela', 'width='+width+', height='+height+', top='+top+', left='+left+', scrollbars=yes, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no');
+			}
+
+			function abrir2() {
+				alert("ISSO É UM POP-UP");
+			}
+</script>
+		
+		<script>
+    var dialog = document.querySelector('dialog');
+    var showDialogButton = document.querySelector('#show-dialog');
+    if (! dialog.showModal) {
+      dialogPolyfill.registerDialog(dialog);
+    }
+    showDialogButton.addEventListener('click', function() {
+      dialog.showModal();
+    });
+    dialog.querySelector('.close').addEventListener('click', function() {
+      dialog.close();
+    });
+  </script>
+	</head>
+	<body>
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+			<header class="mdl-layout__header">
+				<div class="mdl-layout__header-row">
+					<!-- Title -->
+					<span class="mdl-layout-title">Janela Pop-up em HTML5</span>
+					<!-- Add spacer, to align navigation to the right -->
+					<div class="mdl-layout-spacer"></div>
+				</div>
+			</header>
+			<div class="mdl-layout__drawer">
+				<span class="mdl-layout-title">Exemplos</span>
+				<nav class="mdl-navigation">
+					<a class="mdl-navigation__link" href="javascript:abrir('popup1.html');">Exemplo 1</a>
+					<a class="mdl-navigation__link" onclick="abrir2()">Exemplo 2</a>
+					<a class="mdl-navigation__link" id="show-dialog">Exemplo 3</a>
+				</nav>
+			</div>
+		<div align="center">
+			<h4><a href="javascript:abrir('popup1.html');">Exemplo 1</a></h4>
+			<h6><span>Código</span></h6>
+		</div>
+			<p><span id="docname">index.html</span></p>
+		<div align="center">
+			<textarea rows='24' cols='80'>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exemplo 1</title>
+      <script>
+        function abrir(URL) {
+		  var width = 500;
+		  var height = 500;
+		  var left = 99;
+		  var top = 99;
+		  window.open(URL,'janela', 'width='+width+', height='+height+', top='+top+', left='+left+', scrollbars=yes, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no');
+        }
+    </script>
+  </head>
+  <body>
+    <div>
+      <a href="javascript:abrir('popup.html');">Exemplo 1</a>
+    </div>
+  </body>
+</html>
+		</textarea>
+		</div>
+		
+			<p><span id="docname">popup.html</span></p>
+		<div align="center">
+			<textarea rows='14' cols='80'>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pop-up Exemplo 1</title>
+  </head>
+  <body>
+    <div>
+      <div align="center">
+        <h1>ISSO É UM POP-UP</h1>
+      </div>
+    </div>
+  </body>
+</html>
+		</textarea>
+		</div>
+		<div align="center">
+			<h4><a onclick="abrir2();">Exemplo 2</a></h4>
+			<h6><span>Código</span></h6>
+		</div>
+			<p><span id="docname">index.html</span></p>
+		<div align="center">
+			<textarea rows='17' cols='80'>
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Exemplo 2</title>
+        <script>
+          function abrir2() {
+            alert("ISSO É UM POP-UP");
+          }
+        </script>
+  </head>
+  <body>
+    <div>
+      <a onclick="abrir2();">Exemplo 2</a>
+    </div>
+  </body>
+</html>
+		</textarea>
+		<h4><a id="show-dialog">Exemplo 3</a></h4>
+		<h6><span>Código</span></h6>
+  <dialog class="mdl-dialog">
+    <h4 class="mdl-dialog__title">ISSO É UM POP-UP!</h4>
+    <div class="mdl-dialog__content">
+      <p>
+        ESTE É O CONTEÚDO DO POP-UP!
+      </p>
+    </div>
+    <div class="mdl-dialog__actions">
+      <button type="button" class="mdl-button close">Fechar</button>
+    </div>
+  </dialog>
+		</div>
+			<p><span id="docname">index.html</span></p>
+		<div align="center">
+			<textarea rows='34' cols='80'>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Exemplo 3&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;a id=&quot;show-dialog&quot;&gt;Exemplo 3&lt;/a&gt;&lt;/h4&gt;
+  &lt;dialog class=&quot;mdl-dialog&quot;&gt;
+    &lt;h4 class=&quot;mdl-dialog__title&quot;&gt;ISSO &Eacute; UM POP-UP!&lt;/h4&gt;
+    &lt;div class=&quot;mdl-dialog__content&quot;&gt;
+      &lt;p&gt;
+        ESTE &Eacute; O CONTE&Uacute;DO DO POP-UP!
+      &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;mdl-dialog__actions&quot;&gt;
+      &lt;button type=&quot;button&quot; class=&quot;mdl-button close&quot;&gt;Fechar&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/dialog&gt;
+  &lt;script&gt;
+    var dialog = document.querySelector(&#039;dialog&#039;);
+    var showDialogButton = document.querySelector(&#039;#show-dialog&#039;);
+    if (! dialog.showModal) {
+      dialogPolyfill.registerDialog(dialog);
+    }
+    showDialogButton.addEventListener(&#039;click&#039;, function() {
+      dialog.showModal();
+    });
+    dialog.querySelector(&#039;.close&#039;).addEventListener(&#039;click&#039;, function() {
+      dialog.close();
+    });
+  &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+		</textarea>
+		</div>
+		</div>
+	</body>
+</html>

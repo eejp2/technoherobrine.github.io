@@ -1,0 +1,193 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+		
+<script>
+<!--
+  function dropdown(mySel)
+  {
+    var myWin, myVal;
+    myVal = mySel.options[mySel.selectedIndex].value;
+    if(myVal)
+    {
+      if(mySel.form.target)myWin = parent[mySel.form.target];
+      else myWin = window;
+      if (! myWin) 
+        return true;
+      myWin.location = myVal;
+    }
+    return false;
+  }
+
+
+  //display, block|none
+  function setStyle(id, prop, value) {
+	  //safe function to show an element with a specified id
+		  
+	  if (document.getElementById) { // DOM3 = IE5, NS6
+		  document.getElementById(id).style[prop] = value;  //
+	  }
+	  else {
+		  if (document.layers) { // Netscape 4
+			  document.id[prop] = value;
+		  }
+		  else { // IE 4
+			  document.all.id.style[prop] = value;
+		  }
+	  }
+  }
+
+//-->
+
+</script>
+<title>Conversor de Jar ou Jad para Apk</title>
+
+    <link rel = "stylesheet" 
+         href = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-blue.min.css">
+    <script src = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js">
+    </script>
+    <link rel = "stylesheet" 
+         href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+<h2>
+Conversor de Jar ou Jad para Apk
+</h2>
+
+<form id="midp2apkform" action="http://www.netmite.com/android/srv/2.0/midp2apk.php" enctype="multipart/form-data" method="POST">
+
+  Você tem 2 opções:<br>
+
+  <div>
+  Opção 1<br>
+
+  Coloque uma url para um arquivo jar ou jad:
+	<div class="mdl-textfield mdl-js-textfield">
+		<input name="url" class="mdl-textfield__input" type="text" size="128">
+	</div>
+  <br>
+
+  </div>
+
+  <p>
+
+  </p><div>
+  Opção 2<br>
+  Faça upload de um arquivo jad and jar para converter
+  <br>
+
+  <input type="hidden" name="MAX_FILE_SIZE" value="10000000">
+  
+  Escolha um arquivo jad: 
+	<button class="mdl-button mdl-js-button mdl-button--raised">
+		<input name="jadfile" type="file">
+	</button>
+  
+  <p></p>
+<br>
+
+  Escolha um arquivo jar: 
+	<button class="mdl-button mdl-js-button mdl-button--raised">
+		<input name="jarfile" type="file">
+	</button>
+  <br>
+  </div>
+
+  <hr>
+
+  <div id="parameters">
+  <p>
+  Avançado (Opcional)
+  </p>
+
+  <p>
+  Mudar tamanho da tela
+	<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="changesize">
+		<input type="checkbox" name="display_custom_size" id="changesize" class="mdl-checkbox__input" value="true" onclick="setStyle(&#39;display_sizes&#39;, &#39;display&#39;, this.checked ? &#39;block&#39; : &#39;none&#39;)">
+	</label>
+  </p>
+
+  
+    <div id="display_sizes" style="display: none;">
+    Largura
+	<div class="mdl-textfield mdl-js-textfield">
+		<input name="display_width" class="mdl-textfield__input" type="text" size="128">
+	</div>
+    <br>
+
+    Altura
+	<div class="mdl-textfield mdl-js-textfield">
+		<input name="display_height" class="mdl-textfield__input" type="text" size="128">
+	</div>
+
+    </div>
+
+    <p>
+    Orientação da tela customizada
+    <select name="display_orientation">
+      <option value="">Orientação customizada...
+
+      </option><option value="auto">Automática (muda de orientação automaticamente)
+      </option><option value="portrait">Retrato (de pé) sempre
+      </option><option value="landscape">Paisagem (deitado) sempre</option></select>
+    </p>
+  <hr>
+
+  </div>
+
+  <div>
+  <script>
+    function show_upgrade_options(showorhide)
+    {
+      //setStyle('upgrade_div', 'display', obj.checked ? 'block' : 'none');
+      var divid='upgrade_div';
+      var divelem=document.getElementById(divid);
+
+      var txtid="launcherversioncode";
+      var txtelem=document.getElementById(txtid);
+
+      //alert("divelem.style="+divelem.style['display']);
+      if (showorhide){
+        divelem.style['display']='block';
+        txtelem.value="1601";  
+      } else {
+        divelem.style['display']='none';
+        txtelem.value="";  
+      }
+    }
+  </script>
+  <div>
+    Atualizar (Incrementar número da versão, preciso para atualização na Play Store)
+	<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="changeversion">
+		<input type="checkbox" id="changeversion" class="mdl-checkbox__input" onclick="show_upgrade_options(this.checked);">
+	</label>
+  </div>
+
+  <div id="upgrade_div" style="display:none">
+    Próxima Versão
+	<div class="mdl-textfield mdl-js-textfield">
+		<input name="launcherversioncode" id="launcherversioncode" class="mdl-textfield__input" type="text" size="128" value="">
+	</div>
+  </div>
+
+</div>
+  <div>
+    Apagar cache, se tiver:
+	<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="changecache">
+		<input type="checkbox" name="forceclean" id="changecache" value="force" class="mdl-checkbox__input">
+	</label>
+  </div>
+
+
+  <div>
+	<button type="submit" class="mdl-button mdl-js-button mdl-button--raised">
+		Fazer Apk
+	</button>
+  </div>
+
+</form>
+
+
+
+
+
+</body></html>

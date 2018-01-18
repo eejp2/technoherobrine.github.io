@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!-- saved from url=(0094)file:///C:/Users/Leomar%20Dantas/Desktop/ladstone/codigos/html/html%20code%20tester/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Editor de HTML em tempo real</title>
+<meta name="description" content="Teste o seu c�digo HTML e veja o resultado instantaneamente com o editor de HTML em tempo real.">
+
+<script type="text/javascript">
+
+var editboxHTML = 
+'<html class="expand close">' +
+'<head>' +
+'<style type="text/css">' +
+'.expand { width: 100%; height: 100%; }' +
+'.close { border: none; margin: 0px; padding: 0px; }' +
+'html,body { overflow: hidden; }' +
+'<\/style>' +
+'<\/head>' +
+'<body class="expand close" onload="document.f.ta.focus(); document.f.ta.select();">' +
+'<form class="expand close" name="f">' +
+'<textarea class="expand close" style="resize: none; background: #def;" name="ta" wrap="hard" spellcheck="false">' +
+'<\/textarea>' +
+'<\/form>' +
+'<\/body>' +
+'<\/html>';
+
+var defaultStuff = '<h3>Testador de códigos em HTML<\/h3>\n' +
+'<p>Escreva o código na zona azul, e o resultado aparece aqui.<\/p>\n' +
+'<p>Feito por TechHero.<\/p>';
+
+// I don't want this stuff to appear in the box at the top because I feel it's likely to be distracting.
+var extraStuff = '<div style="position:absolute; margin:.3em; bottom:0em; right:0em;"><small>\n  <p>Baseado no editor do site <a href="http://www.comofazerumsite.com/" target="_top">Como Fazer um Site<\/a></p>\n<\/small><\/div>';
+
+var old = '';
+         
+function init()
+{
+  window.editbox.document.write(editboxHTML);
+  window.editbox.document.close();
+  window.editbox.document.f.ta.value = defaultStuff;
+  update();
+}
+
+function update()
+{
+  var textarea = window.editbox.document.f.ta;
+  var d = dynamicframe.document; 
+
+  if (old != textarea.value) {
+    old = textarea.value;
+    d.open();
+    d.write(old);
+    if (old.replace(/[\r\n]/g,'') == defaultStuff.replace(/[\r\n]/g,''))
+      d.write(extraStuff);
+    d.close();
+  }
+
+  window.setTimeout(update, 150);
+}
+
+</script>
+</head>
+
+<frameset rows="50%,*" onload="init();">
+  <!-- about:blank confuses opera, so use javascript: URLs instead -->
+  <frame name="editbox" src="javascript:&#39;&#39;;">
+  <frame name="dynamicframe" src="javascript:&#39;&#39;;">
+</frameset>
+
+ <!-- Histats.com  START  -->
+
+      
+       
+
+
+   
+     
+
+<!-- Histats.com  END  -->
+
+
+</html>

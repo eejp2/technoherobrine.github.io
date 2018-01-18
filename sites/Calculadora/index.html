@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class=" -webkit-"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Calculadora</title>
+	<link rel="icon" type="image/png" href="arquivos/icon.png" />
+    <style media="" data-href="style.css">/* Basic reset */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+	/* Better text styling */
+	font: bold 14px Arial, sans-serif;
+}
+
+/* Finally adding some IE9 fallbacks for gradients to finish things up */
+
+/* A nice BG gradient */
+html {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	overflow: hidden;
+	height: 100%;
+	background: white;
+	background: radial-gradient(circle, #fff 20%, #ccc);
+	background-size: cover;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	margin: 0 auto 15px;
+	color: #ffffff;
+	font-size: 23px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	width: 100%;
+}
+
+h1 span {
+	font-size: 23px;
+}
+
+/*.appIcon {
+	width: 24px;
+	height: 27px;
+	display: inline-block;
+	line-height: 24px;
+	vertical-align: middle;
+	padding-bottom: 3px;
+}*/
+
+/* Using -webkit-box shadows to create 3D effects */
+#calculator {
+	width: 325px;
+	height: auto;
+
+	margin: 0px auto;
+	padding: 20px 20px 9px;
+
+	background: #9dd2ea;
+	background: linear-gradient(#9dd2ea, #8bceec);
+	border-radius: 3px;
+	box-shadow: 0px 4px #009de4, 0px 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Top portion */
+.top span.clear {
+	float: left;
+}
+
+/* Inset shadow on the screen to create indent */
+.top .screen {
+	height: 40px;
+	width: 212px;
+
+	float: right;
+
+	padding: 0 10px;
+
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 3px;
+	box-shadow: inset 0px 4px rgba(0, 0, 0, 0.2);
+
+	/* Typography */
+	font-size: 17px;
+	line-height: 40px;
+	color: white;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	text-align: right;
+	letter-spacing: 1px;
+}
+
+/* Clear floats */
+.keys, .top {overflow: hidden;}
+
+/* Applying same to the keys */
+.keys span, .top span.clear {
+	float: left;
+	position: relative;
+	top: 0;
+
+	cursor: pointer;
+
+	width: 66px;
+	height: 36px;
+
+	background: #fff;
+	border-radius: 3px;
+	box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+
+	margin: 0 7px 11px 0;
+
+	color: #888;
+	line-height: 36px;
+	text-align: center;
+
+	/* prevent selection of text inside keys */
+	user-select: none;
+
+	/* Smoothing out hover and active states using css3 transitions */
+	transition: all 0.2s ease;
+}
+
+.additional.keys span {
+	background: #e7ffd0;
+	box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Remove right margins from operator keys */
+/* style different type of keys (operators/evaluate/clear) differently */
+.keys span.operator {
+	background: #FFF0F5;
+	margin-right: 0;
+}
+
+.keys span.eval {
+	background: #f1ff92;
+	box-shadow: 0px 4px #9da853;
+	color: #888e5f;
+}
+
+.top span.clear {
+	background: #ff9fa8;
+	box-shadow: 0px 4px #ff7c87;
+	color: white;
+}
+
+/* Some hover effects */
+.keys span:hover {
+	background: #9c89f6;
+	box-shadow: 0px 4px #6b54d3;
+	color: white;
+}
+
+.keys span.eval:hover {
+	background: #abb850;
+	box-shadow: 0px 4px #717a33;
+	color: #ffffff;
+}
+
+.top span.clear:hover {
+	background: #f68991;
+	box-shadow: 0px 4px #d3545d;
+	color: white;
+}
+
+/* Simulating "pressed" effect on active state of the keys by removing the box-shadow and moving the keys down a bit */
+.keys span:active {
+	box-shadow: 0px 0px #6b54d3;
+	top: 4px;
+}
+
+.keys span.eval:active {
+	box-shadow: 0px 0px #717a33;
+	top: 4px;
+}
+
+.top span.clear:active {
+	top: 4px;
+	box-shadow: 0px 0px #d3545d;
+}
+
+
+.additional > * {
+	display: none;
+}</style>
+<style type="text/css">#calculator {	background: #9dd2ea; background: linear-gradient(#9dd2ea, #b0dbee);box-shadow: 0px 4px #c4e4f2, 0px 10px 15px rgba(0, 0, 0, 0.2);}.additional.keys span {background: #e7ffd0;}.keys span {background: #ffffff;}.top span.clear {background: #ff1c5c; box-shadow: 0px 4px #fe72a;}.top span.clear:hover {background: #fe054b; box-shadow: 0px 4px #fe72a;}.top span.clear:active {top: 4px; box-shadow: 0px 0px #fe72a;}.keys span.eval {background: #f1ff92; box-shadow: 0px 4px #dafdd; color: #c4fc8;}.keys span.eval:hover {background: #d7fd7;box-shadow: 0px 4px #cbfcf;color: #ffffff;}.keys span.eval:active {box-shadow: 0px 0px #e9fe5b;top: 4px;}.keys span:hover {background: #6b54d3;box-shadow: 0px 4px #3e20c5;color: white;}.keys span:active {box-shadow: 0px 0px #3e20c5;top: 4px;}</style><style type="text/css"></style></head>
+<body style="">
+<div id="calculator">
+    <!-- Screen and clear key -->
+    <h1 class="appName">Calculadora</h1>
+    <div class="top">
+        <span class="clear">C</span>
+
+        <div class="screen" contenteditable="true"></div>
+    </div>
+
+    <div class="additional keys">
+        <span class="brackets">(</span>
+        <span class="brackets">)</span>
+        <span class="trigonometric">sin</span>
+        <span class="trigonometric">cos</span>
+        <span class="trigonometric">tan</span>
+        <span class="constants">π</span>
+        <span class="constants">e</span>
+        <span class="logarithms">ln</span>
+        <span class="logarithms">lg</span>
+        <span class="exponentiation">!</span>
+        <span class="exponentiation">^</span>
+        <span class="exponentiation">√</span>
+    </div>
+    <div class="keys">
+        <!-- operators and other keys -->
+        <span>7</span>
+        <span>8</span>
+        <span>9</span>
+        <span class="operator">+</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+        <span class="operator">-</span>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span class="operator">÷</span>
+        <span>0</span>
+        <span>.</span>
+        <span class="eval">=</span>
+        <span class="operator">x</span>
+    </div>
+</div>
+<script src="arquivos/jquery-2.0.3.min.js" type="text/javascript"></script>
+<script src="arquivos/prefixfree-1.0.7.js" type="text/javascript"></script>
+<script type="text/javascript" src="arquivos/settings.js"></script>
+<script type="text/javascript" src="arquivos/math.js"></script>
+<script type="text/javascript" src="arquivos/scripts.js"></script>
+
+</body></html>

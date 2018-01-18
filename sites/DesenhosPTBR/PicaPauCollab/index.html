@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+	
+	<title>Pica Pau Collab em PT-BR - O Pássaro Que Veio Para Jantar</title>
+	
+	<link rel="icon" type="image/png" href="http://image.ibb.co/dejySm/icon.png" />
+	
+	<link rel = "stylesheet" 
+         href = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-blue.min.css">
+    <script src = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js">
+    </script>
+    <link rel = "stylesheet" 
+         href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script>
+        window.loading = true;
+    </script>
+	
+	<style>
+	body {
+		background-color: #f5f5f5 ;
+		font-family: 'Roboto', 'Helvetica', sans-serif;
+		margin: 0;
+		padding: 0;
+	}
+	nav .brand-logo{
+		display: inline-block;
+		font-size: 1.8rem;
+		width: 80% !important;
+		padding: 10px 10px 10px 120px;
+		left: 12px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	div .episode-title{
+		display: inline-block;
+		font-size: 1.8rem;
+		width: 560px !important;
+		padding-top: 10px;
+		padding-left: 140px;
+		left: 12px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	div .curiosities{
+		display: inline-block;
+		font-size: 1.8rem;
+		width: 560px !important;
+		padding-top: 10px;
+		padding-left: 140px;
+		left: 12px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	div .episode-description{
+		display: inline-block;
+		font-size: 1.4rem;
+		width: 560px !important;
+		padding-top: 15px;
+		padding-left: 140px;
+		left: 12px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	div .curiosities-description{
+		display: inline-block;
+		font-size: 1.4rem;
+		width: 560px !important;
+		padding-top: 15px;
+		padding-left: 140px;
+		left: 12px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	div .episode-video{
+		padding-top: 15px;
+		padding-left: 140px;
+		max-width: 560px;
+	}
+	.dropbtn {
+    background-color: #0066FF;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+	padding-left: 140px;
+}
+
+.dropdown-content {
+    display: none;
+    width: 560px !important;
+}
+
+.show {display:block;}
+	</style>
+	
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper">
+        <a class="brand-logo" style="color: #48a5db);">Pica Pau Collab em PT-BR</a>
+    </div>
+</nav>
+
+	<div id="episodio" class="ep-wrapper">
+		<div class="col s12 m6 l6 video">
+				<div class="episode-video">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/RZfp-YyHg9g?rel=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+				</div>
+		<div class="col s12 m6 l6 title">
+			<div class="episode-title">
+				<a>Pica Pau Collab | O Pássaro Que Veio Para Jantar (2017)</a>
+			</div>
+			<div class="episode-description">
+				<p>Esse projeto foi realizado sem fins comerciais por mais de 70 animadores em homenagem a um dos maiores ícones da animação.</p>
+			</div>
+			<p><div class="dropdown">
+					<button onclick="myFunction()" class="mdl-button mdl-js-button mdl-button--accent">
+						<i class="material-icons">remove_red_eye</i>
+						Créditos
+					</button>
+				</div>
+				</div>
+			</div>
+		<div id="myDropdown" class="dropdown-content">
+			<div class="curiosities">
+				<a>Créditos</a>
+			</div>
+			<div class="curiosities-description">
+				<p>Este vídeo está no canal do 
+					<a href="https://www.youtube.com/channel/UC9LFW6C28WGkouCgaMnRROg">Ivanildo Soares</a>
+				, todos os créditos a ele.</p>
+				<p>Os animadores estão na descrição do vídeo do Ivanildo.</p>
+				<p>Música dos créditos finais feita por 
+					<a href="https://www.youtube.com/channel/UCs3rO7_9Effy7a8BhiXpE_Q">Miura Mix</a>
+				</p>
+			</div>
+		</div></p>
+	
+	<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function filterFunction() {
+    var ul, li, a, i;
+    div = document.getElementById("myDropdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+        if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+        }
+    }
+}
+</script>
+		</div>
+		</div>
+	</div>
+</body>
+</html>
