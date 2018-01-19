@@ -292,7 +292,7 @@ function doubleClick(){
         number = number * 2;
     	likes = likes - doubleClickCost;
         document.getElementById('number').innerHTML = number;
-		var nextCostBot = Math.floor(5000 * Math.pow(1.1,bots));
+		var nextCostAddClick = Math.floor(5000 * Math.pow(1.1,number));
 		document.getElementById('addClickCost').innerHTML = nextCostAddClick;
         updateLikes();
 		removeDoubleClick();
