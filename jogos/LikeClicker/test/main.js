@@ -3,13 +3,16 @@ var likes = 0;
 var fans = 0;
 var superfans = 0;
 var megafans = 0;
+var ultrafans = 0;
 var bots = 0;
 var number = 1;
+var DPS = 0;
+var fanDPS = 1;
 
 //CORREÇÃO DO BUG DA TECLA ENTER
 window.addEventListener("keydown", keyDown);
 
-function keyDown(eevent) {
+function keyDown(event) {
 	if (window.event.keyCode == 13) 
 	{
 		event.returnValue=false; 
@@ -39,9 +42,11 @@ function resetGame(){
 	recreateDoubleBots();
 	recreateDoubleClick();
     likes = 0;
+	DPS = 0;
 	fans = 0;
 	superfans = 0;
 	megafans = 0;
+	ultrafans = 0;
 	bots = 0;
 	number = 1;
 	fanCost = 10;
@@ -55,6 +60,7 @@ function resetGame(){
 	addClickCost = 20000;
 	doubleClickCost = 45000;
 	updateLikes();
+	updateDPS();
 	document.getElementById('fans').innerHTML = fans;
 	document.getElementById('fanCost').innerHTML = fanCost;
 	document.getElementById('doubleFanCost').innerHTML = doubleFanCost;
@@ -64,6 +70,9 @@ function resetGame(){
 	document.getElementById('megafans').innerHTML = megafans;
 	document.getElementById('megaFanCost').innerHTML = megaFanCost;
 	document.getElementById('doubleMegaFanCost').innerHTML = doubleMegaFanCost;
+	document.getElementById('ultrafans').innerHTML = ultrafans;
+	document.getElementById('ultraFanCost').innerHTML = ultraFanCost;
+	document.getElementById('doubleUltraFanCost').innerHTML = doubleUltraFanCost;
 	document.getElementById('bots').innerHTML = bots;
 	document.getElementById('botCost').innerHTML = botCost;
 	document.getElementById('doubleBotsCost').innerHTML = doubleBotCost;
@@ -75,7 +84,7 @@ function resetGame(){
 //FUNÇÃO DE CLICAR
 function likeClick(number){
     likes = likes + number;
-	document.getElementById("likes").innerHTML = 'Você tem: ' + likes + ' curtidas!';
+	updateLikes();
 };
 
 //COMPRAS
@@ -88,6 +97,8 @@ function addFan(){
     	likes = likes - fanCost;                          //gasta os likes
         document.getElementById('fans').innerHTML = fans;  //atualiza o número de unidades adquiridas
         updateLikes();  //atualiza os likes
+		DPS += fanDPS;
+		updateDPS();
     }
 	else {
 		notEnoughLikes();      //se você não tem likes suficientes, exibe um alerta
@@ -107,6 +118,8 @@ function doubleFan(){
 		document.getElementById('fanCost').innerHTML = nextCostFan;//atualiza o próximo custo
         updateLikes();
 		removeDoubleFan();
+		doubleFanDPS();
+		updateDPS();
     }
 	else {
 		notEnoughLikes();
@@ -125,6 +138,16 @@ function recreateDoubleFan()                                 //"recria" o upgrad
    var rctDoubleFan = document.getElementById("DoubleFans"); 
    rctDoubleFan.style.display="block"; 
    rctDoubleFan.style.visibility="initial"; 
+}
+
+function doubleFanDPS() {
+	var doubleFansDPS = document.getElementById("DoubleFans");
+	if (doubleFansDPS.style.visibility == "hidden") {
+			fanDPS = 2;
+			updateDPS();
+		} else {
+			fanDPS = 1;
+		}
 }
 
 //+1 SUPER FAN
@@ -340,11 +363,17 @@ function removeNotEnoughLikes()                                 //"remove" o tex
 
 //FUNÇÃO DE ATUALIZAR LIKES
 function updateLikes(){
-	document.getElementById('likes').innerHTML = 'Você tem: ' + likes + ' curtidas!';
+	document.getElementById('likes').innerHTML = 'You have: ' + likes + ' likes!';
+}
+
+//FUNÇÃO DE ATUALIZAR O DPS
+function updateDPS(){
+	document.getElementById('dps').innerHTML = 'DPS: ' + DPS;
+	document.getElementById('fanDPS').innerHTML = fanDPS;
 }
 
 //INTERVALO DE TEMPO (LIKES POR SEGUNDO)
-window.setInterval(function(){
+/*window.setInterval(function(){
 	likeClick(fans);
 }, 10000);
 window.setInterval(function(){
@@ -355,4 +384,8 @@ likeClick(megafans);
 }, 100);
 window.setInterval(function(){
 	likeClick(bots);
-}, 10);
+}, 10);*/
+window.setInterval(function(){
+	likes = likes + DPS;
+	updateLikes();
+}, 1000);

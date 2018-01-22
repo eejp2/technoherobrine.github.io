@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="pt-BR">
+<html lang="en-US">
 	<head>
 		<meta charset="UTF-8">
 		<title>Like Clicker</title>
@@ -9,54 +9,95 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	</head>
 	<body>
-		<input type="button" value="Curtir" onClick="likeClick(number)" class="btn btn-light">
-		<span id="likes">Você tem: 0 curtidas!</span>
+		<div id="LikeDPSDiv">
+			<p><input type="button" value="Like" onClick="likeClick(number)" class="btn btn-light">
+			<span id="likes">You have: 0 likes!</span></p>
+			<span id="dps">DPS: 0</span>
+		</div>
+		<br>
 		<input id="reset" type="button" value="Reset Game" class="btn btn-danger">
-		<!--<input id="SaveNLoad" type="button" value="Salvar Jogo" onClick="saveGame()">
-		<input id="SaveNLoad" type="button" value="Carregar Jogo" onClick="loadGame()">-->
+		<!--<input id="SaveNLoad" type="button" value="Save Game" onClick="saveGame()">
+		<input id="SaveNLoad" type="button" value="Load Game" onClick="loadGame()">-->
 		<div id="NotEnoughLikes" style="display: none; visibility: hidden;">
-			<span class="alert alert-dark" role="alert">Você não tem curtidas suficientes.</span>
+			<span class="alert alert-dark" role="alert">You have not got enough likes.</span>
 		</div>
 		<div class="container float-left">
 			<div class="row">
 				<div class="col-3">
 					<div id="FanDiv">
 						<div id="AddFan" class="rounded" class="float-left">
-							<p><input type="button" value="+1 Fã" onClick="addFan()" class="btn btn-light"><br />
-							Fãs: <span id="fans">0</span></p>
-							<p>Custo: <span id="fanCost">10</span></p>
+							<p><input type="button" value="+1 Fan" onClick="addFan()" class="btn btn-light"></p>
+							Fans: <span id="fans">0</span><br />
+							DPS: <span id="fanDPS">1</span><br />
+							Cost: <span id="fanCost">10</span>
 						</div>
 						<br>
 					</div>
 					<div id="SuperFanDiv">
 						<div id="AddSuperFan" class="rounded">
-							<p><input type="button" value="+1 Super Fã" onClick="addSuperFan()" class="btn btn-light"><br />
-							Super Fãs: <span id="superfans">0</span></p>
-							<p>Custo: <span id="superFanCost">100</span></p>
+							<p><input type="button" value="+1 Super Fan" onClick="addSuperFan()" class="btn btn-light"><br />
+							Super Fans: <span id="superfans">0</span></p>
+							<p>Cost: <span id="superFanCost">100</span></p>
 						</div>
 						<br>
 					</div>
 					<div id="MegaFanDiv">
 						<div id="AddMegaFan" class="rounded">
-							<p><input type="button" value="+1 Mega Fã" onClick="addMegaFan()" class="btn btn-light"><br />
-							Mega Fãs: <span id="megafans">0</span></p>
-							Custo: <span id="megaFanCost">500</span>
+							<p><input type="button" value="+1 Mega Fan" onClick="addMegaFan()" class="btn btn-light"><br />
+							Mega Fans: <span id="megafans">0</span></p>
+							Cost: <span id="megaFanCost">500</span>
 						</div>
 						<br>
 					</div>
-					<!--<div id="UltraFanDiv">
+					<div id="UltraFanDiv">
 						<div id="AddUltraFan" class="rounded">
-							<p><input type="button" value="+1 Ultra Fã" onClick="addUltraFan()" class="btn btn-light"><br />
-							Ultra Fãs: <span id="ultrafans">0</span></p>
-							Custo: <span id="ultraFanCost">ComingSoon</span>
+							<p><input type="button" value="+1 Ultra Fan" onClick="addUltraFan()" class="btn btn-light"><br />
+							Ultra Fans: <span id="ultrafans">0</span></p>
+							Cost: <span id="ultraFanCost">ComingSoon</span>
 						</div>
 						<br>
-					</div>-->
+					</div>
+				</div>
+				<div class="col-3">
+					<div id="FanDiv">
+						<div id="DoubleFans" class="rounded">
+							<p><input type="button" value="x2 Fans (DPS)" onClick="doubleFan()" class="btn btn-light"><br />
+							<span>Warning: You can only use this once!</span></p>
+							<p>Cost: <span id="doubleFanCost">500</span></p>
+						</div>
+						<br>
+					</div>
+					<div id="SuperFanDiv">
+						<div id="DoubleSuperFans" class="rounded">
+							<p><input type="button" value="x2 Super Fans" onClick="doubleSuperFan()" class="btn btn-light"><br />
+							<span>Warning: You can only use this once!</span></p>
+							<p>Cost: <span id="doubleSuperFanCost">1000</span></p>
+						</div>
+						<br>
+					</div>
+					<div id="MegaFanDiv">
+						<div id="DoubleMegaFans" class="rounded">
+							<p><input type="button" value="x2 Mega Fans" onClick="doubleMegaFan()" class="btn btn-light"><br />
+							<span>Warning: You can only use this once!</span></p>
+							<p>Cost: <span id="doubleMegaFanCost">6000</span></p>
+						</div>
+						<br>
+					</div>
+					<div id="UltraFanDiv">
+						<div id="DoubleUltraFans" class="rounded">
+							<p><input type="button" value="x2 Ultra Fans" onClick="doubleUltraFan()" class="btn btn-light"><br />
+							<span>Warning: You can only use this once!</span></p>
+							<p>Cost: <span id="doubleUltraFanCost">ComingSoon</span></p>
+						</div>
+						<br>
+					</div>
+				</div>
+				<div class="col-3">
 					<div id="BotDiv">
 						<div id="AddBot" class="rounded">
 							<p><input type="button" value="+1 Bot" onClick="addBot()" class="btn btn-light"><br />
 							Bots: <span id="bots">0</span></p>
-							Custo: <span id="botCost">5000</span>
+							Cost: <span id="botCost">5000</span>
 						</div>
 						<br>
 					</div>
@@ -64,56 +105,24 @@
 						<div id="AddClick" class="rounded">
 							<p><input type="button" value="+1 Click" onClick="addClick()" class="btn btn-light"><br />
 							Clicks: <span id="number">1</span></p>
-							Custo: <span id="addClickCost">22000</span>
+							Cost: <span id="addClickCost">22000</span>
 						</div>
 					</div>
 				</div>
 				<div class="col-3">
-					<div id="FanDiv">
-						<div id="DoubleFans" class="rounded">
-							<p><input type="button" value="x2 Fãs" onClick="doubleFan()" class="btn btn-light"><br />
-							<span>Atenção: Você só pode usar isso uma vez!</span></p>
-							<p>Custo: <span id="doubleFanCost">500</span></p>
-						</div>
-						<br>
-					</div>
-					<div id="SuperFanDiv">
-						<div id="DoubleSuperFans" class="rounded">
-							<p><input type="button" value="x2 Super Fãs" onClick="doubleSuperFan()" class="btn btn-light"><br />
-							<span>Atenção: Você só pode usar isso uma vez!</span></p>
-							<p>Custo: <span id="doubleSuperFanCost">1000</span></p>
-						</div>
-						<br>
-					</div>
-					<div id="MegaFanDiv">
-						<div id="DoubleMegaFans" class="rounded">
-							<p><input type="button" value="x2 Mega Fãs" onClick="doubleMegaFan()" class="btn btn-light"><br />
-							<span>Atenção: Você só pode usar isso uma vez!</span></p>
-							<p>Custo: <span id="doubleMegaFanCost">6000</span></p>
-						</div>
-						<br>
-					</div>
-					<!--<div id="UltraFanDiv">
-						<div id="DoubleUltraFans" class="rounded">
-							<p><input type="button" value="x2 Ultra Fãs" onClick="doubleUltraFan()" class="btn btn-light"><br />
-							<span>Atenção: Você só pode usar isso uma vez!</span></p>
-							<p>Custo: <span id="doubleUltraFanCost">ComingSoon</span></p>
-						</div>
-						<br>
-					</div>-->
 					<div id="BotDiv">
 						<div id="DoubleBots" class="rounded">
 							<p><input type="button" value="x2 Bots" onClick="doubleBots()" class="btn btn-light"><br />
-							<span>Atenção: Você só pode usar isso uma vez!</span></p>
-							Custo: <span id="doubleBotsCost">25000</span>
+							<span>Warning: You can only use this once!</span></p>
+							Cost: <span id="doubleBotsCost">25000</span>
 						</div>
 						<br>
 					</div>
 					<div id="ClickDiv">
 						<div id="DoubleClick" class="rounded">
 							<p><input type="button" value="x2 Clicks" onClick="doubleClick()" class="btn btn-light"><br />
-							<span>Atenção: Você só pode usar isso uma vez!</span></p>
-							Custo: <span id="doubleClickCost">45000</span>
+							<span>Warning: You can only use this once!</span></p>
+							Cost: <span id="doubleClickCost">45000</span>
 						</div>
 					</div>
 				</div>
@@ -131,13 +140,13 @@
     </div>
   </dialog>
   <dialog id="resetDialog">
-    <h4 class="dialog__title">Resetar o jogo</h4>
+    <h4 class="dialog__title">Reset the game</h4>
     <div class="dialog__content">
-		<center>Você quer mesmo resetar o jogo?</center>
+		<center>Do you really want to reset the game?</center>
     </div>
     <div class="dialog__actions">
-		<input type="button" value="Sim" class="resetgame btn btn-light" onClick="resetGame()">
-		<input type="button" value="Não" class="closedialog btn btn-light">
+		<input type="button" value="Yes" class="resetgame btn btn-light" onClick="resetGame()">
+		<input type="button" value="No" class="closedialog btn btn-light">
     </div>
   </dialog>
 	<script src="dialog-polyfill.js"></script>
@@ -148,7 +157,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="#" id="showchangelog">Versão 0.2.2</a>
+      <a class="nav-item nav-link" href="#" id="showchangelog">Version 0.3</a>
     </div>
   </div>
 </nav>
