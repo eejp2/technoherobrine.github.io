@@ -45,7 +45,7 @@ body.wob [class^=buttons-] input[type=button]:disabled {
 	left: 0;
 	bottom: -1px;
 	height: 30px;
-	width: 405px;
+	width: 435px;
 	background-color: white;
 }
 #InfoTxt {
