@@ -8,6 +8,10 @@ var bots = 0;
 var number = 1;
 var DPS = 0;
 var fanDPS = 1;
+var superFanDPS = 2;
+var megaFanDPS = 4;
+var ultraFanDPS = 8;
+var botDPS = 8;
 
 //CORREÇÃO DO BUG DA TECLA ENTER
 window.addEventListener("keydown", keyDown);
@@ -27,6 +31,8 @@ var doubleSuperFanCost = 1000;
 	document.getElementById('doubleSuperFanCost').innerHTML = doubleSuperFanCost;
 var doubleMegaFanCost = 6000;
 	document.getElementById('doubleMegaFanCost').innerHTML = doubleMegaFanCost;
+var doubleUltraFanCost = 12000;
+	document.getElementById('doubleUltraFanCost').innerHTML = doubleUltraFanCost;
 var doubleBotsCost = 25000;
 	document.getElementById('doubleBotsCost').innerHTML = doubleBotsCost;
 var doubleClickCost = 45000;
@@ -55,12 +61,24 @@ function resetGame(){
 	doubleSuperFanCost = 1000;
 	megaFanCost = 500;
 	doubleMegaFanCost = 6000;
+	ultraFanCost = 1000;
+	doubleUltraFanCost = 12000;
 	botCost = 5000;
 	doubleBotCost = 25000;
 	addClickCost = 20000;
 	doubleClickCost = 45000;
 	updateLikes();
 	updateDPS();
+	fanDPS = 1;
+	document.getElementById('fanDPS').innerHTML = fanDPS;
+	superFanDPS = 2;
+	document.getElementById('superFanDPS').innerHTML = superFanDPS;
+	megaFanDPS = 4;
+	document.getElementById('megaFanDPS').innerHTML = megaFanDPS;
+	ultraFanDPS = 8;
+	document.getElementById('ultraFanDPS').innerHTML = ultraFanDPS;
+	botDPS = 16;
+	document.getElementById('botDPS').innerHTML = botDPS;
 	document.getElementById('fans').innerHTML = fans;
 	document.getElementById('fanCost').innerHTML = fanCost;
 	document.getElementById('doubleFanCost').innerHTML = doubleFanCost;
@@ -111,11 +129,7 @@ function addFan(){
 function doubleFan(){
     var doubleFanCost = 500;
     if(likes >= doubleFanCost){
-		fans = fans * 2;                                   //dobra o número de unidades do item respectivo
     	likes = likes - doubleFanCost;
-		document.getElementById('fans').innerHTML = fans;  //atualiza o número de unidades adquiridas com o x2
-		var nextCostFan = Math.floor(10 * Math.pow(1.1,fans));
-		document.getElementById('fanCost').innerHTML = nextCostFan;//atualiza o próximo custo
         updateLikes();
 		removeDoubleFan();
 		doubleFanDPS();
@@ -157,7 +171,8 @@ function addSuperFan(){
         superfans = superfans + 1;
     	likes = likes - superFanCost;
         document.getElementById('superfans').innerHTML = superfans;
-        updateLikes();
+        DPS += superFanDPS;
+		updateDPS();
     }
 	else {
 		notEnoughLikes();
@@ -170,13 +185,11 @@ function addSuperFan(){
 function doubleSuperFan(){
     var doubleSuperFanCost = 1000;
     if(likes >= doubleSuperFanCost){
-		superfans = superfans * 2;
     	likes = likes - doubleSuperFanCost;
-		document.getElementById('superfans').innerHTML = superfans;
-		var nextCostSuperFan = Math.floor(100 * Math.pow(1.1,superfans));
-		document.getElementById('superFanCost').innerHTML = nextCostSuperFan;
         updateLikes();
 		removeDoubleSuperFan();
+		doubleSuperFanDPS();
+		updateDPS();
     }
 	else {
 		notEnoughLikes();
@@ -197,6 +210,16 @@ function recreateDoubleSuperFan()
    rctDoubleSuperFan.style.visibility="initial"; 
 }
 
+function doubleSuperFanDPS() {
+	var doubleSuperFansDPS = document.getElementById("DoubleSuperFans");
+	if (doubleSuperFansDPS.style.visibility == "hidden") {
+			superFanDPS = 4;
+			updateDPS();
+		} else {
+			superFanDPS = 2;
+		}
+}
+
 //+1 MEGA FAN
 function addMegaFan(){
     var megaFanCost = Math.floor(500 * Math.pow(1.1,megafans));
@@ -204,7 +227,8 @@ function addMegaFan(){
         megafans = megafans + 1;
     	likes = likes - megaFanCost;
         document.getElementById('megafans').innerHTML = megafans;
-        updateLikes();
+        DPS += megaFanDPS;
+		updateDPS();
     }
 	else {
 		notEnoughLikes();
@@ -215,15 +239,13 @@ function addMegaFan(){
 
 //x2 MEGA FANS
 function doubleMegaFan(){
-    var doubleSuperFanCost = 6000;
+    var doubleUltraFanCost = 6000;
     if(likes >= doubleMegaFanCost){
-		megafans = megafans * 2;
     	likes = likes - doubleMegaFanCost;
-		document.getElementById('megafans').innerHTML = megafans;
-		var nextCostMegaFan = Math.floor(500 * Math.pow(1.1,megafans));
-		document.getElementById('megaFanCost').innerHTML = nextCostMegaFan;
         updateLikes();
 		removeDoubleMegaFan();
+		doubleMegaFanDPS();
+		updateDPS();
     }
 	else {
 		notEnoughLikes();
@@ -244,6 +266,72 @@ function recreateDoubleMegaFan()
    rctDoubleMegaFan.style.visibility="initial"; 
 }
 
+function doubleMegaFanDPS() {
+	var doubleMegaFansDPS = document.getElementById("DoubleMegaFans");
+	if (doubleMegaFansDPS.style.visibility == "hidden") {
+			megaFanDPS = 8;
+			updateDPS();
+		} else {
+			megaFanDPS = 4;
+		}
+}
+
+//+1 ULTRA FAN
+function addUltraFan(){
+    var ultraFanCost = Math.floor(1000 * Math.pow(1.1,ultrafans));
+    if(likes >= ultraFanCost){
+        ultrafans = ultrafans + 1;
+    	likes = likes - ultraFanCost;
+        document.getElementById('ultrafans').innerHTML = ultrafans;
+        DPS += ultraFanDPS;
+		updateDPS();
+    }
+	else {
+		notEnoughLikes();
+	};
+    var nextCostUltraFan = Math.floor(1000 * Math.pow(1.1,ultrafans));
+    document.getElementById('ultraFanCost').innerHTML = nextCostUltraFan;
+};
+
+//x2 ULTRA FANS
+function doubleUltraFan(){
+    var doubleUltraFanCost = 12000;
+    if(likes >= doubleUltraFanCost){
+    	likes = likes - doubleUltraFanCost;
+        updateLikes();
+		removeDoubleUltraFan();
+		doubleUltraFanDPS();
+		updateDPS();
+    }
+	else {
+		notEnoughLikes();
+	};
+};
+
+function removeDoubleUltraFan() 
+{ 
+   var rmvDoubleUltraFan = document.getElementById("DoubleUltraFans"); 
+   rmvDoubleUltraFan.style.display="none"; 
+   rmvDoubleUltraFan.style.visibility="hidden"; 
+}
+
+function recreateDoubleUltraFan() 
+{ 
+   var rctDoubleUltraFan = document.getElementById("DoubleUltraFans"); 
+   rctDoubleUltraFan.style.display="block"; 
+   rctDoubleUltraFan.style.visibility="initial"; 
+}
+
+function doubleUltraFanDPS() {
+	var doubleUltraFansDPS = document.getElementById("DoubleUltraFans");
+	if (doubleUltraFansDPS.style.visibility == "hidden") {
+			ultraFanDPS = 16;
+			updateDPS();
+		} else {
+			ultraFanDPS = 8;
+		}
+}
+
 //+1 BOT
 function addBot(){
     var botCost = Math.floor(5000 * Math.pow(1.1,bots));
@@ -251,7 +339,8 @@ function addBot(){
         bots = bots + 1;
     	likes = likes - botCost;
         document.getElementById('bots').innerHTML = bots;
-        updateLikes();
+        DPS += botDPS;
+		updateDPS();
     }
 	else {
 		notEnoughLikes();
@@ -262,15 +351,13 @@ function addBot(){
 
 //x2 BOTS
 function doubleBots(){
-    var doubleBotsCost = 10000;
+    var doubleBotsCost = 25000;
     if(likes >= doubleBotsCost){
-		bots = bots * 2;
     	likes = likes - doubleBotsCost;
-		document.getElementById('bots').innerHTML = bots;
-		var nextCostBot = Math.floor(5000 * Math.pow(1.1,bots));
-		document.getElementById('botCost').innerHTML = nextCostBot;
         updateLikes();
 		removeDoubleBots();
+		doubleBotsDPS();
+		updateDPS();
     }
 	else {
 		notEnoughLikes();
@@ -291,6 +378,16 @@ function recreateDoubleBots()
    rctDoubleBots.style.visibility="initial"; 
 }
 
+function doubleBotsDPS() {
+	var doubleBotsDPS = document.getElementById("DoubleBots");
+	if (doubleBotsDPS.style.visibility == "hidden") {
+			botDPS = 32;
+			updateDPS();
+		} else {
+			botDPS = 16;
+		}
+}
+
 //+1 CLICK
 function addClick(){
     var addClickCost = Math.floor(20000 * Math.pow(1.1,number));
@@ -300,6 +397,7 @@ function addClick(){
         document.getElementById('number').innerHTML = number;
 		document.getElementById('addClickCost').innerHTML = nextCostAddClick;
         updateLikes();
+		updateDPC();
     }
 	else {
 		notEnoughLikes();
@@ -315,10 +413,11 @@ function doubleClick(){
         number = number * 2;
     	likes = likes - doubleClickCost;
         document.getElementById('number').innerHTML = number;
-		var nextCostAddClick = Math.floor(5000 * Math.pow(1.1,number));
+		var nextCostAddClick = Math.floor(20000 * Math.pow(1.1,number));
 		document.getElementById('addClickCost').innerHTML = nextCostAddClick;
         updateLikes();
 		removeDoubleClick();
+		updateDPC();
     }
 	else {
 		notEnoughLikes();
@@ -370,21 +469,18 @@ function updateLikes(){
 function updateDPS(){
 	document.getElementById('dps').innerHTML = 'DPS: ' + DPS;
 	document.getElementById('fanDPS').innerHTML = fanDPS;
+	document.getElementById('superFanDPS').innerHTML = superFanDPS;
+	document.getElementById('megaFanDPS').innerHTML = megaFanDPS;
+	document.getElementById('ultraFanDPS').innerHTML = ultraFanDPS;
+	document.getElementById('botDPS').innerHTML = botDPS;
+}
+
+//FUNÇÃO DE ATUALIZAR O DPC
+function updateDPC(){
+	document.getElementById('dpc').innerHTML = 'DPC: ' + number;
 }
 
 //INTERVALO DE TEMPO (LIKES POR SEGUNDO)
-/*window.setInterval(function(){
-	likeClick(fans);
-}, 10000);
-window.setInterval(function(){
-	likeClick(superfans);
-}, 1000);
-window.setInterval(function(){
-likeClick(megafans);
-}, 100);
-window.setInterval(function(){
-	likeClick(bots);
-}, 10);*/
 window.setInterval(function(){
 	likes = likes + DPS;
 	updateLikes();

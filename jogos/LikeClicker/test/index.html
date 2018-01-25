@@ -12,7 +12,7 @@
 		<div id="LikeDPSDiv">
 			<p><input type="button" value="Like" onClick="likeClick(number)" class="btn btn-light">
 			<span id="likes">You have: 0 likes!</span></p>
-			<span id="dps">DPS: 0</span>
+			<span id="dps">DPS: 0</span>  |  <span id="dpc">DPC: 1</span>
 		</div>
 		<br>
 		<input id="reset" type="button" value="Reset Game" class="btn btn-danger">
@@ -35,25 +35,28 @@
 					</div>
 					<div id="SuperFanDiv">
 						<div id="AddSuperFan" class="rounded">
-							<p><input type="button" value="+1 Super Fan" onClick="addSuperFan()" class="btn btn-light"><br />
-							Super Fans: <span id="superfans">0</span></p>
-							<p>Cost: <span id="superFanCost">100</span></p>
+							<p><input type="button" value="+1 Super Fan" onClick="addSuperFan()" class="btn btn-light"></p>
+							Super Fans: <span id="superfans">0</span><br />
+							DPS: <span id="superFanDPS">2</span><br />
+							Cost: <span id="superFanCost">100</span>
 						</div>
 						<br>
 					</div>
 					<div id="MegaFanDiv">
 						<div id="AddMegaFan" class="rounded">
-							<p><input type="button" value="+1 Mega Fan" onClick="addMegaFan()" class="btn btn-light"><br />
-							Mega Fans: <span id="megafans">0</span></p>
+							<p><input type="button" value="+1 Mega Fan" onClick="addMegaFan()" class="btn btn-light"></p>
+							Mega Fans: <span id="megafans">0</span><br />
+							DPS: <span id="megaFanDPS">4</span><br />
 							Cost: <span id="megaFanCost">500</span>
 						</div>
 						<br>
 					</div>
 					<div id="UltraFanDiv">
 						<div id="AddUltraFan" class="rounded">
-							<p><input type="button" value="+1 Ultra Fan" onClick="addUltraFan()" class="btn btn-light"><br />
-							Ultra Fans: <span id="ultrafans">0</span></p>
-							Cost: <span id="ultraFanCost">ComingSoon</span>
+							<p><input type="button" value="+1 Ultra Fan" onClick="addUltraFan()" class="btn btn-light"></p>
+							Ultra Fans: <span id="ultrafans">0</span><br />
+							DPS: <span id="ultraFanDPS">8</span><br />
+							Cost: <span id="ultraFanCost">1000</span>
 						</div>
 						<br>
 					</div>
@@ -69,7 +72,7 @@
 					</div>
 					<div id="SuperFanDiv">
 						<div id="DoubleSuperFans" class="rounded">
-							<p><input type="button" value="x2 Super Fans" onClick="doubleSuperFan()" class="btn btn-light"><br />
+							<p><input type="button" value="x2 Super Fans (DPS)" onClick="doubleSuperFan()" class="btn btn-light"><br />
 							<span>Warning: You can only use this once!</span></p>
 							<p>Cost: <span id="doubleSuperFanCost">1000</span></p>
 						</div>
@@ -77,7 +80,7 @@
 					</div>
 					<div id="MegaFanDiv">
 						<div id="DoubleMegaFans" class="rounded">
-							<p><input type="button" value="x2 Mega Fans" onClick="doubleMegaFan()" class="btn btn-light"><br />
+							<p><input type="button" value="x2 Mega Fans (DPS)" onClick="doubleMegaFan()" class="btn btn-light"><br />
 							<span>Warning: You can only use this once!</span></p>
 							<p>Cost: <span id="doubleMegaFanCost">6000</span></p>
 						</div>
@@ -85,9 +88,9 @@
 					</div>
 					<div id="UltraFanDiv">
 						<div id="DoubleUltraFans" class="rounded">
-							<p><input type="button" value="x2 Ultra Fans" onClick="doubleUltraFan()" class="btn btn-light"><br />
+							<p><input type="button" value="x2 Ultra Fans (DPS)" onClick="doubleUltraFan()" class="btn btn-light"><br />
 							<span>Warning: You can only use this once!</span></p>
-							<p>Cost: <span id="doubleUltraFanCost">ComingSoon</span></p>
+							<p>Cost: <span id="doubleUltraFanCost">12000</span></p>
 						</div>
 						<br>
 					</div>
@@ -95,8 +98,9 @@
 				<div class="col-3">
 					<div id="BotDiv">
 						<div id="AddBot" class="rounded">
-							<p><input type="button" value="+1 Bot" onClick="addBot()" class="btn btn-light"><br />
-							Bots: <span id="bots">0</span></p>
+							<p><input type="button" value="+1 Bot" onClick="addBot()" class="btn btn-light"></p>
+							Bots: <span id="bots">0</span><br />
+							DPS: <span id="botDPS">16</span><br />
 							Cost: <span id="botCost">5000</span>
 						</div>
 						<br>
@@ -112,7 +116,7 @@
 				<div class="col-3">
 					<div id="BotDiv">
 						<div id="DoubleBots" class="rounded">
-							<p><input type="button" value="x2 Bots" onClick="doubleBots()" class="btn btn-light"><br />
+							<p><input type="button" value="x2 Bots (DPS)" onClick="doubleBots()" class="btn btn-light"><br />
 							<span>Warning: You can only use this once!</span></p>
 							Cost: <span id="doubleBotsCost">25000</span>
 						</div>
