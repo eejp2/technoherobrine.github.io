@@ -5,83 +5,132 @@
 		<title>Like Clicker</title>
 		<link rel="stylesheet" type="text/css" href="style.css" media="all" />
 		<link rel="stylesheet" type="text/css" href="dialog-polyfill.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	</head>
 	<body>
-		<input type="button" value="Like" onClick="likeClick(number)">
-		<span id="likes">You have: 0 likes!</span>
+		<div id="LikeDPSDiv">
+			<p><input type="button" value="Like" onClick="likeClick(number)" class="btn btn-light">
+			<span id="likes">You have: 0 likes!</span></p>
+			<span id="dps">DPS: 0</span>  |  <span id="dpc">DPC: 1</span>
+		</div>
 		<br>
-		<input id="reset" type="button" value="Reset">
+		<input id="reset" type="button" value="Reset Game" class="btn btn-danger">
 		<!--<input id="SaveNLoad" type="button" value="Save Game" onClick="saveGame()">
 		<input id="SaveNLoad" type="button" value="Load Game" onClick="loadGame()">-->
 		<div id="NotEnoughLikes" style="display: none; visibility: hidden;">
-			<span>You have not got enough likes.</span>
+			<span class="alert alert-dark" role="alert">You have not got enough likes.</span>
 		</div>
-		<br>
-		<div id="Shop">
-		<div id="FanDiv">
-			<div id="AddFan">
-				<p><input type="button" value="+1 Fan" onClick="addFan()"><br />
-				Fans: <span id="fans">0</span></p>
-				<p>Cost: <span id="fanCost">10</span></p>
+		<div class="container float-left">
+			<div class="row">
+				<div class="col-3">
+					<div id="FanDiv">
+						<div id="AddFan" class="rounded" class="float-left">
+							<p><input type="button" value="+1 Fan" onClick="addFan()" class="btn btn-light"></p>
+							Fans: <span id="fans">0</span><br />
+							DPS: <span id="fanDPS">1</span><br />
+							Cost: <span id="fanCost">10</span>
+						</div>
+						<br>
+					</div>
+					<div id="SuperFanDiv">
+						<div id="AddSuperFan" class="rounded">
+							<p><input type="button" value="+1 Super Fan" onClick="addSuperFan()" class="btn btn-light"></p>
+							Super Fans: <span id="superfans">0</span><br />
+							DPS: <span id="superFanDPS">2</span><br />
+							Cost: <span id="superFanCost">100</span>
+						</div>
+						<br>
+					</div>
+					<div id="MegaFanDiv">
+						<div id="AddMegaFan" class="rounded">
+							<p><input type="button" value="+1 Mega Fan" onClick="addMegaFan()" class="btn btn-light"></p>
+							Mega Fans: <span id="megafans">0</span><br />
+							DPS: <span id="megaFanDPS">4</span><br />
+							Cost: <span id="megaFanCost">500</span>
+						</div>
+						<br>
+					</div>
+					<div id="UltraFanDiv">
+						<div id="AddUltraFan" class="rounded">
+							<p><input type="button" value="+1 Ultra Fan" onClick="addUltraFan()" class="btn btn-light"></p>
+							Ultra Fans: <span id="ultrafans">0</span><br />
+							DPS: <span id="ultraFanDPS">8</span><br />
+							Cost: <span id="ultraFanCost">1000</span>
+						</div>
+						<br>
+					</div>
+				</div>
+				<div class="col-3">
+					<div id="FanDiv">
+						<div id="DoubleFans" class="rounded">
+							<p><input type="button" value="x2 Fans (DPS)" onClick="doubleFan()" class="btn btn-light"><br />
+							<span>Warning: You can only use this once!</span></p>
+							<p>Cost: <span id="doubleFanCost">500</span></p>
+						</div>
+						<br>
+					</div>
+					<div id="SuperFanDiv">
+						<div id="DoubleSuperFans" class="rounded">
+							<p><input type="button" value="x2 Super Fans (DPS)" onClick="doubleSuperFan()" class="btn btn-light"><br />
+							<span>Warning: You can only use this once!</span></p>
+							<p>Cost: <span id="doubleSuperFanCost">1000</span></p>
+						</div>
+						<br>
+					</div>
+					<div id="MegaFanDiv">
+						<div id="DoubleMegaFans" class="rounded">
+							<p><input type="button" value="x2 Mega Fans (DPS)" onClick="doubleMegaFan()" class="btn btn-light"><br />
+							<span>Warning: You can only use this once!</span></p>
+							<p>Cost: <span id="doubleMegaFanCost">6000</span></p>
+						</div>
+						<br>
+					</div>
+					<div id="UltraFanDiv">
+						<div id="DoubleUltraFans" class="rounded">
+							<p><input type="button" value="x2 Ultra Fans (DPS)" onClick="doubleUltraFan()" class="btn btn-light"><br />
+							<span>Warning: You can only use this once!</span></p>
+							<p>Cost: <span id="doubleUltraFanCost">12000</span></p>
+						</div>
+						<br>
+					</div>
+				</div>
+				<div class="col-3">
+					<div id="BotDiv">
+						<div id="AddBot" class="rounded">
+							<p><input type="button" value="+1 Bot" onClick="addBot()" class="btn btn-light"></p>
+							Bots: <span id="bots">0</span><br />
+							DPS: <span id="botDPS">16</span><br />
+							Cost: <span id="botCost">5000</span>
+						</div>
+						<br>
+					</div>
+					<div id="ClickDiv">
+						<div id="AddClick" class="rounded">
+							<p><input type="button" value="+1 Click" onClick="addClick()" class="btn btn-light"><br />
+							Clicks: <span id="number">1</span></p>
+							Cost: <span id="addClickCost">22000</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-3">
+					<div id="BotDiv">
+						<div id="DoubleBots" class="rounded">
+							<p><input type="button" value="x2 Bots (DPS)" onClick="doubleBots()" class="btn btn-light"><br />
+							<span>Warning: You can only use this once!</span></p>
+							Cost: <span id="doubleBotsCost">25000</span>
+						</div>
+						<br>
+					</div>
+					<div id="ClickDiv">
+						<div id="DoubleClick" class="rounded">
+							<p><input type="button" value="x2 Clicks" onClick="doubleClick()" class="btn btn-light"><br />
+							<span>Warning: You can only use this once!</span></p>
+							Cost: <span id="doubleClickCost">45000</span>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div id="DoubleFans">
-				<p><input type="button" value="x2 Fans" onClick="doubleFan()"><br />
-				<span>Warning: You can only use this once!</span></p>
-				<p>Cost: <span id="doubleFanCost">500</span></p>
-			</div>
-			<br>
-		</div>
-		<div id="SuperFanDiv">
-			<div id="AddSuperFan">
-				<p><input type="button" value="+1 Super Fan" onClick="addSuperFan()"><br />
-				Super Fans: <span id="superfans">0</span></p>
-				<p>Cost: <span id="superFanCost">100</span></p>
-			</div>
-			<div id="DoubleSuperFans">
-				<p><input type="button" value="x2 Super Fans" onClick="doubleSuperFan()"><br />
-				<span>Warning: You can only use this once!</span></p>
-				<p>Cost: <span id="doubleSuperFanCost">1000</span></p>
-			</div>
-			<br>
-		</div>
-		<div id="MegaFanDiv">
-			<div id="AddMegaFan">
-				<p><input type="button" value="+1 Mega Fan" onClick="addMegaFan()"><br />
-				Mega Fans: <span id="megafans">0</span></p>
-				Cost: <span id="megaFanCost">500</span>
-			</div>
-			<div id="DoubleMegaFans">
-				<p><input type="button" value="x2 Mega Fans" onClick="doubleMegaFan()"><br />
-				<span>Warning: You can only use this once!</span></p>
-				<p>Cost: <span id="doubleMegaFanCost">6000</span></p>
-			</div>
-			<br>
-		</div>
-		<div id="BotDiv">
-			<div id="AddBot">
-				<p><input type="button" value="+1 Bot" onClick="addBot()"><br />
-				Bots: <span id="bots">0</span></p>
-				Cost: <span id="botCost">5000</span>
-			</div>
-			<div id="DoubleBots">
-				<p><input type="button" value="x2 Bots" onClick="doubleBots()"><br />
-				<span>Warning: You can only use this once!</span></p>
-				Cost: <span id="doubleBotsCost">25000</span>
-			</div>
-			<br>
-		</div>
-		<div id="ClickDiv">
-			<div id="AddClick">
-				<p><input type="button" value="+1 Click" onClick="addClick()"><br />
-				Clicks: <span id="number">1</span></p>
-				Cost: <span id="addClickCost">22000</span>
-			</div>
-			<div id="DoubleClick">
-				<p><input type="button" value="x2 Clicks" onClick="doubleClick()"><br />
-				<span>Warning: You can only use this once!</span></p>
-				Cost: <span id="doubleClickCost">45000</span>
-			</div>
-		</div>
 		</div>
 		<dialog class="dialog">
     <h4 class="dialog__title">Changelog</h4>
@@ -89,7 +138,9 @@
 		<iframe src="changelog.html" height="305" width="550" style="border: none;"></iframe>
     </div>
     <div class="dialog__actions">
-		<input type="button" value="Close" class="close">
+		<button type="button" class="close" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
     </div>
   </dialog>
   <dialog id="resetDialog">
@@ -98,14 +149,23 @@
 		<center>Do you really want to reset the game?</center>
     </div>
     <div class="dialog__actions">
-		<input type="button" value="Yes" class="resetgame" onClick="resetGame()">
-		<input type="button" value="No" class="close">
+		<input type="button" value="Yes" class="resetgame btn btn-light" onClick="resetGame()">
+		<input type="button" value="No" class="closedialog btn btn-light">
     </div>
   </dialog>
 	<script src="dialog-polyfill.js"></script>
-		<div id="info">
-			<span id="InfoTxt">Like Clicker by TechHero - <a href="#" id="showchangelog">Version 0.2.1</a> - <a href="test">Test Version (0.3)!</a></span>
-		</div>
+		<nav class="navbar fixed-bottom navbar-expand-lg navbar-light bg-light">
+  <span class="navbar-brand">Like Clicker by TechHero</span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+		<a class="nav-item nav-link" href="#" id="showchangelog">Version 0.3</a>
+		<a class="nav-item nav-link" href="https://www.reddit.com/r/LikeClicker/" target="_blank">Reddit</a>
+    </div>
+  </div>
+</nav>
 		<script>
     var dialog = document.querySelector('dialog');
     var showDialogButton = document.querySelector('#showchangelog');
@@ -127,7 +187,7 @@
     showDialogResetButton.addEventListener('click', function() {
       dialogReset.showModal();
     });
-    dialogReset.querySelector('.close').addEventListener('click', function() {
+    dialogReset.querySelector('.closedialog').addEventListener('click', function() {
       dialogReset.close();
     });
 	dialogReset.querySelector('.resetgame').addEventListener('click', function() {
