@@ -10,12 +10,12 @@
 	</head>
 	<body>
 		<div id="LikeDPSDiv">
-			<p><input type="button" value="Like" onClick="likeClick(number)" class="btn btn-light">
+			<p><input type="button" value="Like" onClick="likeClick(number)" id="LikeBtn" class="btn btn-light" data-toggle="tooltip" title="Like">
 			<span id="likes">You have: 0 likes!</span></p>
-			<span id="dps">DPS: 0</span>  |  <span id="dpc">DPC: 1</span>
+			<span id="dps" data-toggle="tooltip" title="Number of Likes per Second">DPS: 0</span>  |  <span id="dpc" data-toggle="tooltip" title="Number of Likes per Click">DPC: 1</span>
 		</div>
 		<br>
-		<input id="reset" type="button" value="Reset Game" class="btn btn-danger">
+		<input id="reset" type="button" value="Reset Game" class="btn btn-danger" data-toggle="tooltip" title="Reset the game">
 		<!--<input id="SaveNLoad" type="button" value="Save Game" onClick="saveGame()">
 		<input id="SaveNLoad" type="button" value="Load Game" onClick="loadGame()">-->
 		<div id="NotEnoughLikes" style="display: none; visibility: hidden;">
@@ -26,7 +26,7 @@
 				<div class="col-3">
 					<div id="FanDiv">
 						<div id="AddFan" class="rounded" class="float-left">
-							<p><input type="button" value="+1 Fan" onClick="addFan()" class="btn btn-light"></p>
+							<p><input type="button" value="+1 Fan" onClick="addFan()" class="btn btn-light" data-toggle="tooltip" title="Buy +1 Fan"></p>
 							Fans: <span id="fans">0</span><br />
 							DPS: <span id="fanDPS">1</span><br />
 							Cost: <span id="fanCost">10</span>
@@ -35,7 +35,7 @@
 					</div>
 					<div id="SuperFanDiv">
 						<div id="AddSuperFan" class="rounded">
-							<p><input type="button" value="+1 Super Fan" onClick="addSuperFan()" class="btn btn-light"></p>
+							<p><input type="button" value="+1 Super Fan" onClick="addSuperFan()" class="btn btn-light" data-toggle="tooltip" title="Buy +1 Super Fan"></p>
 							Super Fans: <span id="superfans">0</span><br />
 							DPS: <span id="superFanDPS">2</span><br />
 							Cost: <span id="superFanCost">100</span>
@@ -44,7 +44,7 @@
 					</div>
 					<div id="MegaFanDiv">
 						<div id="AddMegaFan" class="rounded">
-							<p><input type="button" value="+1 Mega Fan" onClick="addMegaFan()" class="btn btn-light"></p>
+							<p><input type="button" value="+1 Mega Fan" onClick="addMegaFan()" class="btn btn-light" data-toggle="tooltip" title="Buy +1 Mega Fan"></p>
 							Mega Fans: <span id="megafans">0</span><br />
 							DPS: <span id="megaFanDPS">4</span><br />
 							Cost: <span id="megaFanCost">500</span>
@@ -55,7 +55,7 @@
 				<div class="col-3">
 					<div id="FanDiv">
 						<div id="DoubleFans" class="rounded">
-							<p><input type="button" value="x2 Fans (DPS)" onClick="doubleFan()" class="btn btn-light"><br />
+							<p><input type="button" value="x2 Fans (DPS)" onClick="doubleFan()" class="btn btn-light" data-toggle="tooltip" title="Buy x2 Fans"><br />
 							<span>Warning: You can only use this once!</span></p>
 							<p>Cost: <span id="doubleFanCost">500</span></p>
 						</div>
@@ -63,7 +63,7 @@
 					</div>
 					<div id="SuperFanDiv">
 						<div id="DoubleSuperFans" class="rounded">
-							<p><input type="button" value="x2 Super Fans (DPS)" onClick="doubleSuperFan()" class="btn btn-light"><br />
+							<p><input type="button" value="x2 Super Fans (DPS)" onClick="doubleSuperFan()" class="btn btn-light" data-toggle="tooltip" title="Buy x2 Super Fans"><br />
 							<span>Warning: You can only use this once!</span></p>
 							<p>Cost: <span id="doubleSuperFanCost">1000</span></p>
 						</div>
@@ -71,7 +71,7 @@
 					</div>
 					<div id="MegaFanDiv">
 						<div id="DoubleMegaFans" class="rounded">
-							<p><input type="button" value="x2 Mega Fans (DPS)" onClick="doubleMegaFan()" class="btn btn-light"><br />
+							<p><input type="button" value="x2 Mega Fans (DPS)" onClick="doubleMegaFan()" class="btn btn-light" data-toggle="tooltip" title="Buy x2 Mega Fans"><br />
 							<span>Warning: You can only use this once!</span></p>
 							<p>Cost: <span id="doubleMegaFanCost">6000</span></p>
 						</div>
@@ -81,7 +81,7 @@
 				<div class="col-3">
 					<div id="UltraFanDiv">
 						<div id="AddUltraFan" class="rounded">
-							<p><input type="button" value="+1 Ultra Fan" onClick="addUltraFan()" class="btn btn-light"></p>
+							<p><input type="button" value="+1 Ultra Fan" onClick="addUltraFan()" class="btn btn-light" data-toggle="tooltip" title="Buy +1 Ultra Fan"></p>
 							Ultra Fans: <span id="ultrafans">0</span><br />
 							DPS: <span id="ultraFanDPS">8</span><br />
 							Cost: <span id="ultraFanCost">1000</span>
@@ -90,7 +90,7 @@
 					</div>
 					<div id="BotDiv">
 						<div id="AddBot" class="rounded">
-							<p><input type="button" value="+1 Bot" onClick="addBot()" class="btn btn-light"></p>
+							<p><input type="button" value="+1 Bot" onClick="addBot()" class="btn btn-light" data-toggle="tooltip" title="Buy +1 Bot"></p>
 							Bots: <span id="bots">0</span><br />
 							DPS: <span id="botDPS">16</span><br />
 							Cost: <span id="botCost">5000</span>
@@ -99,8 +99,8 @@
 					</div>
 					<div id="ClickDiv">
 						<div id="AddClick" class="rounded">
-							<p><input type="button" value="+1 Click" onClick="addClick()" class="btn btn-light"><br />
-							Clicks: <span id="number">1</span></p>
+							<p><input type="button" value="+1 DPC (Clicks)" onClick="addClick()" class="btn btn-light" data-toggle="tooltip" title="Buy +1 DPC (Likes per Click)"><br />
+							DPC: <span id="number">1</span></p>
 							Cost: <span id="addClickCost">22000</span>
 						</div>
 					</div>
@@ -108,7 +108,7 @@
 				<div class="col-3">
 					<div id="UltraFanDiv">
 						<div id="DoubleUltraFans" class="rounded">
-							<p><input type="button" value="x2 Ultra Fans (DPS)" onClick="doubleUltraFan()" class="btn btn-light"><br />
+							<p><input type="button" value="x2 Ultra Fans (DPS)" onClick="doubleUltraFan()" class="btn btn-light" data-toggle="tooltip" title="Buy x2 Ultra Fans"><br />
 							<span>Warning: You can only use this once!</span></p>
 							<p>Cost: <span id="doubleUltraFanCost">12000</span></p>
 						</div>
@@ -116,7 +116,7 @@
 					</div>
 					<div id="BotDiv">
 						<div id="DoubleBots" class="rounded">
-							<p><input type="button" value="x2 Bots (DPS)" onClick="doubleBots()" class="btn btn-light"><br />
+							<p><input type="button" value="x2 Bots (DPS)" onClick="doubleBots()" class="btn btn-light" data-toggle="tooltip" title="Buy x2 Bots"><br />
 							<span>Warning: You can only use this once!</span></p>
 							Cost: <span id="doubleBotsCost">25000</span>
 						</div>
@@ -124,7 +124,7 @@
 					</div>
 					<div id="ClickDiv">
 						<div id="DoubleClick" class="rounded">
-							<p><input type="button" value="x2 Clicks" onClick="doubleClick()" class="btn btn-light"><br />
+							<p><input type="button" value="x2 DPC (Clicks)" onClick="doubleClick()" class="btn btn-light" data-toggle="tooltip" title="Buy x2 DPC (Likes per Click)"><br />
 							<span>Warning: You can only use this once!</span></p>
 							Cost: <span id="doubleClickCost">45000</span>
 						</div>
@@ -155,15 +155,15 @@
   </dialog>
 	<script src="dialog-polyfill.js"></script>
 		<nav class="navbar fixed-bottom navbar-expand-lg navbar-light bg-light">
-  <span class="navbar-brand">Like Clicker by TechHero</span>
+  <span class="navbar-brand" data-toggle="tooltip" title="Do not copy, please.">Like Clicker by TechHero</span>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-		<a class="nav-item nav-link" href="#" id="showchangelog">Version 0.3.1</a>
-		<a class="nav-item nav-link" href="https://www.reddit.com/r/LikeClicker/" target="_blank">Reddit</a>
-		<a class="nav-item nav-link" href="https://github.com/TechnoHerobrine/Like-Clicker" target="_blank">GitHub</a>
+		<a class="nav-item nav-link" href="#" id="showchangelog" data-toggle="tooltip" title="Open changelog">Version 0.3.1</a>
+		<a class="nav-item nav-link" href="https://www.reddit.com/r/LikeClicker/" target="_blank" data-toggle="tooltip" title="Reddit of the game">Reddit</a>
+		<a class="nav-item nav-link" href="https://github.com/TechnoHerobrine/Like-Clicker" target="_blank" data-toggle="tooltip" title="GitHub repository of the game">GitHub</a>
     </div>
   </div>
 </nav>
