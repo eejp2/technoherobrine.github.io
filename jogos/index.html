@@ -3,6 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<title>TechHero - Jogos</title>
+		<link rel="stylesheet" type="text/css" href="dialog-polyfill.css" />
 		<link rel = "stylesheet" 
          href = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-blue.min.css">
 		<script src = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js">
@@ -89,10 +90,43 @@
 						<p>Like Clicker</p></center>
 						</a>
 					</div>
+					<div class="mdl-cell mdl-cell--4-col">
+						<a href="#" id="openjosezinho">
+						<center><img width="363" height="253" src="../thumbs/Josezinho.png">
+						<p>A Vida de Josézinho</p></center>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
 	</main>
 	</div>
+	<dialog id="JosezinhoDialog">
+    <div class="dialog__content">
+		<center><iframe src="https://widgets.gamejolt.com/package/v1?key=6ALaZrsU&theme=light" frameborder="0" width="500" height="245"></iframe></center>
+    </div>
+    <div class="dialog__actions">
+		<button type="button" class="close mdl-button mdl-js-button mdl-button--raised">
+			<span aria-hidden="true">&times;</span>
+		</button>
+    </div>
+  </dialog>
+	<script src="dialog-polyfill.js"></script>
+		<script>
+	var dialogReset = document.querySelector('#JosezinhoDialog');
+    var showDialogResetButton = document.querySelector('#openjosezinho');
+    if (! dialogReset.showModal) {
+      dialogPolyfill.registerDialog(dialogReset);
+    }
+    showDialogResetButton.addEventListener('click', function() {
+      dialogReset.showModal();
+    });
+    dialogReset.querySelector('.close').addEventListener('click', function() {
+      dialogReset.close();
+    });
+	dialogReset.querySelector('.resetgame').addEventListener('click', function() {
+      dialogReset.close();
+    });
+  </script>
 	</body>
 </html>
