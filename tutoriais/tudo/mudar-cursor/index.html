@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>TechHero - Como mudar o cursor do mouse</title>
+		<link rel = "stylesheet" 
+         href = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-blue.min.css">
+		<script src = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js">
+		</script>
+		<link rel = "stylesheet" 
+         href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+		
+		<style>
+			div#conteudo {
+				padding-left: 15px;
+				padding-top: 10px;
+			}
+			.mdl-demo .mdl-layout__tab-bar {
+				padding: 0;
+				padding-left: 16px;
+				box-sizing: border-box;
+				height: 100%;
+				width: 100%;
+			}
+			#taglinks {
+				margin-left: 30px;
+				background-color:#F5F2F0;
+				width: 200px;
+				border: 0.5px solid gray;
+			}
+			#taglink {
+				padding-left: 5px;
+			}
+			#taglinksec {
+				padding-left: 15px;
+			}
+			#cursorpers {
+				webkit-touch-callout: none;  /* iPhone OS, Safari */
+				webkit-user-select: none;    /* Chrome, Safari 3 */
+				khtml-user-select: none;     /* Safari 2 */
+				moz-user-select: none;       /* Firefox */
+				ms-user-select: none;        /* IE10+ */
+				user-select: none;
+				cursor: url(imagens/cursor-azul.png), auto;
+				margin-left: 30px;
+				background-color:#F5F2F0;
+				width: 300px;
+				border: 0.5px solid gray;
+			}
+			#cursorpadr {
+				webkit-touch-callout: none;  /* iPhone OS, Safari */
+				webkit-user-select: none;    /* Chrome, Safari 3 */
+				khtml-user-select: none;     /* Safari 2 */
+				moz-user-select: none;       /* Firefox */
+				ms-user-select: none;        /* IE10+ */
+				user-select: none;
+				cursor: pointer;
+				margin-left: 30px;
+				background-color:#F5F2F0;
+				width: 300px;
+				border: 0.5px solid gray;
+			}
+		</style>
+	</head>
+	<body bgcolor="#3399FF">
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<header class="mdl-layout__header">
+			<div class="mdl-layout__header-row">
+				<span class="mdl-layout-title">TechHero</span>
+				<div class="mdl-layout-spacer"></div>
+				<nav class="mdl-navigation mdl-layout--large-screen-only">
+					<a class="mdl-navigation__link" href="https://technoherobrine.github.io">Início</a>
+					<a class="mdl-navigation__link" href="https://technoherobrine.github.io/sites">Sites</a>
+					<a class="mdl-navigation__link" href="https://technoherobrine.github.io/jogos">Jogos</a>
+					<a class="mdl-navigation__link" href="https://technoherobrine.github.io/tutoriais">Tutoriais</a>
+				</nav>
+			</div>
+		</header>
+	<main class="mdl-layout__content">
+    <div class="page-content">
+		<a name="topo"></a>
+		<div id="conteudo">
+			<div id="tutorial" style="background-color: #FFFFFF; width: 1100px; margin-left: 70px;">
+				<center>
+					<div id="titulo">
+						<h2>Como mudar o cursor do mouse</h2>
+						<hr style="height:2px; border:none; color:#000; background-color:#000; margin-top: 0px; margin-bottom: 0px;"/>
+					</div>
+				</center>
+				<p style="padding-left: 5px;">Hoje, irei ensinar a como alterar o cursor para um padrão e para um personalizado.</p>
+				<br>
+				<h5 style="padding-left: 5px;">Atalhos</h5>
+				<div id="taglinks">
+					<a href="#padr" id="taglink">Padrão</a><br>
+					<a href="#padr-comof" id="taglinksec">Como Fazer</a><br>
+					<a href="#padr-result" id="taglinksec">Resultado</a><br>
+					<p></p>
+					<a href="#pers" id="taglink">Personalizado</a><br>
+					<a href="#pers-comof" id="taglinksec">Como Fazer</a><br>
+					<a href="#pers-result" id="taglinksec">Resultado</a><br>
+				</div>
+				<br>
+				<a name="padr"></a>
+				<h3>Cursor padrão</h3>
+				<br>
+				<a name="padr-comof"></a>
+				<p style="padding-left: 5px;"><b>1º passo</b>: Crie o arquivo <b>index.html</b>.</p>
+				<p style="padding-left: 5px;"><b>2º passo</b>: Copie o código abaixo e cole no arquivo <b>index.html</b>.</p>
+				<div style="padding-left: 30px;">
+					<textarea style="background-color:#F5F2F0; width: 450px; resize: none;" readonly="yes" rows="10">
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NOME DA SUA PÁGINA</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <!--O CONTEÚDO DE SUA PÁGINA FICA AQUI-->
+    </body>
+</html></textarea>
+				</div>
+				<p style="padding-left: 5px;"><b>3º passo</b>: Crie o arquivo <b>styles.css</b>.</p>
+				<p style="padding-left: 5px;"><b>4º passo</b>: Copie o código abaixo e cole no arquivo <b>styles.css</b>.</p>
+				<div style="padding-left: 30px;">
+					<textarea style="background-color:#F5F2F0; width: 450px; resize: none;" readonly="yes" rows="9">
+#SUA_ID {
+    webkit-touch-callout: none;  /* iPhone OS, Safari */
+    webkit-user-select: none;    /* Chrome, Safari 3 */
+    khtml-user-select: none;     /* Safari 2 */
+    moz-user-select: none;       /* Firefox */
+    ms-user-select: none;        /* IE10+ */
+    user-select: none;
+    cursor: CURSOR_PADRAO;
+}</textarea>
+				</div>
+				<p style="padding-left: 5px;"><b>5º passo</b>: No arquivo <b>styles.css</b>, troque <b>CURSOR_PADRAO</b> por algum dessa lista:</p>
+				<ul>
+					<li>default</li>
+					<li>pointer</li>
+					<li>crosshair</li>
+					<li>help</li>
+					<li>no-drop</li>
+					<li>none</li>
+					<li>progress</li>
+					<li>wait</li>
+					<li>text</li>
+				</ul>
+				<p style="padding-left: 5px;"><b>6º passo</b>: No arquivo <b>index.html</b>, copie e cole o código abaixo na tag body.</p>
+				<div style="padding-left: 30px;">
+					<textarea style="background-color:#F5F2F0; width: 450px; resize: none;" readonly="yes" rows="3">
+<div id="SUA_ID">
+    <!--O CONTEÚDO DE SUA DIV FICA AQUI-->
+</div></textarea>
+				</div>
+				<p style="padding-left: 5px;"><b>7º passo</b>: No arquivo <b>index.html</b>, troque <b>SUA_ID</b> pelo que você quiser.</p>
+				<p style="padding-left: 5px;"><b>8º passo</b>: No arquivo <b>styles.css</b>, troque <b>SUA_ID</b> pelo id da div que você colocou.</p>
+				<br>
+				<p style="padding-left: 5px;">Pronto! Você mudou seu cursor.</p>
+				<br>
+				<a name="padr-result"></a>
+				<p style="padding-left: 5px;"><b>Código final:</b></p>
+				<br>
+				<p style="padding-left: 5px;">index.html</p>
+				<div style="padding-left: 30px;">
+					<textarea style="background-color:#F5F2F0; width: 450px; resize: none;" readonly="yes" rows="12">
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NOME DA SUA PÁGINA</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div id="SUA_ID">
+            <!--O CONTEÚDO DE SUA DIV FICA AQUI-->
+        </div>
+    </body>
+</html></textarea>
+				</div>
+				<br>
+				<p style="padding-left: 5px;">syles.css</p>
+				<div style="padding-left: 30px;">
+					<textarea style="background-color:#F5F2F0; width: 450px; resize: none;" readonly="yes" rows="9">
+#SUA_ID {
+    webkit-touch-callout: none;  /* iPhone OS, Safari */
+    webkit-user-select: none;    /* Chrome, Safari 3 */
+    khtml-user-select: none;     /* Safari 2 */
+    moz-user-select: none;       /* Firefox */
+    ms-user-select: none;        /* IE10+ */
+    user-select: none;
+    cursor: CURSOR_PADRAO;
+}</textarea>
+				</div>
+				<br>
+				<p style="padding-left: 5px;"><b>Resultado:</b></p>
+				<br>
+				<div id="cursorpadr">
+					<center>Passe o mouse para ver o cursor personalizado.</center>
+				</div>
+				<br>
+				<a name="pers"></a>
+				<h3>Cursor personalizado</h3>
+				<br>
+				<a name="pers-comof"></a>
+				<p style="padding-left: 5px;"><b>1º passo</b>: Crie o arquivo <b>index.html</b>.</p>
+				<p style="padding-left: 5px;"><b>2º passo</b>: Copie o código abaixo e cole no arquivo <b>index.html</b>.</p>
+				<div style="padding-left: 30px;">
+					<textarea style="background-color:#F5F2F0; width: 450px; resize: none;" readonly="yes" rows="10">
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NOME DA SUA PÁGINA</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <!--O CONTEÚDO DE SUA PÁGINA FICA AQUI-->
+    </body>
+</html></textarea>
+				</div>
+				<p style="padding-left: 5px;"><b>3º passo</b>: Crie o arquivo <b>styles.css</b>.</p>
+				<p style="padding-left: 5px;"><b>4º passo</b>: Copie o código abaixo e cole no arquivo <b>styles.css</b>.</p>
+				<div style="padding-left: 30px;">
+					<textarea style="background-color:#F5F2F0; width: 450px; resize: none;" readonly="yes" rows="9">
+#SUA_ID {
+    webkit-touch-callout: none;  /* iPhone OS, Safari */
+    webkit-user-select: none;    /* Chrome, Safari 3 */
+    khtml-user-select: none;     /* Safari 2 */
+    moz-user-select: none;       /* Firefox */
+    ms-user-select: none;        /* IE10+ */
+    user-select: none;
+    cursor: url(imagens/SUA_IMAGEM.png), auto;
+}</textarea>
+				</div>
+				<p style="padding-left: 5px;"><b>5º passo</b>: Escolha a imagem que você quer usar. A imagem tem que ser como essa:</p>
+				<div style="padding-left: 30px;">
+					<img src="imagens/cursor-azul.png" title="cursor-azul.png">
+				</div>
+				<p style="padding-left: 5px;"><b>6º passo</b>: No arquivo <b>styles.css</b>, troque <b>SUA_IMAGEM</b> pelo nome da imagem que você vai usar.</p>
+				<p style="padding-left: 5px;"><b>7º passo</b>: No arquivo <b>index.html</b>, copie e cole o código abaixo na tag body.</p>
+				<div style="padding-left: 30px;">
+					<textarea style="background-color:#F5F2F0; width: 450px; resize: none;" readonly="yes" rows="3">
+<div id="SUA_ID">
+    <!--O CONTEÚDO DE SUA DIV FICA AQUI-->
+</div></textarea>
+				</div>
+				<p style="padding-left: 5px;"><b>8º passo</b>: No arquivo <b>index.html</b>, troque <b>SUA_ID</b> pelo que você quiser.</p>
+				<p style="padding-left: 5px;"><b>9º passo</b>: No arquivo <b>styles.css</b>, troque <b>SUA_ID</b> pelo id da div que você colocou.</p>
+				<br>
+				<p style="padding-left: 5px;">Pronto! Você mudou seu cursor.</p>
+				<br>
+				<a name="pers-result"></a>
+				<p style="padding-left: 5px;"><b>Código final:</b></p>
+				<br>
+				<p style="padding-left: 5px;">index.html</p>
+				<div style="padding-left: 30px;">
+					<textarea style="background-color:#F5F2F0; width: 450px; resize: none;" readonly="yes" rows="12">
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NOME DA SUA PÁGINA</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div id="SUA_ID">
+            <!--O CONTEÚDO DE SUA DIV FICA AQUI-->
+        </div>
+    </body>
+</html></textarea>
+				</div>
+				<br>
+				<p style="padding-left: 5px;">syles.css</p>
+				<div style="padding-left: 30px;">
+					<textarea style="background-color:#F5F2F0; width: 450px; resize: none;" readonly="yes" rows="9">
+#SUA_ID {
+    webkit-touch-callout: none;  /* iPhone OS, Safari */
+    webkit-user-select: none;    /* Chrome, Safari 3 */
+    khtml-user-select: none;     /* Safari 2 */
+    moz-user-select: none;       /* Firefox */
+    ms-user-select: none;        /* IE10+ */
+    user-select: none;
+    cursor: url(imagens/SUA_IMAGEM.png), auto;
+}</textarea>
+				</div>
+				<br>
+				<p style="padding-left: 5px;"><b>Resultado:</b></p>
+				<br>
+				<div id="cursorpers">
+					<center>Passe o mouse para ver o cursor personalizado.</center>
+				</div>
+				<br>
+			</div>
+		</div>
+		<footer class="mdl-mini-footer">
+			<div class="ct-wrapper">
+				<a href="https://technoherobrine.github.io" id="linksite" target="_blank" class="mdl-color-text--deep-blue-700">TechHero</a> - <a href="#topo">Voltar ao topo</a><br></p>
+				<div class="mdl-tooltip" for="linksite"><span>Site TechHero</span></div>
+			</div>
+		</footer>
+	</div>
+	</main>
+	</div>
+	</body>
+</html>

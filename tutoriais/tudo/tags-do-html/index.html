@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>TechHero - Tags do HTML (Quais são e o que fazem)</title>
+		<link rel = "stylesheet" 
+         href = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-blue.min.css">
+		<script src = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js">
+		</script>
+		<link rel = "stylesheet" 
+         href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+		 
+		<script>
+			function abrir(URL) {
+				var width = 500;
+				var height = 500;
+				var left = 99;
+				var top = 99;
+				window.open(URL,'janela', 'width='+width+', height='+height+', top='+top+', left='+left+', scrollbars=yes, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no');
+			}
+		</script>
+		
+		<style>
+			div#conteudo {
+				padding-left: 15px;
+				padding-top: 10px;
+			}
+			.mdl-demo .mdl-layout__tab-bar {
+				padding: 0;
+				padding-left: 16px;
+				box-sizing: border-box;
+				height: 100%;
+				width: 100%;
+			}
+			#taglinks {
+				margin-left: 30px;
+				background-color:#F5F2F0;
+				width: 200px;
+				resize: none;
+				border: 0.5px solid gray;
+			}
+			#taglink {
+				padding-left: 5px;
+			}
+		</style>
+	</head>
+	<body bgcolor="#3399FF">
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<header class="mdl-layout__header">
+			<div class="mdl-layout__header-row">
+				<span class="mdl-layout-title">TechHero</span>
+				<div class="mdl-layout-spacer"></div>
+				<nav class="mdl-navigation mdl-layout--large-screen-only">
+					<a class="mdl-navigation__link" href="https://technoherobrine.github.io">Início</a>
+					<a class="mdl-navigation__link" href="https://technoherobrine.github.io/sites">Sites</a>
+					<a class="mdl-navigation__link" href="https://technoherobrine.github.io/jogos">Jogos</a>
+					<a class="mdl-navigation__link" href="https://technoherobrine.github.io/tutoriais">Tutoriais</a>
+				</nav>
+			</div>
+		</header>
+	<main class="mdl-layout__content">
+    <div class="page-content">
+		<a name="topo"></a>
+		<div id="conteudo">
+			<div id="tutorial" style="background-color: #FFFFFF; width: 1100px; margin-left: 70px;">
+				<center>
+					<div id="titulo">
+						<h2>Tags do HTML (Quais são e o que fazem)</h2>
+						<hr style="height:2px; border:none; color:#000; background-color:#000; margin-top: 0px; margin-bottom: 0px;"/>
+					</div>
+				</center>
+				<p style="padding-left: 5px;">Se você já mexeu com HTML sabe que existem muitas tags, mas nem todo mundo sabe o que elas querem dizer.
+				Então, hoje vamos aprender pra que algumas tags servem.</p>
+				<br>
+				<h5 style="padding-left: 5px;">Tags</h5>
+				<div id="taglinks">
+					<a href="#tag-head" id="taglink">head</a><br>
+					<a href="#tag-body" id="taglink">body</a><br>
+					<a href="#tag-p" id="taglink">p</a><br>
+					<a href="#tag-span" id="taglink">span</a><br>
+					<a href="#tag-h123456" id="taglink">h1, h2, h3, h4, h5 e h6</a><br>
+					<a href="#tag-hr" id="taglink">hr</a><br>
+					<a href="#tag-center" id="taglink">center</a><br>
+					<a href="#tag-title" id="taglink">title</a><br>
+				</div>
+				<br>
+				<a name="tag-head"></a>
+				<p style="padding-left: 5px;"><b>head</b>: A tag <b>head</b> serve para colocar coisas no cabeçalho da página.</p>
+				<div style="padding-left: 30px;">
+					<textarea style="background-color:#F5F2F0; width: 400px; resize: none;" readonly="yes" rows="3">
+<head>
+    <!--Conteúdo da tag-->
+</head></textarea>
+				</div>
+				<br>
+				<a name="tag-body"></a>
+				<p style="padding-left: 5px;"><b>body</b>: A tag <b>body</b> serve para colocar coisas no corpo da página.</p>
+				<div style="padding-left: 30px;">
+					<textarea style="background-color:#F5F2F0; width: 400px; resize: none;" readonly="yes" rows="3">
+<body>
+    <!--Conteúdo da tag-->
+</body></textarea>
+				</div>
+				<br>
+				<a name="tag-p"></a>
+				<p style="padding-left: 5px;"><b>p</b>: A tag <b>p</b> serve para criar um parágrafo.</p>
+				<div style="padding-left: 30px;">
+					<textarea style="background-color:#F5F2F0; width: 400px; resize: none;" readonly="yes" rows="1">
+<p>Este é um exemplo de parágafo.</p></textarea>
+				</div>
+				<p style="padding-left: 5px;"><b>Resultado:</b></p>
+				<p>Este é um exemplo de parágafo.</p>
+				<br>
+				<a name="tag-span"></a>
+				<p style="padding-left: 5px;"><b>span</b>: A tag <b>span</b> serve para criar um texto simples.</p>
+				<div style="padding-left: 30px;">
+					<textarea style="background-color:#F5F2F0; width: 400px; resize: none;" readonly="yes" rows="1">
+<span>Este é um exemplo de texto simples.</span></textarea>
+				</div>
+				<p style="padding-left: 5px;"><b>Resultado:</b></p>
+				<span>Este é um exemplo de texto simples.</span>
+				<br>
+				<a name="tag-h123456"></a>
+				<p style="padding-left: 5px;"><b>h1, h2, h3, h4, h5 e h6</b>: Essas servem para criar um texto de cabeçalho de diferentes tamanhos.</p>
+				<div style="padding-left: 30px;">
+					<textarea style="background-color:#F5F2F0; width: 400px; resize: none;" readonly="yes" rows="6">
+<h1>Este é um exemplo de texto de cabeçalho 1.</h1>
+<h2>Este é um exemplo de texto de cabeçalho 2.</h2>
+<h3>Este é um exemplo de texto de cabeçalho 3.</h3>
+<h4>Este é um exemplo de texto de cabeçalho 4.</h4>
+<h5>Este é um exemplo de texto de cabeçalho 5.</h5>
+<h6>Este é um exemplo de texto de cabeçalho 6.</h6></textarea>
+				</div>
+				<p style="padding-left: 5px;"><b>Resultado:</b></p>
+				<h1>Este é um exemplo de texto de cabeçalho 1.</h1>
+				<h2>Este é um exemplo de texto de cabeçalho 2.</h2>
+				<h3>Este é um exemplo de texto de cabeçalho 3.</h3>
+				<h4>Este é um exemplo de texto de cabeçalho 4.</h4>
+				<h5>Este é um exemplo de texto de cabeçalho 5.</h5>
+				<h6>Este é um exemplo de texto de cabeçalho 6.</h6>
+				<br>
+				<a name="tag-hr"></a>
+				<p style="padding-left: 5px;"><b>hr</b>: A tag <b>hr</b> serve para criar uma linha horizontal.</p>
+				<div style="padding-left: 30px;">
+					<textarea style="background-color:#F5F2F0; width: 400px; resize: none;" readonly="yes" rows="8">
+<!--linha com estilo-->
+<hr style="height:2px; border:none; color:#000; background-color:#000; margin-top: 0px; margin-bottom: 0px;"/>
+
+
+<!--linha sem estilo-->
+<hr></textarea>
+				</div>
+				<p style="padding-left: 5px;"><b>Resultado:</b></p>
+				<hr style="height:2px; border:none; color:#000; background-color:#000; margin-top: 0px; margin-bottom: 0px;"/>
+				<br>
+				<p style="padding-left: 5px;">Você também pode tirar o estilo que coloquei, mas ela ficará assim:</p>
+				<hr>
+				<br>
+				<a name="tag-center"></a>
+				<p style="padding-left: 5px;"><b>center</b>: A tag <b>center</b> serve para criar um texto centralizado.</p>
+				<div style="padding-left: 30px;">
+					<textarea style="background-color:#F5F2F0; width: 400px; resize: none;" readonly="yes">
+<center>Este é um exemplo de texto centralizado.</center></textarea>
+				</div>
+				<p style="padding-left: 5px;"><b>Resultado:</b></p>
+				<center>Este é um exemplo de texto centralizado.</center>
+				<br>
+				<a name="tag-title"></a>
+				<p style="padding-left: 5px;"><b>title</b>: A tag <b>title</b> serve para mudar o título da página e é colocada dentro da tag head do HTML.</p>
+				<div style="padding-left: 30px;">
+					<textarea style="background-color:#F5F2F0; width: 400px; resize: none;" readonly="yes" rows="1">
+<title>Exemplo de título</title></textarea>
+				</div>
+				<p style="padding-left: 5px;"><b>Resultado:</b></p>
+				<a href="javascript:abrir('tag-title.html');" style="padding-left: 5px;">Clique aqui para ver</a>
+				<br>
+			</div>
+		</div>
+	</div>
+		<footer class="mdl-mini-footer">
+			<div class="ct-wrapper">
+				<a href="https://technoherobrine.github.io" id="linksite" target="_blank" class="mdl-color-text--deep-blue-700">TechHero</a> - <a href="#topo">Voltar ao topo</a><br></p>
+				<div class="mdl-tooltip" for="linksite"><span>Site TechHero</span></div>
+			</div>
+		</footer>
+	</main>
+	</div>
+	</body>
+</html>
