@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no" />
 	
 	<title>Pica Pau Collab em PT-BR - O Pássaro Que Veio Para Jantar</title>
 	
@@ -24,12 +24,14 @@
 		font-family: 'Roboto', 'Helvetica', sans-serif;
 		margin: 0;
 		padding: 0;
+		max-width: 428px;
+		overflow: hidden;
 	}
 	nav .brand-logo{
 		display: inline-block;
 		font-size: 1.8rem;
-		width: 80% !important;
-		padding: 10px 10px 10px 120px;
+		width: 100% !important;
+		padding: 10px 10px 10px 10%;
 		left: 12px;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -38,9 +40,9 @@
 	div .episode-title{
 		display: inline-block;
 		font-size: 1.8rem;
-		width: 560px !important;
+		width: 100% !important;
 		padding-top: 10px;
-		padding-left: 140px;
+		padding-left: 0.3%;
 		left: 12px;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -48,9 +50,9 @@
 	div .curiosities{
 		display: inline-block;
 		font-size: 1.8rem;
-		width: 560px !important;
+		width: 100% !important;
 		padding-top: 10px;
-		padding-left: 140px;
+		padding-left: 0.3%;
 		left: 12px;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -58,9 +60,9 @@
 	div .episode-description{
 		display: inline-block;
 		font-size: 1.4rem;
-		width: 560px !important;
+		width: 100% !important;
 		padding-top: 15px;
-		padding-left: 140px;
+		padding-left: 0.3%;
 		left: 12px;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -68,17 +70,17 @@
 	div .curiosities-description{
 		display: inline-block;
 		font-size: 1.4rem;
-		width: 560px !important;
+		width: 100% !important;
 		padding-top: 15px;
-		padding-left: 140px;
+		padding-left: 0.3%;
 		left: 12px;
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
 	div .episode-video{
 		padding-top: 15px;
-		padding-left: 140px;
-		max-width: 560px;
+		padding-left: 0.3%;
+		max-width: 428px;
 	}
 	.dropbtn {
     background-color: #0066FF;
@@ -90,15 +92,29 @@
 
 .dropdown {
     position: relative;
-	padding-left: 140px;
+	padding-left: 0.3%;
 }
 
 .dropdown-content {
     display: none;
-    width: 560px !important;
+    width: 100% !important;
 }
 
 .show {display:block;}
+
+@media screen and (max-width: 600px) {
+
+.dropdown {
+	visibility: invisible;
+	display: none;
+}
+
+.dropdown-content {
+	visibility: visible;
+	display: block;
+}
+
+}
 	</style>
 	
 </head>
@@ -112,11 +128,11 @@
 	<div id="episodio" class="ep-wrapper">
 		<div class="col s12 m6 l6 video">
 				<div class="episode-video">
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/RZfp-YyHg9g?rel=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+					<iframe width="428" height="300" src="https://www.youtube.com/embed/RZfp-YyHg9g?rel=0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 				</div>
 		<div class="col s12 m6 l6 title">
 			<div class="episode-title">
-				<a>Pica Pau Collab | O Pássaro Que Veio Para Jantar (2017)</a>
+				<a>Pica Pau Collab | O Pássaro Que Veio Para Jantar (2017)</a><br>
 			</div>
 			<div class="episode-description">
 				<p>Esse projeto foi realizado sem fins comerciais por mais de 70 animadores em homenagem a um dos maiores ícones da animação.</p>

@@ -1,0 +1,209 @@
+<html><head>
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>MiniPaint</title>
+	<style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+		cursor: default;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+      }
+	  
+	  #white {display: inline-block; width: 120px; text-align: center; border-radius: 6px; margin-left: 25px; border: 1px solid #E1E1E1; -webkit-transition: 0.05s ease; vertical-align: middle; padding-top: 6px; padding-bottom: 6px; margin-top: 10px;}
+	  #white:active {cursor: pointer; border: 1px solid grey; box-shadow: 0 0 8px grey inset;}
+	  #white:hover {cursor: pointer; border: 1px solid grey;}
+	  
+	  .color {display: inline-block; border-radius: 50%; width: 14px; height: 14px; margin-left: 2px; border: 2px solid white; -webkit-transition: 0.1s ease;}
+	  .color:hover{cursor: pointer; border: 2px solid black;}
+	  .color:active {cursor: pointer; border: 2px solid black; box-shadow: 0 0 8px black inset;}
+	  
+	  #can {
+		cursor: url(images/pencil.png), auto;
+		background-color: white;
+		
+	  }
+	  .options {
+		width: 120px;
+		height: 33px;
+		background-color: #85E0FF;
+		text-align: center;
+		line-height: 33px;
+		margin: 2px;
+		color: black;
+		border-bottom: 4px solid #5D9DB2;
+		cursor: pointer;
+		margin-top: 8px;
+		margin-left: 26px;
+	  }
+	  
+	  .options:active {
+		border-bottom: 0px solid #5D9DB2;
+		margin-top: 12px;
+	  }
+	  
+	  a {
+		text-decoration: none;
+	  }
+
+#myInput {
+    border-box: box-sizing;
+    background-image: url('http://image.ibb.co/eOBLv6/ic_search_black_24dp_1x.png');
+    background-position: 14px 12px;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    padding: 14px 20px 12px 45px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    background-color: #f6f6f6;
+    min-width: 230px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #ddd}
+
+.show {display:block;}
+</style>
+	 
+	 <script src="canvas.js"></script>
+	 </head>
+
+  <body>
+	<div width="400" height="700">
+		<canvas id="can" width="400" height="400" style="border: 2px solid #EEEEEE; margin-bottom: 5px;"></canvas><br>
+	
+				<div id="white">Eraser</div><br>
+	
+			<a href="#" id="save" download="drawing"><div class="options">Save</div></a>
+			<div id="clr" class="options" style="margin-bottom: 16px;">Clear</div>
+	
+			<div class="dropdown">
+				<button style="margin-bottom: 16px; padding: top: 0px;" onclick="myFunction()" class="options">Colors</button>
+			</div>
+	</div>
+				
+		<div id="colors" class="dropdown-content" align="right">
+			<div style="position: fixed; padding: 8px; right: 17px; top: 421px; left: 100px; margin-bottom: 30px;">
+		
+		<!--Row 1-->
+		<div class="color" style="background: #5F3500;" id="#5F3500"></div>
+		<div class="color" style="background: #6B0000;" id="#6B0000"></div>
+		<div class="color" style="background: #840067;" id="#840067"></div>
+		<div class="color" style="background: #3C006B;" id="#3C006B"></div>
+		<div class="color" style="background: #000090;" id="#000090"></div>
+		<div class="color" style="background: #005F00;" id="#005F00"></div>
+		<div class="color" style="background: #759000;" id="#759000"></div>
+		<div class="color" style="background: #FFB600;" id="#FFB600"></div>
+		<div class="color" style="background: #1A1A1A;" id="#1A1A1A"></div><br>
+		
+		<!--Row 2-->
+		<div class="color" style="background: #905000;" id="#905000"></div>
+		<div class="color" style="background: #9B0000;" id="#9B0000"></div>
+		<div class="color" style="background: #B0008C;" id="#B0008C"></div>
+		<div class="color" style="background: #510090;" id="#510090"></div>
+		<div class="color" style="background: #0000C9;" id="#0000C9"></div>
+		<div class="color" style="background: #009B00;" id="#009B00"></div>
+		<div class="color" style="background: #9ABE00;" id="#9ABE00"></div>
+		<div class="color" style="background: #FFC900;" id="#FFC900"></div>
+		<div class="color" style="background: #676767;" id="#676767"></div><br>
+	
+		<!--Row 3-->
+		<div class="color" style="background: #C97000;" id="#C97000"></div>
+		<div class="color" style="background: #C90000;" id="#C90000"></div>
+		<div class="color" style="background: #D400A8;" id="#D400A8"></div>
+		<div class="color" style="background: #6C00BE;" id="#6C00BE"></div>
+		<div class="color" style="background: #0000FF;" id="#0000FF"></div>
+		<div class="color" style="background: #00C900;" id="#00C900"></div>
+		<div class="color" style="background: #C9F700;" id="#C9F700"></div>
+		<div class="color" style="background: #FFDC00;" id="#FFDC00"></div>
+		<div class="color" style="background: #989898;" id="#989898"></div><br>
+		
+		<!--Row 4-->
+		<div class="color" style="background: #FF8E00;" id="#FF8E00"></div>
+		<div class="color" style="background: #FF0000;" id="#FF0000"></div>
+		<div class="color" style="background: #FF00C9;" id="#FF00C9"></div>
+		<div class="color" style="background: #9000FF;" id="#9000FF"></div>
+		<div class="color" style="background: #0078FF;" id="#0078FF"></div>
+		<div class="color" style="background: #00FF00;" id="#00FF00"></div>
+		<div class="color" style="background: #E6FF00;" id="#E6FF00"></div>
+		<div class="color" style="background: #FFFF00;" id="#FFFF00"></div>
+		<div class="color" style="background: #C5C5C5;" id="#C5C5C5"></div><br>
+		
+		<!--Row 5-->
+		<div class="color" style="background: #FFC990;" id="#FFC990"></div>
+		<div class="color" style="background: #FF9090;" id="#FF9090"></div>
+		<div class="color" style="background: #FF90E4;" id="#FF90E4"></div>
+		<div class="color" style="background: #CA90FF;" id="#CA90FF"></div>
+		<div class="color" style="background: #90BEFF;" id="#90BEFF"></div>
+		<div class="color" style="background: #90FF90;" id="#90FF90"></div>
+		<div class="color" style="background: #F3FF90;" id="#F3FF90"></div>
+		<div class="color" style="background: #FFFFA7;" id="#FFFFA7"></div>
+		<div class="color" style="background: #E3E3E3;" id="#E3E3E3"></div><br>
+	
+		<!--Row 6-->
+		<div class="color" style="background: #FFE4C9;" id="#FFE4C9"></div>
+		<div class="color" style="background: #FFC9C9;" id="#FFC9C9"></div>
+		<div class="color" style="background: #FFC9F3;" id="#FFC9F3"></div>
+		<div class="color" style="background: #E4C9FF;" id="#E4C9FF"></div>
+		<div class="color" style="background: #C9DFFF;" id="#C9DFFF"></div>
+		<div class="color" style="background: #C9FFC9;" id="#C9FFC9"></div>
+		<div class="color" style="background: #F9FFC9;" id="#F9FFC9"></div>
+		<div class="color" style="background: #FFFFC9;" id="#FFFFC9"></div>
+		<div class="color" style="background: #F1F1F1;" id="#F1F1F1"></div><br>
+		
+		<!--Row 7-->
+		<div class="color" style="background: #FFF2BF;" id="#FFF2BF"></div>
+		<div class="color" style="background: #FF006A;" id="#FF006A"></div>
+		<div class="color" style="background: #C62ED1;" id="#C62ED1"></div>
+		<div class="color" style="background: #6F2ED1;" id="#6F2ED1"></div>
+		<div class="color" style="background: #CCFFFF;" id="#CCFFFF"></div>
+		<div class="color" style="background: #D8FF00;" id="#D8FF00"></div>
+		<div class="color" style="background: #7D9112;" id="#7D9112"></div>
+		<div class="color" style="background: #C1BF32;" id="#C1BF32"></div>
+		<div class="color" style="background: #F7F7F7;" id="#F7F7F7"></div><br>
+	
+		</div>
+		</div>
+	
+	<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("colors").classList.toggle("show");
+}
+
+function filterFunction() {
+    var ul, li, a, i;
+    div = document.getElementById("colors");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+        if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+        }
+    }
+}
+</script>
+	 
+  </div>
+
+
+</body></html>

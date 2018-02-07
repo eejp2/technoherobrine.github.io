@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no" />
 		<title>TechHero - Como mudar o cursor do mouse</title>
 		<link rel = "stylesheet" 
          href = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-blue.min.css">
@@ -9,18 +10,12 @@
 		</script>
 		<link rel = "stylesheet" 
          href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel = "stylesheet" href = "../../../styles.css">
 		
 		<style>
 			div#conteudo {
-				padding-left: 15px;
-				padding-top: 10px;
-			}
-			.mdl-demo .mdl-layout__tab-bar {
-				padding: 0;
-				padding-left: 16px;
-				box-sizing: border-box;
-				height: 100%;
-				width: 100%;
+				padding-right: 5%;
+				padding-top: 15%;
 			}
 			#taglinks {
 				margin-left: 30px;
@@ -44,7 +39,7 @@
 				cursor: url(imagens/cursor-azul.png), auto;
 				margin-left: 30px;
 				background-color:#F5F2F0;
-				width: 300px;
+				width: 90%;
 				border: 0.5px solid gray;
 			}
 			#cursorpadr {
@@ -57,30 +52,41 @@
 				cursor: pointer;
 				margin-left: 30px;
 				background-color:#F5F2F0;
-				width: 300px;
+				width: 90%;
 				border: 0.5px solid gray;
 			}
 		</style>
 	</head>
 	<body bgcolor="#3399FF">
-	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-		<header class="mdl-layout__header">
-			<div class="mdl-layout__header-row">
-				<span class="mdl-layout-title">TechHero</span>
-				<div class="mdl-layout-spacer"></div>
-				<nav class="mdl-navigation mdl-layout--large-screen-only">
-					<a class="mdl-navigation__link" href="https://technoherobrine.github.io">Início</a>
-					<a class="mdl-navigation__link" href="https://technoherobrine.github.io/sites">Sites</a>
-					<a class="mdl-navigation__link" href="https://technoherobrine.github.io/jogos">Jogos</a>
-					<a class="mdl-navigation__link" href="https://technoherobrine.github.io/tutoriais">Tutoriais</a>
-				</nav>
-			</div>
+	<header>
+			<h4 class="float-l">
+				<a href="https://technoherobrine.github.io" title="TechHero">TechHero</a><span> - Tutoriais</span>
+			</h4>
+			
+			<input type="checkbox" id="control-nav" />
+			<label for="control-nav" class="control-nav"></label>
+			<label for="control-nav" class="control-nav-close"></label>
+		
+			<nav class="float-r">
+				<ul class="list-auto">
+					<li>
+						<a href="https://technoherobrine.github.io/sites" title="Sites">Sites</a>
+					</li>
+					<li>
+						<a href="https://technoherobrine.github.io/jogos" title="Jogos">Jogos</a>
+					</li>
+					<li>
+						<a href="https://technoherobrine.github.io/tutoriais" title="Tutoriais">Tutoriais</a>
+					</li>
+					<li>
+						<a href="https://technoherobrine.github.io/download" title="Downloads">Downloads</a>
+					</li>
+				</ul>
+			</nav>
 		</header>
-	<main class="mdl-layout__content">
-    <div class="page-content">
 		<a name="topo"></a>
 		<div id="conteudo">
-			<div id="tutorial" style="background-color: #FFFFFF; width: 1100px; margin-left: 70px;">
+			<div id="tutorial" style="background-color: #FFFFFF; width: 90%; margin-left: 10%;">
 				<center>
 					<div id="titulo">
 						<h2>Como mudar o cursor do mouse</h2>
@@ -107,7 +113,7 @@
 				<p style="padding-left: 5px;"><b>1º passo</b>: Crie o arquivo <b>index.html</b>.</p>
 				<p style="padding-left: 5px;"><b>2º passo</b>: Copie o código abaixo e cole no arquivo <b>index.html</b>.</p>
 				<div style="padding-left: 30px;">
-					<textarea style="background-color:#F5F2F0; width: 450px; resize: none;" readonly="yes" rows="10">
+					<textarea style="background-color:#F5F2F0; width: 90%; resize: none;" readonly="yes" rows="10">
 <!DOCTYPE html>
 <html>
     <head>
@@ -122,7 +128,7 @@
 				<p style="padding-left: 5px;"><b>3º passo</b>: Crie o arquivo <b>styles.css</b>.</p>
 				<p style="padding-left: 5px;"><b>4º passo</b>: Copie o código abaixo e cole no arquivo <b>styles.css</b>.</p>
 				<div style="padding-left: 30px;">
-					<textarea style="background-color:#F5F2F0; width: 450px; resize: none;" readonly="yes" rows="9">
+					<textarea style="background-color:#F5F2F0; width: 90%; resize: none;" readonly="yes" rows="9">
 #SUA_ID {
     webkit-touch-callout: none;  /* iPhone OS, Safari */
     webkit-user-select: none;    /* Chrome, Safari 3 */
@@ -147,7 +153,7 @@
 				</ul>
 				<p style="padding-left: 5px;"><b>6º passo</b>: No arquivo <b>index.html</b>, copie e cole o código abaixo na tag body.</p>
 				<div style="padding-left: 30px;">
-					<textarea style="background-color:#F5F2F0; width: 450px; resize: none;" readonly="yes" rows="3">
+					<textarea style="background-color:#F5F2F0; width: 90%; resize: none;" readonly="yes" rows="3">
 <div id="SUA_ID">
     <!--O CONTEÚDO DE SUA DIV FICA AQUI-->
 </div></textarea>
@@ -162,7 +168,7 @@
 				<br>
 				<p style="padding-left: 5px;">index.html</p>
 				<div style="padding-left: 30px;">
-					<textarea style="background-color:#F5F2F0; width: 450px; resize: none;" readonly="yes" rows="12">
+					<textarea style="background-color:#F5F2F0; width: 90%; resize: none;" readonly="yes" rows="12">
 <!DOCTYPE html>
 <html>
     <head>
@@ -179,7 +185,7 @@
 				<br>
 				<p style="padding-left: 5px;">syles.css</p>
 				<div style="padding-left: 30px;">
-					<textarea style="background-color:#F5F2F0; width: 450px; resize: none;" readonly="yes" rows="9">
+					<textarea style="background-color:#F5F2F0; width: 90%; resize: none;" readonly="yes" rows="9">
 #SUA_ID {
     webkit-touch-callout: none;  /* iPhone OS, Safari */
     webkit-user-select: none;    /* Chrome, Safari 3 */
@@ -191,7 +197,7 @@
 }</textarea>
 				</div>
 				<br>
-				<p style="padding-left: 5px;"><b>Resultado:</b></p>
+				<p style="padding-left: 5px;" id="padrresult"><b>Resultado:</b></p>
 				<br>
 				<div id="cursorpadr">
 					<center>Passe o mouse para ver o cursor personalizado.</center>
@@ -204,7 +210,7 @@
 				<p style="padding-left: 5px;"><b>1º passo</b>: Crie o arquivo <b>index.html</b>.</p>
 				<p style="padding-left: 5px;"><b>2º passo</b>: Copie o código abaixo e cole no arquivo <b>index.html</b>.</p>
 				<div style="padding-left: 30px;">
-					<textarea style="background-color:#F5F2F0; width: 450px; resize: none;" readonly="yes" rows="10">
+					<textarea style="background-color:#F5F2F0; width: 90%; resize: none;" readonly="yes" rows="10">
 <!DOCTYPE html>
 <html>
     <head>
@@ -219,7 +225,7 @@
 				<p style="padding-left: 5px;"><b>3º passo</b>: Crie o arquivo <b>styles.css</b>.</p>
 				<p style="padding-left: 5px;"><b>4º passo</b>: Copie o código abaixo e cole no arquivo <b>styles.css</b>.</p>
 				<div style="padding-left: 30px;">
-					<textarea style="background-color:#F5F2F0; width: 450px; resize: none;" readonly="yes" rows="9">
+					<textarea style="background-color:#F5F2F0; width: 90%; resize: none;" readonly="yes" rows="9">
 #SUA_ID {
     webkit-touch-callout: none;  /* iPhone OS, Safari */
     webkit-user-select: none;    /* Chrome, Safari 3 */
@@ -237,7 +243,7 @@
 				<p style="padding-left: 5px;"><b>6º passo</b>: No arquivo <b>styles.css</b>, troque <b>SUA_IMAGEM</b> pelo nome da imagem que você vai usar.</p>
 				<p style="padding-left: 5px;"><b>7º passo</b>: No arquivo <b>index.html</b>, copie e cole o código abaixo na tag body.</p>
 				<div style="padding-left: 30px;">
-					<textarea style="background-color:#F5F2F0; width: 450px; resize: none;" readonly="yes" rows="3">
+					<textarea style="background-color:#F5F2F0; width: 90%; resize: none;" readonly="yes" rows="3">
 <div id="SUA_ID">
     <!--O CONTEÚDO DE SUA DIV FICA AQUI-->
 </div></textarea>
@@ -252,7 +258,7 @@
 				<br>
 				<p style="padding-left: 5px;">index.html</p>
 				<div style="padding-left: 30px;">
-					<textarea style="background-color:#F5F2F0; width: 450px; resize: none;" readonly="yes" rows="12">
+					<textarea style="background-color:#F5F2F0; width: 90%; resize: none;" readonly="yes" rows="12">
 <!DOCTYPE html>
 <html>
     <head>
@@ -269,7 +275,7 @@
 				<br>
 				<p style="padding-left: 5px;">syles.css</p>
 				<div style="padding-left: 30px;">
-					<textarea style="background-color:#F5F2F0; width: 450px; resize: none;" readonly="yes" rows="9">
+					<textarea style="background-color:#F5F2F0; width: 90%; resize: none;" readonly="yes" rows="9">
 #SUA_ID {
     webkit-touch-callout: none;  /* iPhone OS, Safari */
     webkit-user-select: none;    /* Chrome, Safari 3 */
@@ -281,7 +287,7 @@
 }</textarea>
 				</div>
 				<br>
-				<p style="padding-left: 5px;"><b>Resultado:</b></p>
+				<p style="padding-left: 5px;" id="persresult"><b>Resultado:</b></p>
 				<br>
 				<div id="cursorpers">
 					<center>Passe o mouse para ver o cursor personalizado.</center>
@@ -291,12 +297,8 @@
 		</div>
 		<footer class="mdl-mini-footer">
 			<div class="ct-wrapper">
-				<a href="https://technoherobrine.github.io" id="linksite" target="_blank" class="mdl-color-text--deep-blue-700">TechHero</a> - <a href="#topo">Voltar ao topo</a><br></p>
-				<div class="mdl-tooltip" for="linksite"><span>Site TechHero</span></div>
+				<a href="https://technoherobrine.github.io" target="_blank" class="mdl-color-text--deep-blue-900">TechHero</a> - <a href="#topo">Voltar ao topo</a><br></p>
 			</div>
 		</footer>
-	</div>
-	</main>
-	</div>
 	</body>
 </html>

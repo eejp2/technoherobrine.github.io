@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no" />
 		<title>TechHero - Tutoriais</title>
 		<link rel = "stylesheet" 
          href = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-blue.min.css">
@@ -9,40 +10,45 @@
 		</script>
 		<link rel = "stylesheet" 
          href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel = "stylesheet" href = "../styles.css">
 		
 		<style>
 			div#conteudo {
 				padding-left: 15px;
 				padding-top: 10px;
 			}
-			.mdl-demo .mdl-layout__tab-bar {
-				padding: 0;
-				padding-left: 16px;
-				box-sizing: border-box;
-				height: 100%;
-				width: 100%;
-			}
 		</style>
 	</head>
 	<body>
-		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-	<header class="mdl-layout__header">
-		<div class="mdl-layout__header-row">
-			<span class="mdl-layout-title">TechHero</span>
-			<div class="mdl-layout-spacer"></div>
-			<nav class="mdl-navigation mdl-layout--large-screen-only">
-				<a class="mdl-navigation__link" href="https://technoherobrine.github.io">Início</a>
-				<a class="mdl-navigation__link" href="https://technoherobrine.github.io/sites">Sites</a>
-				<a class="mdl-navigation__link" href="https://technoherobrine.github.io/jogos">Jogos</a>
-				<a class="mdl-navigation__link" href="https://technoherobrine.github.io/tutoriais">Tutoriais</a>
+		<header>
+			<h4 class="float-l">
+				<a href="https://technoherobrine.github.io" title="TechHero">TechHero</a><span> - Tutoriais</span>
+			</h4>
+			
+			<input type="checkbox" id="control-nav" />
+			<label for="control-nav" class="control-nav"></label>
+			<label for="control-nav" class="control-nav-close"></label>
+		
+			<nav class="float-r">
+				<ul class="list-auto">
+					<li>
+						<a href="https://technoherobrine.github.io/sites" title="Sites">Sites</a>
+					</li>
+					<li>
+						<a href="https://technoherobrine.github.io/jogos" title="Jogos">Jogos</a>
+					</li>
+					<li>
+						<a href="https://technoherobrine.github.io/tutoriais" title="Tutoriais">Tutoriais</a>
+					</li>
+					<li>
+						<a href="https://technoherobrine.github.io/download" title="Downloads">Downloads</a>
+					</li>
+				</ul>
 			</nav>
-		</div>
-	</header>
-	<main class="mdl-layout__content">
-    <div class="page-content">
+		</header>
 			<div id="conteudo">
 				<h4>Tutoriais</h4>
-				<div class="mdl-grid">
+				<div class="mdl-grid" style="padding-top: 3%;">
 					<div class="mdl-cell mdl-cell--4-col">
 						<a href="tudo">
 						<center><img width="363" height="253" src="thumbs/tudo.png" style="border: 1px solid black;">
@@ -69,8 +75,5 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</main>
-	</div>
 	</body>
 </html>
