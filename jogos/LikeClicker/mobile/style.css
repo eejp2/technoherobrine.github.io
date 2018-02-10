@@ -15,8 +15,8 @@ body {
 input[type=button]#reset {
 	background:red;
 	position: fixed;
-	bottom: 60px;
-	right: 5px;
+	bottom: 10%;
+	right: 3%;
 }
 /*input[type=button]#SaveNLoad {
 	background: #33FFFF;
@@ -74,6 +74,10 @@ body.wob [class^=buttons-] input[type=button]:disabled {
 	position: fixed;
 	bottom: 75px;
 	right: 120px;
+}
+
+#DoubleClick {
+	margin-bottom: 17%;
 }
 
 /* Congratulations! You have found this code. It teaches you how to "hack" the game. Put it on the browser console.
