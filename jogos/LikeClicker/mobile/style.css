@@ -15,8 +15,8 @@ body {
 input[type=button]#reset {
 	background:red;
 	position: fixed;
-	bottom: 10%;
-	right: 3%;
+	bottom: 12%;
+	right: 7%;
 }
 /*input[type=button]#SaveNLoad {
 	background: #33FFFF;
