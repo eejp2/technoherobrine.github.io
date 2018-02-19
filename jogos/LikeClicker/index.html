@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="en-US">
 	<head>
-		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no" />
 		<title>Like Clicker</title>
 		<link rel="stylesheet" type="text/css" href="style.css" media="all" />
 		<link rel="stylesheet" type="text/css" href="dialog-polyfill.css" />
@@ -9,30 +10,34 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	</head>
 	<body>
-		<div id="LikeDPSDiv">
-			<p><input type="button" value="Like" onClick="likeClick(number)" id="LikeBtn" class="btn btn-light" data-toggle="tooltip" title="Like">
-			<span id="likes">You have: 0 likes!</span></p>
-			<span id="dps" data-toggle="tooltip" title="Number of Likes per Second">DPS: 0</span>  |  <span id="dpc" data-toggle="tooltip" title="Number of Likes per Click">DPC: 1</span>
-		</div>
-		<br>
-		<input id="reset" type="button" value="Reset Game" class="btn btn-danger" data-toggle="tooltip" title="Reset the game">
-		<!--<input id="SaveNLoad" type="button" value="Save Game" onClick="saveGame()">
-		<input id="SaveNLoad" type="button" value="Load Game" onClick="loadGame()">-->
-		<div id="NotEnoughLikes" style="display: none; visibility: hidden;">
-			<span class="alert alert-dark" role="alert">You have not got enough likes.</span>
-		</div>
-		<div class="container float-left">
-			<div class="row">
-				<div class="col-3">
-					<div id="FanDiv">
-						<div id="AddFan" class="rounded" class="float-left">
-							<p><input type="button" value="+1 Fan" onClick="addFan()" class="btn btn-light" data-toggle="tooltip" title="Buy +1 Fan"></p>
-							Fans: <span id="fans">0</span><br />
-							DPS: <span id="fanDPS">1</span><br />
-							Cost: <span id="fanCost">10</span>
-						</div>
-						<br>
-					</div>
+		<section>
+		<center>
+			<div id="LikePage" class="TabOpening">
+			<div id="LikeDiv" style="width: 100%;">
+				<div id="LikeBtnDiv" onClick="likeClick(number)" title="Like">
+					<img src="images/like_icon.png" width="192" height="192" id="LikeIcon">
+					<center><span id="LikeLabel">Like</span></center>
+				</div>
+				<span id="likes">You have: 0 likes!</span></p>
+				<div>
+					<span id="dps" data-toggle="tooltip" title="Number of Likes per Second">DPS: 0</span><br>
+					<span id="dpc" data-toggle="tooltip" title="Number of Likes per Click">DPC: 1</span>
+				</div>
+			</div>
+			</div>
+			<div id="NotEnoughLikes" style="display: none; visibility: hidden;">
+				<span class="alert alert-dark" role="alert">You have not got enough likes.</span>
+			</div>
+			<div id="ShopPage" class="TabOpening" style="display: none; visibility: hidden;">
+			<div id="FanDiv" style="width: 100%;">
+				<div id="AddFan" class="rounded" class="float-left">
+					<p><input type="button" value="+1 Fan" onClick="addFan()" class="btn btn-light" data-toggle="tooltip" title="Buy +1 Fan"></p>
+					Fans: <span id="fans">0</span><br />
+					DPS: <span id="fanDPS">1</span><br />
+					Cost: <span id="fanCost">10</span>
+				</div>
+				<br>
+			</div>
 					<div id="SuperFanDiv">
 						<div id="AddSuperFan" class="rounded">
 							<p><input type="button" value="+1 Super Fan" onClick="addSuperFan()" class="btn btn-light" data-toggle="tooltip" title="Buy +1 Super Fan"></p>
@@ -51,8 +56,6 @@
 						</div>
 						<br>
 					</div>
-				</div>
-				<div class="col-3">
 					<div id="FanDiv">
 						<div id="DoubleFans" class="rounded">
 							<p><input type="button" value="x2 Fans (DPS)" onClick="doubleFan()" class="btn btn-light" data-toggle="tooltip" title="Buy x2 Fans"><br />
@@ -77,8 +80,6 @@
 						</div>
 						<br>
 					</div>
-				</div>
-				<div class="col-3">
 					<div id="UltraFanDiv">
 						<div id="AddUltraFan" class="rounded">
 							<p><input type="button" value="+1 Ultra Fan" onClick="addUltraFan()" class="btn btn-light" data-toggle="tooltip" title="Buy +1 Ultra Fan"></p>
@@ -103,9 +104,8 @@
 							DPC: <span id="number">1</span></p>
 							Cost: <span id="addClickCost">22000</span>
 						</div>
+						<br>
 					</div>
-				</div>
-				<div class="col-3">
 					<div id="UltraFanDiv">
 						<div id="DoubleUltraFans" class="rounded">
 							<p><input type="button" value="x2 Ultra Fans (DPS)" onClick="doubleUltraFan()" class="btn btn-light" data-toggle="tooltip" title="Buy x2 Ultra Fans"><br />
@@ -129,9 +129,59 @@
 							Cost: <span id="doubleClickCost">45000</span>
 						</div>
 					</div>
+					</div>
+			</center>
+			<div id="SettingsPage" class="TabOpening" style="display: none; visibility: hidden;">
+				<center><h4>Settings</h4></center>
+				<div id="CategoryDiv">
+					<div>
+						<b id="Category">Reset</b>
+						<hr>
+						<span id="SettingsOption" class="reset" title="Reset the game">Reset the game</span>
+					</div>
+					<!--<br>
+					<div>
+						<b id="Category">Save and Load</b>
+						<hr>
+						<span id="SettingsOption" title="Save the game">Save game</span>
+						<span id="SettingsOption" title="Load the game">Load game</span>
+					</div>-->
+					<br>
+					<div>
+						<b id="Category">About</b>
+						<hr>
+						<span id="SettingsOption" title="Version of the game">Version: 1.0.0</span>
+						<span id="SettingsOption" title="Developer of the game">Develop by: TechHero</span>
+						<span id="SettingsOption" class="showchangelog" title="Open the changelog">Open changelog</span>
+						<a id="SettingsOption" href="https://www.reddit.com/r/LikeClicker/" target="_blank" title="Subreddit of the game">Reddit</a>
+						<a id="SettingsOption" href="https://github.com/TechnoHerobrine/Like-Clicker" target="_blank" title="GitHub Repository of the game">GitHub</a>
+					</div>
 				</div>
 			</div>
-		</div>
+		</section>
+		<table id="MenuTable">
+			<td id="MenuCellShop" onClick="showShop()">
+				<center>
+					<p></p>
+					<img src="images/shop_icon.png" id="IconMenu">
+					<p id="LabelMenu">Shop</p>
+				</center>
+			</td>
+			<td id="MenuCellHome" onClick="showHome()">
+				<center>
+					<p></p>
+					<img src="images/home_icon.png" id="IconMenu">
+					<p id="LabelMenu">Home</p>
+				</center>
+			</td>
+			<td id="MenuCellSettings" onClick="showSettings()">
+				<center>
+					<p></p>
+					<img src="images/settings_icon.png" id="IconMenu">
+					<p id="LabelMenu">Settings</p>
+				</center>
+			</td>
+		</table>
 		<dialog class="dialog">
     <h4 class="dialog__title">Changelog</h4>
     <div class="dialog__content">
@@ -143,7 +193,7 @@
 		</button>
     </div>
   </dialog>
-  <dialog id="resetDialog">
+		<dialog id="resetDialog">
     <h4 class="dialog__title">Reset the game</h4>
     <div class="dialog__content">
 		<center>Do you really want to reset the game?</center>
@@ -154,47 +204,6 @@
     </div>
   </dialog>
 	<script src="dialog-polyfill.js"></script>
-		<nav class="navbar fixed-bottom navbar-expand-lg navbar-light bg-light">
-  <span class="navbar-brand" data-toggle="tooltip" title="Do not copy, please.">Like Clicker by TechHero</span>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-		<a class="nav-item nav-link" href="#" id="showchangelog" data-toggle="tooltip" title="Open changelog">Version 0.3.1</a>
-		<a class="nav-item nav-link" href="https://www.reddit.com/r/LikeClicker/" target="_blank" data-toggle="tooltip" title="Reddit of the game">Reddit</a>
-		<a class="nav-item nav-link" href="https://github.com/TechnoHerobrine/Like-Clicker" target="_blank" data-toggle="tooltip" title="GitHub repository of the game">GitHub</a>
-    </div>
-  </div>
-</nav>
-		<script>
-    var dialog = document.querySelector('dialog');
-    var showDialogButton = document.querySelector('#showchangelog');
-    if (! dialog.showModal) {
-      dialogPolyfill.registerDialog(dialog);
-    }
-    showDialogButton.addEventListener('click', function() {
-      dialog.showModal();
-    });
-    dialog.querySelector('.close').addEventListener('click', function() {
-      dialog.close();
-    });
-	
-	var dialogReset = document.querySelector('#resetDialog');
-    var showDialogResetButton = document.querySelector('#reset');
-    if (! dialogReset.showModal) {
-      dialogPolyfill.registerDialog(dialogReset);
-    }
-    showDialogResetButton.addEventListener('click', function() {
-      dialogReset.showModal();
-    });
-    dialogReset.querySelector('.closedialog').addEventListener('click', function() {
-      dialogReset.close();
-    });
-	dialogReset.querySelector('.resetgame').addEventListener('click', function() {
-      dialogReset.close();
-    });
-  </script>
 		<script type="text/javascript" src="main.js"></script>
 	</body>
 </html>

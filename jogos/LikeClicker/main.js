@@ -485,3 +485,74 @@ window.setInterval(function(){
 	likes = likes + DPS;
 	updateLikes();
 }, 1000);
+
+//TABS
+function showHome() {
+	var ShopPage = document.getElementById("ShopPage"); 
+	ShopPage.style.display="none";
+	ShopPage.style.visibility="hidden";
+	
+	var SettingsPage = document.getElementById("SettingsPage"); 
+	SettingsPage.style.display="none";
+	SettingsPage.style.visibility="hidden";
+	
+	var LikePage = document.getElementById("LikePage"); 
+	LikePage.style.display="block"; 
+	LikePage.style.visibility="visible";
+}
+
+function showShop() {
+	var LikePage = document.getElementById("LikePage"); 
+	LikePage.style.display="none"; 
+	LikePage.style.visibility="hidden";
+	
+	var SettingsPage = document.getElementById("SettingsPage"); 
+	SettingsPage.style.display="none";
+	SettingsPage.style.visibility="hidden";
+	
+	var ShopPage = document.getElementById("ShopPage"); 
+	ShopPage.style.display="block";
+	ShopPage.style.visibility="visible";
+}
+
+function showSettings() {
+	var LikePage = document.getElementById("LikePage"); 
+	LikePage.style.display="none"; 
+	LikePage.style.visibility="hidden";
+	
+	var ShopPage = document.getElementById("ShopPage"); 
+	ShopPage.style.display="none";
+	ShopPage.style.visibility="hidden";
+	
+	var SettingsPage = document.getElementById("SettingsPage"); 
+	SettingsPage.style.display="block";
+	SettingsPage.style.visibility="visible";
+}
+
+//DIALOGS
+var dialog = document.querySelector('dialog');
+    var showDialogButton = document.querySelector('.showchangelog');
+    if (! dialog.showModal) {
+      dialogPolyfill.registerDialog(dialog);
+    }
+    showDialogButton.addEventListener('click', function() {
+      dialog.showModal();
+    });
+    dialog.querySelector('.close').addEventListener('click', function() {
+      dialog.close();
+    });
+	
+	var dialogReset = document.querySelector('#resetDialog');
+    var showDialogResetButton = document.querySelector('.reset');
+    if (! dialogReset.showModal) {
+      dialogPolyfill.registerDialog(dialogReset);
+    }
+    showDialogResetButton.addEventListener('click', function() {
+      dialogReset.showModal();
+    });
+    dialogReset.querySelector('.closedialog').addEventListener('click', function() {
+      dialogReset.close();
+    });
+	dialogReset.querySelector('.resetgame').addEventListener('click', function() {
+      dialogReset.close();
+    });
