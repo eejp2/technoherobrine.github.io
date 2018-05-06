@@ -34,7 +34,7 @@ body {
 
 #NotEnoughLikes {
 	position: fixed;
-	bottom: 100px;
+	bottom: 0px;
 	right: 5px;
 }
 
