@@ -1,0 +1,419 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<title>Like Clicker</title>
+		<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.fr,Intl.~locale.pt"></script>
+		<link rel="icon" type="image/png" href="files/icon.png" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="css/dialog-polyfill.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="me" href="https://twitter.com/LikeClicker">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+	</head>
+	<body>
+		<div style="width: 100%; background: white; height: 30px;">
+			<div id="HideOptions" style="display: none; visibility: hidden; float: left; padding-right: 5px; padding-top: 5px;" onclick="hideSettings()">
+				<i class="material-icons" style="vertical-align: text-top; color: black; display: inline-flex; vertical-align: middle;">arrow_back</i>
+				<span id="LabelMenu">Back</span>
+			</div>
+			<div id="ShowOptions" style="float: right; padding-right: 5px; padding-top: 5px;" onclick="showSettings()">
+				<span id="LabelMenu">Options</span>
+				<i class="material-icons" style="vertical-align: text-top; color: black; display: inline-flex; vertical-align: middle;">settings</i>
+			</div>
+		</div>
+		<section>
+		<center>
+			<div id="LikePage" class="TabOpening">
+				<div id="LikeDiv" style="width: 100%;">
+					<div id="LikeBtnDiv" onClick="likeClick(number)" title="Like">
+						<i class="material-icons" id="like-icon" style="font-size: 180px; display: inline-flex; vertical-align: middle;">thumb_up</i>
+					</div>
+					<span id="likes">You have: 0 likes!</span></p>
+					<div>
+						<span id="dps" data-toggle="tooltip" title="Number of Likes per Second">DPS: 0</span><br>
+						<span id="dpc" data-toggle="tooltip" title="Number of Likes per Click">DPC: 1</span>
+					</div>
+					<audio id="LikeSound" src="sound/like.mp3"></audio>
+					<audio id="PurchaseSound" src="sound/purchase.mp3"></audio>
+					<audio id="WithoutLikesSound" src="sound/withoutlikes.mp3"></audio>
+				</div>
+			</div>
+			<div id="ShopContent">
+			<br id="breakline">
+			<div id="ShopPage" class="TabOpening" style="overflow: auto; height: 100%;">
+				<h3>Shop</h3>
+				<div id="FanDiv">
+					<div id="AddFan" class="rounded">
+						<table id="ItemTable">
+							<td id="ItemCell">
+								<div id="BuyButton" onClick="addFan()" title="Buy +1 Fan">
+									<center>
+										<i class="material-icons" id="like-icon" style="font-size: 50px; color: black; display: inline-flex; vertical-align: middle;">add</i><br>
+										<span style="padding-left: 5px; padding-right: 5px;">+1 Fan</span>
+									</center>
+								</div>
+							</td>
+							<td style="width: 5px;"></td>
+							<td id="ItemCell">
+								<div id="ItemInfo">
+									Fans: <span id="fans">0</span><br />
+									DPS: <span id="fanDPS">1</span><br />
+									Cost: <span id="fanCost">10</span>
+								</div>
+							</td>
+						</table>
+					</div>
+					<br>
+				</div>
+				<div id="SuperFanDiv">
+					<div id="AddSuperFan" class="rounded">
+						<table id="ItemTable">
+							<td id="ItemCell">
+								<div id="BuyButton" onClick="addSuperFan()" title="Buy +1 Super Fan">
+									<center>
+										<i class="material-icons" id="like-icon" style="font-size: 50px; color: black; display: inline-flex; vertical-align: middle;">add</i><br>
+										<span style="padding-left: 5px; padding-right: 5px;">+1 Super Fan</span>
+									</center>
+								</div>
+							</td>
+							<td style="width: 5px;"></td>
+							<td id="ItemCell">
+								<div id="ItemInfo">
+									Super Fans: <span id="superfans">0</span><br />
+									DPS: <span id="superFanDPS">2</span><br />
+									Cost: <span id="superFanCost">100</span>
+								</div>
+							</td>
+						</table>
+					</div>
+					<br>
+				</div>
+				<div id="MegaFanDiv">
+					<div id="AddMegaFan" class="rounded">
+						<table id="ItemTable">
+							<td id="ItemCell">
+								<div id="BuyButton" onClick="addMegaFan()" title="Buy +1 Mega Fan">
+									<center>
+										<i class="material-icons" id="like-icon" style="font-size: 50px; color: black; display: inline-flex; vertical-align: middle;">add</i><br>
+										<span style="padding-left: 5px; padding-right: 5px;">+1 Mega Fan</span>
+									</center>
+								</div>
+							</td>
+							<td style="width: 5px;"></td>
+							<td id="ItemCell">
+								<div id="ItemInfo">
+									Mega Fans: <span id="megafans">0</span><br />
+									DPS: <span id="megaFanDPS">4</span><br />
+									Cost: <span id="megaFanCost">500</span>
+								</div>
+							</td>
+						</table>
+							
+					</div>
+					<br>
+				</div>
+				<div id="UltraFanDiv">
+					<div id="AddUltraFan" class="rounded">
+						<table id="ItemTable">
+							<td id="ItemCell">
+								<div id="BuyButton" onClick="addUltraFan()" title="Buy +1 Ultra Fan">
+									<center>
+										<i class="material-icons" id="like-icon" style="font-size: 50px; color: black; display: inline-flex; vertical-align: middle;">add</i><br>
+										<span style="padding-left: 5px; padding-right: 5px;">+1 Ultra Fan</span>
+									</center>
+								</div>
+							</td>
+							<td style="width: 5px;"></td>
+							<td id="ItemCell">
+								<div id="ItemInfo">
+									Ultra Fans: <span id="ultrafans">0</span><br />
+									DPS: <span id="ultraFanDPS">8</span><br />
+									Cost: <span id="ultraFanCost">1.000</span>
+								</div>
+							</td>
+						</table>
+					</div>
+					<br>
+				</div>
+				<div id="BotDiv">
+					<div id="AddBot" class="rounded">
+						<table id="ItemTable">
+							<td id="ItemCell">
+								<div id="BuyButton" onClick="addBot()" title="Buy +1 Bot">
+									<center>
+										<i class="material-icons" id="like-icon" style="font-size: 50px; color: black; display: inline-flex; vertical-align: middle;">add</i><br>
+										<span style="padding-left: 5px; padding-right: 5px;">+1 Bot</span>
+									</center>
+								</div>
+							</td>
+							<td style="width: 5px;"></td>
+							<td id="ItemCell">
+								<div id="ItemInfo">
+									Bots: <span id="bots">0</span><br />
+									DPS: <span id="botDPS">16</span><br />
+									Cost: <span id="botCost">5.000</span>
+								</div>
+							</td>
+						</table>
+					</div>
+					<br>
+				</div>
+				<div id="FanDiv">
+					<div id="DoubleFans" class="rounded">
+						<table id="ItemTable">
+							<td id="ItemCell">
+								<div id="BuyButton" onClick="doubleFan()" title="Buy x2 Fans">
+									<center>
+										<i class="material-icons" id="like-icon" style="font-size: 50px; color: black; display: inline-flex; vertical-align: middle;">add</i><br>
+										<span style="padding-left: 5px; padding-right: 5px;">x2 Fans<br> (DPS)</span>
+									</center>
+								</div>
+							</td>
+							<td style="width: 5px;"></td>
+							<td id="ItemCell">
+								<div id="ItemInfo">
+									<span><b>Warning</b>:<br> You can only<br> use this once!</span><br>
+									Cost: <span id="doubleFanCost">500</span>
+								</div>
+							</td>
+						</table>
+					</div>
+					<br>
+				</div>
+				<div id="SuperFanDiv">
+					<div id="DoubleSuperFans" class="rounded">
+						<table id="ItemTable">
+							<td id="ItemCell">
+								<div id="BuyButton" onClick="doubleSuperFan()" title="Buy x2 Super Fans">
+									<center>
+										<i class="material-icons" id="like-icon" style="font-size: 50px; color: black; display: inline-flex; vertical-align: middle;">add</i><br>
+										<span style="padding-left: 5px; padding-right: 5px;">x2 Super Fans<br> (DPS)</span>
+									</center>
+								</div>
+							</td>
+							<td style="width: 5px;"></td>
+							<td id="ItemCell">
+								<div id="ItemInfo">
+									<span><b>Warning</b>:<br> You can only<br> use this once!</span><br>
+									Cost: <span id="doubleSuperFanCost">1.000</span>
+								</div>
+							</td>
+						</table>
+					</div>
+					<br>
+				</div>
+				<div id="MegaFanDiv">
+					<div id="DoubleMegaFans" class="rounded">
+						<table id="ItemTable">
+							<td id="ItemCell">
+								<div id="BuyButton" onClick="doubleMegaFan()" title="Buy x2 Mega Fans">
+									<center>
+										<i class="material-icons" id="like-icon" style="font-size: 50px; color: black; display: inline-flex; vertical-align: middle;">add</i><br>
+										<span style="padding-left: 5px; padding-right: 5px;">x2 Mega Fans<br> (DPS)</span>
+									</center>
+								</div>
+							</td>
+							<td style="width: 5px;"></td>
+							<td id="ItemCell">
+								<div id="ItemInfo">
+									<span><b>Warning</b>:<br> You can only<br> use this once!</span><br>
+									Cost: <span id="doubleMegaFanCost">6.000</span>
+								</div>
+							</td>
+						</table>
+					</div>
+					<br>
+				</div>
+				<div id="UltraFanDiv">
+					<div id="DoubleUltraFans" class="rounded">
+						<table id="ItemTable">
+							<td id="ItemCell">
+								<div id="BuyButton" onClick="doubleUltraFan()" title="Buy x2 Ultra Fans">
+									<center>
+										<i class="material-icons" id="like-icon" style="font-size: 50px; color: black; display: inline-flex; vertical-align: middle;">add</i><br>
+										<span style="padding-left: 5px; padding-right: 5px;">x2 Ultra Fans<br> (DPS)</span>
+									</center>
+								</div>
+							</td>
+							<td style="width: 5px;"></td>
+							<td id="ItemCell">
+								<div id="ItemInfo">
+									<span><b>Warning</b>:<br> You can only<br> use this once!</span><br>
+									Cost: <span id="doubleUltraFanCost">12.000</span>
+								</div>
+							</td>
+						</table>
+					</div>
+					<br>
+				</div>
+				<div id="BotDiv">
+					<div id="DoubleBots" class="rounded">
+						<table id="ItemTable">
+							<td id="ItemCell">
+								<div id="BuyButton" onClick="doubleBots()" title="Buy x2 Bots">
+									<center>
+										<i class="material-icons" id="like-icon" style="font-size: 50px; color: black; display: inline-flex; vertical-align: middle;">add</i><br>
+										<span style="padding-left: 5px; padding-right: 5px;">x2 Bots<br> (DPS)</span>
+									</center>
+								</div>
+							</td>
+							<td style="width: 5px;"></td>
+							<td id="ItemCell">
+								<div id="ItemInfo">
+									<span><b>Warning</b>:<br> You can only<br> use this once!</span><br>
+									Cost: <span id="doubleBotsCost">25.000</span>
+								</div>
+							</td>
+						</table>
+					</div>
+					<br>
+				</div>
+				<div id="ClickDiv">
+					<div id="AddClick" class="rounded">
+						<table id="ItemTable">
+							<td id="ItemCell">
+								<div id="BuyButton" onClick="addClick()" title="Buy +1 DPC (Likes per Click)">
+									<center>
+										<i class="material-icons" id="like-icon" style="font-size: 50px; color: black; display: inline-flex; vertical-align: middle;">add</i><br>
+										<span style="padding-left: 5px; padding-right: 5px;">+1 DPC<br> (Clicks)</span>
+									</center>
+								</div>
+							</td>
+							<td style="width: 5px;"></td>
+							<td id="ItemCell">
+								<div id="ItemInfo">
+									DPC: <span id="number">1</span><br>
+									Cost: <span id="addClickCost">22.000</span>
+								</div>
+							</td>
+						</table>
+					</div>
+					<br>
+				</div>
+				<div id="ClickDiv">
+					<div id="DoubleClick" class="rounded">
+						<table id="ItemTable">
+							<td id="ItemCell">
+								<div id="BuyButton" onClick="doubleClick()" title="Buy x2 DPC (Likes per Click)">
+									<center>
+										<i class="material-icons" id="like-icon" style="font-size: 50px; color: black; display: inline-flex; vertical-align: middle;">add</i><br>
+										<span style="padding-left: 5px; padding-right: 5px;">x2 DPC<br> (Clicks)</span>
+									</center>
+								</div>
+							</td>
+							<td style="width: 5px;"></td>
+							<td id="ItemCell">
+								<div id="ItemInfo">
+									<span><b>Warning</b>:<br> You can only<br> use this once!</span><br>
+									Cost: <span id="doubleClickCost">45.000</span>
+								</div>
+							</td>
+						</table>
+					</div>
+				</div>
+			</div>
+			</div>
+			</center>
+			<div id="NotEnoughLikes" style="display: none; visibility: hidden;">
+				<div class="alert alert-dark" role="alert">
+					<span style="padding-right: 5px;">You have not got enough likes.</span>
+					<button type="button" id="CloseAlert" onclick="removeNotEnoughLikes()" class="close" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			</div>
+			
+			<div id="SettingsPage" class="TabOpening" style="display: none; visibility: hidden;">
+				<center><h4>Options</h4></center>
+				<div id="CategoryDiv">
+					<div>
+						<b id="Category">Reset</b>
+						<hr>
+						<span id="SettingsOption" class="reset" title="Reset the game">Reset the game</span>
+					</div>
+					<br>
+					<div>
+						<b id="Category">Sounds</b>
+						<hr>
+						<div id="SettingsOption" onclick="enableDisableSounds()">
+							<span class="autosave" title="Enable sounds">Enable sounds</span>
+							<i id="soundenabled" style="float: right; padding-right: 5px; display: none; visibility: hidden;" class="material-icons">check_box_outline_blank</i>
+							<i id="sounddisabled" style="float: right; padding-right: 5px;" class="material-icons">check_box</i>
+						</div>
+					</div>
+					<br>
+					<!--<div>
+						<b id="Category">Save and Load</b>
+						<hr>
+						<span id="SettingsOption" title="Save the game">Save game</span>
+						<span id="SettingsOption" title="Load the game">Load game</span>
+						<div id="SettingsOption" onclick="enableDisableAutoSave()">
+							<span class="sounds" title="Enable auto save">Enable auto save</span>
+							<i id="saveenabled" style="float: right; padding-right: 5px; display: none; visibility: hidden;" class="material-icons">check_box_outline_blank</i>
+							<i id="savedisabled" style="float: right; padding-right: 5px;" class="material-icons">check_box</i>
+						</div>
+					</div>-->
+					<div>
+						<b id="Category">About</b>
+						<hr>
+						<span id="SettingsOption" title="Version of the game">Version: 1.1.1 Experimental</span>
+						<span id="SettingsOption" title="Developer of the game">Develop by: TechHero</span>
+						<span id="SettingsOption" class="showchangelog" title="Open the changelog">Open changelog</span>
+						<a id="SettingsOption" href="https://likeclicker.reddit.com" target="_blank" title="Subreddit of the game">Reddit</a>
+						<a id="SettingsOption" href="https://github.com/TechnoHerobrine/Like-Clicker" target="_blank" title="GitHub Repository of the game">GitHub</a>
+						<a id="SettingsOption" href="files/likeclicker.apk" target="_blank" title="Get Like Clicker for Android" download>Get Like Clicker for Android</a>
+					</div>
+					<br>
+					<div>
+						<b id="Category">Follow and Share</b>
+						<hr>
+						<a id="SettingsOption" href="https://twitter.com/intent/follow?ref_src=twsrc%5Etfw&region=follow_link&screen_name=LikeClicker&tw_p=followbutton" target="_blank" title="Follow Like Clicker on Twitter">Follow Like Clicker on Twitter</a>
+						<a id="SettingsOption" href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=Hey%2C%20I%27m%20playing%20Like%20Clicker!%20Play%20you%20too.&tw_p=tweetbutton&url=file%3A%2F%2F%2FC%3A%2FUsers%2Fleomar%2FDesktop%2Flike%2520clicker%2520source%2520code%2Findex.html&via=LikeClicker" target="_blank" title="Share on Twitter">Share on Twitter</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<dialog class="dialog" style="width: 80%;">
+    <h4 class="dialog__title">Changelog</h4>
+    <div class="dialog__content">
+		<iframe src="changelog.html" height="300" width="100%" style="border: none;"></iframe>
+    </div>
+    <div class="dialog__actions">
+		<button type="button" class="close" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+    </div>
+  </dialog>
+		<dialog id="resetDialog" width="80">
+    <h4 class="dialog__title">Reset the game</h4>
+    <div class="dialog__content">
+		<center>Do you really want to reset the game?</center>
+    </div>
+    <div class="dialog__actions">
+		<input type="button" value="Yes" class="resetgame btn btn-light" onClick="resetGame()">
+		<input type="button" value="No" class="closedialog btn btn-light">
+    </div>
+  </dialog>
+		<script src="js/dialog-polyfill.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+	</body>
+</html>

@@ -1,0 +1,209 @@
+body {
+	font-family:'Arial';
+	background: url("../files/bg.jpg");
+}
+
+#container {
+	border:1px solid black;
+	width: 200px;
+	border-collapse: collapse;
+}
+
+#info {
+	border:1px solid black;
+	position: fixed;
+	left: 0;
+	bottom: -1px;
+	height: 30px;
+	width: 405px;
+	background-color: white;
+}
+
+#InfoTxt {
+	position: fixed;
+	left: 0;
+	bottom: 0.5%;
+	padding-left: 2px;
+}
+
+#AddFan, #DoubleFans, #AddSuperFan, #DoubleSuperFans, #AddMegaFan, #DoubleMegaFans, #AddUltraFan, #DoubleUltraFans, #AddBot, #DoubleBots, #AddClick, #DoubleClick {
+	border: 1px solid black;
+	background-color: white;
+	width: 100%;
+}
+
+#NotEnoughLikes {
+	position: fixed;
+	bottom: 100px;
+	right: 5px;
+}
+
+#CategoryDiv {
+	margin-left: 5%;
+	margin-right: 5%;
+	padding-left: 2px;
+}
+
+#Category {
+	padding-left: 5px;
+}
+
+#SettingsOption {
+	right: 20px;
+	top: 20px;
+	display: block;
+	padding: 5px 0;
+	border: 1px solid black;
+	z-index: 2;
+	cursor: pointer;
+	margin-bottom: 5px;
+	text-decoration: none;
+	color: #000;
+	transition: background 0.5s;
+	padding-left: 5px;
+	background: white;
+}
+
+#SettingsOption:hover {
+	background: #bfbfbf;
+}
+
+#ShopPage, #SettingsPage {
+	background: url("../files/bg2.jpg");
+}
+
+#like-icon {
+	cursor: pointer;
+	transition: color 0.5s;
+	color: black;
+}
+
+#like-icon:hover {
+	color: #232323;
+}
+
+body {
+	webkit-touch-callout: none;  /* iPhone OS, Safari */
+	webkit-user-select: none;    /* Chrome, Safari 3 */
+	khtml-user-select: none;     /* Safari 2 */
+	moz-user-select: none;       /* Firefox */
+	ms-user-select: none;        /* IE10+ */
+	user-select: none;
+}
+
+.TabOpening {
+	animation: opac 0.8s;
+}
+
+@keyframes opac {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+#BuyButton {
+	border: 1px solid black;
+	cursor: pointer;
+	border-radius: 5px;
+	transition: background 0.5s;
+	min-width: 150px;
+	max-width: 180px;
+}
+
+#BuyButton:hover {
+	background:rgba(0,0,0,.1);
+}
+
+#ItemTable {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 80%:
+}
+
+#ItemCell {
+	min-width: 150px;
+	max-width: 150px;
+}
+
+#ShowOptions, #HideOptions {
+	cursor: pointer;
+}
+
+@media screen and (min-width: 614px) {
+
+#LikePage {
+	width: 50%;
+	float: left;
+}
+	
+#ShopContent {
+	height: 93.6vh;
+	width: 50%;
+	float: left;
+}
+
+#breakline {
+	display: none;
+}
+
+}
+
+@media screen and (max-width: 613px) {
+
+#LikePage {
+	width: 100%;
+}
+	
+#ShopContent {
+	height: 93.6vh;
+	width: 100%;
+}
+
+#breakline {
+	display: block;
+}
+
+#like-icon {
+	padding-left: 20px;
+}
+
+}
+
+#ShopContent {
+	height: 95.3vh;
+}
+
+/*@media screen and (min-height: 1001px) {
+	
+#ShopContent {
+	height: 110vh;
+}
+
+}
+
+@media screen and (min-height: 751px) and (max-height: 991px) {
+
+#ShopContent {
+	height: 43.6vh;
+}
+
+}
+
+@media screen and (min-height: 510px) and (max-height: 660px) {
+
+#ShopContent {
+	height: 25vh;
+}
+
+}
+
+@media screen and (min-height: 100px) and (max-height: 509px) {
+
+#ShopContent {
+	height: 25vh;
+}
+
+}*/
