@@ -1,0 +1,182 @@
+﻿Let's make a game!
+	name:Like Clicker
+	by:TechHero
+	desc:You are an ordinary person who wants to be an internet celebrity. But to get there, you need to have many likes.
+	created:05/07/2018
+	updated:05/07/2018
+	version:1
+
+Settings
+	background:https://image.ibb.co/goQhZS/bg.jpg
+	building cost increase:115%
+	building cost refund:50%
+	spritesheet:icons, 48 by 48, https://image.ibb.co/iVhMuS/like_Icons.png
+	stylesheet:stuff/bigBlue.css
+
+Layout
+	use default
+		
+Buttons
+	*likeButton
+		name:Gain Likes
+		desc:Click this like button to get more likes!
+		on click:anim icon wobble
+		on click:yield 1 bunny
+		on click:if (have goldenTouch and chance(1%)) yield 1 goldenCarrot
+		icon:https://image.ibb.co/nPhzg7/like.png
+		no text
+		class:bigButton hasFlares
+		icon class:shadowed
+		tooltip origin:bottom
+		tooltip class:red
+		
+Resources
+	*like|likes
+		name:Like|Likes
+		desc:These are your likes. You can use them to purchase things. Your goal is to have as many likes as possible!
+		icon:icons[0,0]
+		class:noBackground
+		show earned
+		
+	*goldenLike|goldenLikes
+		name:Golden like|Golden likes
+		desc:These shiny likes are terribly rare and terribly precious!
+		icon:icons[0,1]
+		class:noBackground
+		hidden when 0
+		
+Shinies
+	*goldenLike
+		on click:log Woop
+		movement:onRight moveLeft fade bounce:0.05
+		frequency:60
+		frequency variation:30
+		icon:https://image.ibb.co/b6QzES/goldenlike.png
+		class:bigButton
+		on click:
+			$boost=1
+			if (have clover) $boost=4
+			if (chance(25%))
+				//get at least 7, or between 1 and 3 minutes of our bunny production
+				$amount=max(7,random(bunnies:ps*60*1,bunnies:ps*60*3))*$boost
+				toast The golden like grants you<//><b>[$amount] likes</b>.
+				yield $amount likes
+			else
+				$amount=1*$boost
+				toast The golden like grants you<//><b>[$amount] golden like[s?$amount]</b>!
+				yield $amount goldenLike
+			end
+		end
+
+Buildings
+	*TEMPLATE
+		on click:anim glow
+		
+	*fan|fans
+		name:Fan|Fans
+		desc:Buy +1 Fan.<//><b>Effect:</b><.>Produces 1 like every 10 seconds.
+		icon:icons[3,0]
+		cost:15 bunnies
+		on tick:yield 0.1 like
+		unlocked
+		
+Upgrades
+	*TEMPLATE
+		on click:anim glow
+	
+	*employees
+		name:Employees
+		desc:Employees work by making their clicks worth more.<//><b>Effect:</b><.>+1 like/click
+		icon:icons[1,1]
+		cost:100 likes
+		passive:increase bunny yield of bunnyButton by 1
+		req:10 bunnies:earned
+	
+	*goldenLikes
+		name:Golden likes
+		desc:Golden likes are worth more than normal likes.<//><b>Effect:</b><.>1% chance of gaining 1 golden like per like click
+		icon:icons[2,5]
+		cost:1 goldenLike
+		req:1 goldenLike:earned
+		
+	*goldenLikes2
+		name:Golden Likes 2
+		desc:Golden likes will appear more when buying this upgrade.<//><b>Effect:</b><.>golden likes appear 30% more often
+		icon:icons[2,6]
+		passive:multiply frequency of goldenLike by 0.7
+		cost:5 goldenLikes
+		req:1 goldenLike:earned
+		
+Achievements
+	*TEMPLATE
+		on click:anim glow
+		
+	*likeAchiev1
+		name:The beginning
+		desc:Have <b>1</b> like.
+		req:1 like
+		icon:icons[2,4] icons[0,2] icons[0,6]
+	*likeAchiev2
+		name:The more the merrier
+		desc:Have <b>1000</b> likes.
+		req:1000 likes
+		icon:icons[2,4] icons[0,3] icons[0,6]
+	*likeAchiev3
+		name:Full of likes
+		desc:Have <b>1000000</b> likes.
+		req:10000000 likes
+		icon:icons[2,4] icons[0,4] icons[0,6]
+		
+	*clickAchiev1
+		name:It's just starting
+		desc:Click the like <b>10</b> times.
+		req:10 likeButton clicks
+		icon:icons[2,2] icons[0,2] icons[0,6]
+	*clickAchiev2
+		name:Keep it up
+		desc:Click the like <b>100</b> times.
+		req:100 likeButton clicks
+		icon:icons[2,2] icons[0,3] icons[0,6]
+	*clickAchiev3
+		name:2.000 clicks? WOW
+		desc:Click the like <b>2000</b> times.
+		req:2000 likeButton clicks
+		icon:icons[2,2] icons[0,4] icons[0,6]
+	*clickAchiev4
+		name:God of Clicks
+		desc:Click the like <b>10000</b> times.
+		req:10000 likeButton clicks
+		icon:icons[2,2] icons[0,4] icons[0,6]
+
+	*likePsAchiev1
+		name:Independent production
+		desc:Produce <b>10</b> likes per second.
+		req:10 likes per second
+		icon:icons[2,3] icons[0,2] icons[0,6]
+	*likePsAchiev2
+		name:I do not even need to click
+		desc:Produce <b>1000</b> likes per second.
+		req:1000 likes per second
+		icon:icons[2,3] icons[0,3] icons[0,6]
+	*likePsAchiev3
+		name:Famous
+		desc:Produce <b>100000</b> likes per second.
+		req:100000 likes per second
+		icon:icons[2,3] icons[0,4] icons[0,6]
+		
+	*gLikeAchiev1
+		name:First golden like
+		desc:Have <b>1</b> golden like.
+		req:1 goldenLike
+		icon:icons[0,1] icons[0,2]
+	*gLikeAchiev2
+		name:Many golden likes
+		desc:Have <b>100</b> golden likes.
+		req:100 goldenLike
+		icon:icons[0,1] icons[0,3]
+	*gLikeAchiev3
+		name:Are you good at it
+		desc:Have <b>1000</b> golden likes.
+		req:1000 goldenLike
+		icon:icons[0,1] icons[0,4]
+		
