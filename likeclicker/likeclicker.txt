@@ -92,7 +92,7 @@ Upgrades
 		passive:increase bunny yield of bunnyButton by 1
 		req:10 bunnies:earned
 	
-	*goldenLikes
+	*goldenLikesUpG
 		name:Golden likes
 		desc:Golden likes are worth more than normal likes.<//><b>Effect:</b><.>1% chance of gaining 1 golden like per like click
 		icon:icons[2,5]
