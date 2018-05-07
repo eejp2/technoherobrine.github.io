@@ -535,7 +535,7 @@ function updateLPS(){
 
 //FUNCTION OF UPDATING LPC
 function updateLPC(){
-	document.getElementById('lpc').innerHTML = "LPC: " + LPC;
+	document.getElementById('lpc').innerHTML = 'LPC: ' + LPCs;
 }
 
 //TIME INTERVAL (LIKES PER SECOND)
