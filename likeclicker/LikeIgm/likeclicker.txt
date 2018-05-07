@@ -55,7 +55,7 @@ Shinies
 		class:bigButton
 		on click:
 			$boost=1
-			if (have clover) $boost=4
+			if (have goldenLikesUpG) $boost=4
 			if (chance(25%))
 				$amount=max(7,random(likes:ps*60*1,bunnies:ps*60*3))*$boost
 				toast The golden like grants you<//><b>[$amount] likes</b>.
