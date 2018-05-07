@@ -21,7 +21,7 @@ Buttons
 		name:Gain Likes
 		desc:Click this like button to get more likes!
 		on click:anim icon wobble
-		on click:yield 1 bunny
+		on click:yield 1 like
 		on click:if (have goldenLike and chance(1%)) yield 1 goldenLike
 		icon:https://image.ibb.co/nPhzg7/like.png
 		no text
@@ -88,7 +88,7 @@ Upgrades
 		desc:Employees work by making their clicks worth more.<//><b>Effect:</b><.>+1 like/click
 		icon:icons[1,1]
 		cost:100 likes
-		passive:increase bunny yield of bunnyButton by 1
+		passive:increase like yield of likeButton by 1
 		req:10 bunnies:earned
 	
 	*goldenLikesUpG
