@@ -57,7 +57,7 @@ Shinies
 			$boost=1
 			if (have goldenLikesUpG) $boost=4
 			if (chance(25%))
-				$amount=max(7,random(likes:ps*60*1,bunnies:ps*60*3))*$boost
+				$amount=max(7,random(likes:ps*60*1,likes:ps*60*3))*$boost
 				toast The golden like grants you<//><b>[$amount] likes</b>.
 				yield $amount likes
 			else
@@ -75,7 +75,7 @@ Buildings
 		name:Fan|Fans
 		desc:Buy +1 Fan.<//><b>Effect:</b><.>Produces 1 like every 10 seconds.
 		icon:icons[3,0]
-		cost:15 bunnies
+		cost:15 likes
 		on tick:yield 0.1 like
 		unlocked
 		
@@ -89,7 +89,7 @@ Upgrades
 		icon:icons[1,1]
 		cost:100 likes
 		passive:increase like yield of likeButton by 1
-		req:10 bunnies:earned
+		req:10 likes:earned
 	
 	*goldenLikesUpG
 		name:Golden likes
