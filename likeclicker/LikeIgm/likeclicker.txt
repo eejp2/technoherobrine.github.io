@@ -1,4 +1,4 @@
-﻿Let's make a game!
+Let's make a game!
 	name:Like Clicker
 	by:TechHero
 	desc:You are an ordinary person who wants to be an internet celebrity. But to get there, you need to have many likes.
@@ -10,7 +10,7 @@ Settings
 	background:https://image.ibb.co/goQhZS/bg.jpg
 	building cost increase:115%
 	building cost refund:50%
-	spritesheet:icons, 48 by 48, https://image.ibb.co/iVhMuS/like_Icons.png
+	spritesheet:icons, 48 by 48, https://image.ibb.co/hOg9g7/like_Icons.png
 	stylesheet:https://technoherobrine.github.io/likeclicker/LikeIgm/bigBlue.css
 
 Layout
