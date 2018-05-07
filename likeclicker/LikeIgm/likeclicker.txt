@@ -10,7 +10,7 @@ Settings
 	background:https://image.ibb.co/goQhZS/bg.jpg
 	building cost increase:115%
 	building cost refund:50%
-	spritesheet:icons, 48 by 48, https://image.ibb.co/hOg9g7/like_Icons.png
+	spritesheet:icons, 48 by 48, https://image.ibb.co/en49W7/like_Icons.png
 	stylesheet:https://technoherobrine.github.io/likeclicker/LikeIgm/bigBlue.css
 
 Layout
@@ -23,7 +23,7 @@ Buttons
 		on click:anim icon wobble
 		on click:yield 1 like
 		on click:if (have goldenLike and chance(1%)) yield 1 goldenLike
-		icon:https://image.ibb.co/nPhzg7/like.png
+		icon:https://image.ibb.co/jHcJPS/like_Button.png
 		no text
 		class:bigButton hasFlares
 		icon class:shadowed
