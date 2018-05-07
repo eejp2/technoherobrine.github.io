@@ -48,7 +48,7 @@ document.getElementById('superfans').innerHTML = nf.format(superfans);
 document.getElementById('megafans').innerHTML = nf.format(megafans);
 document.getElementById('ultrafans').innerHTML = nf.format(ultrafans);
 document.getElementById('bots').innerHTML = nf.format(bots);
-document.getElementById('lpc').innerHTML = nf.format(LPC);
+document.getElementById('lpc').innerHTML = 'LPC: ' + nf.format(LPC);
 
 document.getElementById('fanLPS').innerHTML = nf.format(fanLPS);
 document.getElementById('superFanLPS').innerHTML = nf.format(superFanLPS);
@@ -525,7 +525,7 @@ function updateLikes(){
 
 //FUNCTION OF UPDATING LPS
 function updateLPS(){
-	document.getElementById('lps').innerHTML = 'LPS: ' + LPS;
+	document.getElementById('lps').innerHTML = 'LPS: ' + nf.format(LPS);
 	document.getElementById('fanLPS').innerHTML = fanLPS;
 	document.getElementById('superFanLPS').innerHTML = superFanLPS;
 	document.getElementById('megaFanLPS').innerHTML = megaFanLPS;
@@ -535,7 +535,7 @@ function updateLPS(){
 
 //FUNCTION OF UPDATING LPC
 function updateLPC(){
-	document.getElementById('lpc').innerHTML = 'LPC: ' + LPCs;
+	document.getElementById('lpc').innerHTML = 'LPC: ' + nf.format(LPC);
 }
 
 //TIME INTERVAL (LIKES PER SECOND)
