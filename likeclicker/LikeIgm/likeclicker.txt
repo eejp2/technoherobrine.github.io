@@ -10,7 +10,7 @@ Settings
 	background:https://image.ibb.co/goQhZS/bg.jpg
 	building cost increase:115%
 	building cost refund:50%
-	spritesheet:icons, 48 by 48, https://image.ibb.co/en49W7/like_Icons.png
+	spritesheet:icons, 48 by 48, https://image.ibb.co/nLwyr7/like_Icons.png
 	stylesheet:https://technoherobrine.github.io/likeclicker/LikeIgm/bigBlue.css
 
 Layout
@@ -51,7 +51,7 @@ Shinies
 		movement:onRight moveLeft fade bounce:0.05
 		frequency:60
 		frequency variation:30
-		icon:https://image.ibb.co/b6QzES/goldenlike.png
+		icon:https://image.ibb.co/kVggB7/goldenlike.png
 		class:bigButton
 		on click:
 			$boost=1
