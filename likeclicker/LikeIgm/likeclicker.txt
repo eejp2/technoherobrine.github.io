@@ -11,7 +11,7 @@ Settings
 	building cost increase:115%
 	building cost refund:50%
 	spritesheet:icons, 48 by 48, https://image.ibb.co/iVhMuS/like_Icons.png
-	stylesheet:stuff/bigBlue.css
+	stylesheet:https://technoherobrine.github.io/likeclicker/LikeIgm/bigBlue.css
 
 Layout
 	use default
@@ -22,7 +22,7 @@ Buttons
 		desc:Click this like button to get more likes!
 		on click:anim icon wobble
 		on click:yield 1 bunny
-		on click:if (have gLikeTouch and chance(1%)) yield 1 goldenCarrot
+		on click:if (have likeTouch and chance(1%)) yield 1 goldenCarrot
 		icon:https://image.ibb.co/nPhzg7/like.png
 		no text
 		class:bigButton hasFlares
