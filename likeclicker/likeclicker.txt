@@ -1,4 +1,4 @@
-﻿Let's make a game!
+Let's make a game!
 	name:Like Clicker
 	by:TechHero
 	desc:You are an ordinary person who wants to be an internet celebrity. But to get there, you need to have many likes.
@@ -46,7 +46,7 @@ Resources
 		hidden when 0
 		
 Shinies
-	*goldenLike
+	*goldenLike2
 		on click:log Woop
 		movement:onRight moveLeft fade bounce:0.05
 		frequency:60
@@ -103,7 +103,7 @@ Upgrades
 		name:Golden Likes 2
 		desc:Golden likes will appear more when buying this upgrade.<//><b>Effect:</b><.>golden likes appear 30% more often
 		icon:icons[2,6]
-		passive:multiply frequency of goldenLike by 0.7
+		passive:multiply frequency of goldenLike2 by 0.7
 		cost:5 goldenLikes
 		req:1 goldenLike:earned
 		
