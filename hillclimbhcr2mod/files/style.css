@@ -1,0 +1,51 @@
+@media screen and (max-width: 730px) {
+	
+#gamescreenshots {
+	visibility: hidden;
+	display: none;
+}
+
+#gamescreenshotsmobile {
+	visibility: visible;
+	display: block;
+}
+
+}
+
+@media screen and (min-width: 731px) {
+	
+#gamescreenshots {
+	visibility: visible;
+	display: block;
+}
+
+#gamescreenshotsmobile {
+	visibility: hidden;
+	display: none;
+}
+
+}
+
+@media screen and (min-width: 401px) and (max-width: 468px) {
+
+#img1, #img2, #img3, #img4, #img5 {
+	width: 80%;
+}
+
+}
+
+@media screen and (min-width: 319px) and (max-width: 400px) {
+
+#img1, #img2, #img3, #img4, #img5 {
+	width: 90%;
+}
+
+}
+
+@media screen and (max-width: 318px) {
+
+#img1, #img2, #img3, #img4, #img5 {
+	width: 100%;
+}
+
+}

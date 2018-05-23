@@ -1,10 +1,67 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>HCR2 Mod Download</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-            </head>
-    <body>
-        Download coming soon
-    </body>
+	<head>
+		<title>HCR2 Mod Download</title>
+		<meta charset="iso-8859-1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<script src="../files/script.js"></script>
+		<link href="../files/style.css" rel="stylesheet">
+	</head>
+	<body style="font-family: 'Roboto', sans-serif; user-select: none;">
+		<center>
+		<div id="gameinfo" style="width: 80%;">
+			<img width="210" height="210" style="background: url('../files/logo.png')">
+			<p><b>Hill Climb Racing HCR2 Mod</b></p>
+			<div width="210px" height="100px">
+				<p>Version 0.1</p>
+				<a href="../files/Hill Climb Racing HCR2 Mod.apk" style="text-decoration: none;" download>
+					<button class="btn btn-success" style="border: 1px solid black;">Download</button>
+				</a>
+				<a href="../credits/index.html">Credits of the mod</a>
+			</div>
+		</div>
+		</center>
+		<br>
+		<div id="gamescreenshots" style="max-height: 300px; overflow-x: auto; white-space: nowrap;">
+			<img onclick="openImage1()" width="360" height="240" style="cursor: zoom-in;" src="../files/image1.jpg">
+			<img onclick="openImage2()" width="360" height="240" style="cursor: zoom-in;" src="../files/image2.png">
+			<img onclick="openImage3()" width="360" height="240" style="cursor: zoom-in;" src="../files/image3.png">
+			<img onclick="openImage4()" width="360" height="240" style="cursor: zoom-in;" src="../files/image4.png">
+			<img onclick="openImage5()" width="360" height="240" style="cursor: zoom-in;" src="../files/image5.png">
+		</div>
+		<div id="gamescreenshotsmobile">
+			<center>
+				<img id="img1" width="360" height="240" src="../files/image1.jpg"><br><br>
+				<img id="img2" width="360" height="240" src="../files/image2.png"><br><br>
+				<img id="img3" width="360" height="240" src="../files/image3.png"><br><br>
+				<img id="img4" width="360" height="240" src="../files/image4.png"><br><br>
+				<img id="img5" width="360" height="240" src="../files/image5.png"><br><br>
+			</center>
+		</div>
+		<div>
+			<div id="scrsht1" style="visibility: hidden; display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">
+				<img width="720" height="480" src="../files/image1.jpg">
+				<button class="btn btn-light" onclick="closeImage1()" style="border: 1px solid black; position: absolute; left: 2px; top: 2px; z-index: 3">Close</button>
+			</div>
+			<div id="scrsht2" style="visibility: hidden; display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">
+				<img width="720" height="480" src="../files/image2.png">
+				<button class="btn btn-light" onclick="closeImage2()" style="border: 1px solid black; position: absolute; left: 2px; top: 2px; z-index: 3;">Close</button>
+			</div>
+			<div id="scrsht3" style="visibility: hidden; display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">
+				<img width="720" height="480" src="../files/image3.png">
+				<button class="btn btn-light" onclick="closeImage3()" style="border: 1px solid black; position: absolute; left: 2px; top: 2px; z-index: 3;">Close</button>
+			</div>
+			<div id="scrsht4" style="visibility: hidden; display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">
+				<img width="720" height="480" src="../files/image4.png">
+				<button class="btn btn-light" onclick="closeImage4()" style="border: 1px solid black; position: absolute; left: 2px; top: 2px; z-index: 3;">Close</button>
+			</div>
+			<div id="scrsht5" style="visibility: hidden; display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">
+				<img width="720" height="480" src="../files/image5.png">
+				<button class="btn btn-light" onclick="closeImage5()" style="border: 1px solid black; position: absolute; left: 2px; top: 2px; z-index: 3;">Close</button>
+			</div>
+		</div>
+		<div id="darkfullscreen" style="width: 100%; height: 100%; position: absolute; left: 0; top: 0; background-color: rgb(0, 0, 0, 0.5); visibility: hidden; display: none; z-index: 1;"></div>
+	</body>
 </html>
