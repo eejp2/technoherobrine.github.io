@@ -5,13 +5,13 @@ var superfans = 0;
 var megafans = 0;
 var ultrafans = 0;
 var bots = 0;
-var LPC = 1;
-var LPS = 0;
-var fanLPS = 1;
-var superFanLPS = 2;
-var megaFanLPS = 4;
-var ultraFanLPS = 8;
-var botLPS = 16;
+var number = 1;
+var DPS = 0;
+var fanDPS = 1;
+var superFanDPS = 2;
+var megaFanDPS = 4;
+var ultraFanDPS = 8;
+var botDPS = 16;
 var sounds = 1;
 
 //BUG CORRECTION OF THE ENTER KEY
@@ -39,7 +39,7 @@ var doubleBotsCost = 25000;
 	document.getElementById('doubleBotsCost').innerHTML = nf.format(doubleBotsCost);
 var doubleClickCost = 45000;
 	document.getElementById('doubleClickCost').innerHTML = nf.format(doubleClickCost);
-var addClickCost = Math.floor(20000 * Math.pow(1.1,LPC));
+var addClickCost = Math.floor(20000 * Math.pow(1.1,number));
 	document.getElementById('addClickCost').innerHTML = nf.format(addClickCost);
 
 //SET NUMBER FORMATTING
@@ -48,13 +48,13 @@ document.getElementById('superfans').innerHTML = nf.format(superfans);
 document.getElementById('megafans').innerHTML = nf.format(megafans);
 document.getElementById('ultrafans').innerHTML = nf.format(ultrafans);
 document.getElementById('bots').innerHTML = nf.format(bots);
-document.getElementById('lpc').innerHTML = 'LPC: ' + nf.format(LPC);
+document.getElementById('number').innerHTML = nf.format(number);
 
-document.getElementById('fanLPS').innerHTML = nf.format(fanLPS);
-document.getElementById('superFanLPS').innerHTML = nf.format(superFanLPS);
-document.getElementById('megaFanLPS').innerHTML = nf.format(megaFanLPS);
-document.getElementById('ultraFanLPS').innerHTML = nf.format(ultraFanLPS);
-document.getElementById('botLPS').innerHTML = nf.format(botLPS);
+document.getElementById('fanDPS').innerHTML = nf.format(fanDPS);
+document.getElementById('superFanDPS').innerHTML = nf.format(superFanDPS);
+document.getElementById('megaFanDPS').innerHTML = nf.format(megaFanDPS);
+document.getElementById('ultraFanDPS').innerHTML = nf.format(ultraFanDPS);
+document.getElementById('botDPS').innerHTML = nf.format(botDPS);
 
 //RESET THE GAME
 function resetGame(){
@@ -64,13 +64,13 @@ function resetGame(){
 	recreateDoubleBots();
 	recreateDoubleClick();
     likes = 0;
-	LPS = 0;
+	DPS = 0;
 	fans = 0;
 	superfans = 0;
 	megafans = 0;
 	ultrafans = 0;
 	bots = 0;
-	LPC = 1;
+	number = 1;
 	fanCost = 10;
 	doubleFanCost = 500;
 	superFanCost = 100;
@@ -84,17 +84,17 @@ function resetGame(){
 	addClickCost = 20000;
 	doubleClickCost = 45000;
 	updateLikes();
-	updateLPS();
-	fanLPS = 1;
-	document.getElementById('fanLPS').innerHTML = nf.format(fanLPS);
-	superFanLPS = 2;
-	document.getElementById('superFanLPS').innerHTML = nf.format(superFanLPS);
-	megaFanLPS = 4;
-	document.getElementById('megaFanLPS').innerHTML = nf.format(megaFanLPS);
-	ultraFanLPS = 8;
-	document.getElementById('ultraFanLPS').innerHTML = nf.format(ultraFanLPS);
-	botLPS = 16;
-	document.getElementById('botLPS').innerHTML = nf.format(botLPS);
+	updateDPS();
+	fanDPS = 1;
+	document.getElementById('fanDPS').innerHTML = nf.format(fanDPS);
+	superFanDPS = 2;
+	document.getElementById('superFanDPS').innerHTML = nf.format(superFanDPS);
+	megaFanDPS = 4;
+	document.getElementById('megaFanDPS').innerHTML = nf.format(megaFanDPS);
+	ultraFanDPS = 8;
+	document.getElementById('ultraFanDPS').innerHTML = nf.format(ultraFanDPS);
+	botDPS = 16;
+	document.getElementById('botDPS').innerHTML = nf.format(botDPS);
 	document.getElementById('fans').innerHTML = nf.format(fans);
 	document.getElementById('fanCost').innerHTML = nf.format(fanCost);
 	document.getElementById('doubleFanCost').innerHTML = nf.format(doubleFanCost);
@@ -110,17 +110,17 @@ function resetGame(){
 	document.getElementById('bots').innerHTML = nf.format(bots);
 	document.getElementById('botCost').innerHTML = nf.format(botCost);
 	document.getElementById('doubleBotsCost').innerHTML = nf.format(doubleBotsCost);
-	document.getElementById('lpc').innerHTML = nf.format(LPC);
+	document.getElementById('number').innerHTML = nf.format(number);
 	document.getElementById('addClickCost').innerHTML = nf.format(addClickCost);
 	document.getElementById('doubleClickCost').innerHTML = nf.format(doubleClickCost);
 };
 
 //CLICK FUNCTION
-function likeClick(LPC){
+function likeClick(number){
 	if (sounds == 1) {
 		document.querySelector('#LikeSound').play();
 	}
-	likes += LPC;
+	likes = likes + number;
 	updateLikes();
 };
 
@@ -130,12 +130,12 @@ function likeClick(LPC){
 function addFan(){
     var fanCost = Math.floor(10 * Math.pow(1.1,fans));     //adds a cost amount to each unit purchased
     if(likes >= fanCost){                                   //check if the player has enough likes
-        fans += 1;                                   //item number increases
+        fans = fans + 1;                                   //item number increases
     	likes = likes - fanCost;                          //spend the likes
         document.getElementById('fans').innerHTML = nf.format(fans);  //updates the number of units purchased
         updateLikes();                                    //update likes
-	LPS += fanLPS;                                    //increases the total lps according to item lps
-	updateLPS();                                     //update lps
+	DPS += fanDPS;                                    //increases the total dps according to item dps
+	updateDPS();                                     //update dps
 	if (sounds == 1) {
 		document.querySelector('#PurchaseSound').play();
 	}
@@ -154,11 +154,12 @@ function doubleFan(){
     	likes = likes - doubleFanCost;
         updateLikes();
 	removeDoubleFan();
-	doubleFanLPS();
-	updateLPS();
+	doubleFanDPS();
+	updateDPS();
 	if (sounds == 1) {
 		document.querySelector('#PurchaseSound').play();
 	}
+	document.getElementById("DoubleFanBR").style.display = "none";
     }
 	else {
 		notEnoughLikes();
@@ -179,13 +180,13 @@ function recreateDoubleFan()                                 //"recreates" the x
    rctDoubleFan.style.visibility="initial"; 
 }
 
-function doubleFanLPS() {                                 //updates the fan lps
+function doubleFanDPS() {                                 //updates the fan dps
 	var doubleFansDPS = document.getElementById("DoubleFans");
-	if (doubleFansLPS.style.visibility == "hidden") {
-			fanLPS = 2;
-			updateLPS();
+	if (doubleFansDPS.style.visibility == "hidden") {
+			fanDPS = 2;
+			updateDPS();
 		} else {
-			fanLPS = 1;
+			fanDPS = 1;
 		}
 }
 
@@ -196,8 +197,8 @@ function addSuperFan(){
         superfans = superfans + 1;
     	likes = likes - superFanCost;
         document.getElementById('superfans').innerHTML = nf.format(superfans);
-        LPS += superFanLPS;
-	updateLPS();
+        DPS += superFanDPS;
+	updateDPS();
 	if (sounds == 1) {
 		document.querySelector('#PurchaseSound').play();
 	}
@@ -216,11 +217,12 @@ function doubleSuperFan(){
     	likes = likes - doubleSuperFanCost;
         updateLikes();
 	removeDoubleSuperFan();
-	doubleSuperFanLPS();
-	updateLPS();
+	doubleSuperFanDPS();
+	updateDPS();
 	if (sounds == 1) {
 		document.querySelector('#PurchaseSound').play();
 	}
+	document.getElementById("DoubleSuperFanBR").style.display = "none";
     }
 	else {
 		notEnoughLikes();
@@ -241,13 +243,13 @@ function recreateDoubleSuperFan()
    rctDoubleSuperFan.style.visibility="initial"; 
 }
 
-function doubleSuperFanLPS() {
-	var doubleSuperFansLPS = document.getElementById("DoubleSuperFans");
-	if (doubleSuperFansLPS.style.visibility == "hidden") {
-			superFanLPS = 4;
-			updateLPS();
+function doubleSuperFanDPS() {
+	var doubleSuperFansDPS = document.getElementById("DoubleSuperFans");
+	if (doubleSuperFansDPS.style.visibility == "hidden") {
+			superFanDPS = 4;
+			updateDPS();
 		} else {
-			superFanLPS = 2;
+			superFanDPS = 2;
 		}
 }
 
@@ -258,8 +260,8 @@ function addMegaFan(){
         megafans = megafans + 1;
     	likes = likes - megaFanCost;
         document.getElementById('megafans').innerHTML = nf.format(megafans);
-        LPS += megaFanLPS;
-	updateLPS();
+        DPS += megaFanDPS;
+	updateDPS();
 	if (sounds == 1) {
 		document.querySelector('#PurchaseSound').play();
 	}
@@ -278,11 +280,12 @@ function doubleMegaFan(){
     	likes = likes - doubleMegaFanCost;
         updateLikes();
 	removeDoubleMegaFan();
-	doubleMegaFanLPS();
-	updateLPS();
+	doubleMegaFanDPS();
+	updateDPS();
 	if (sounds == 1) {
 		document.querySelector('#PurchaseSound').play();
 	}
+	document.getElementById("DoubleMegaFanBR").style.display = "none";
     }
 	else {
 		notEnoughLikes();
@@ -303,13 +306,13 @@ function recreateDoubleMegaFan()
    rctDoubleMegaFan.style.visibility="initial"; 
 }
 
-function doubleMegaFanLPS() {
-	var doubleMegaFansLPS = document.getElementById("DoubleMegaFans");
-	if (doubleMegaFansLPS.style.visibility == "hidden") {
-			megaFanLPS = 8;
-			updateLPS();
+function doubleMegaFanDPS() {
+	var doubleMegaFansDPS = document.getElementById("DoubleMegaFans");
+	if (doubleMegaFansDPS.style.visibility == "hidden") {
+			megaFanDPS = 8;
+			updateDPS();
 		} else {
-			megaFanLPS = 4;
+			megaFanDPS = 4;
 		}
 }
 
@@ -320,8 +323,8 @@ function addUltraFan(){
         ultrafans = ultrafans + 1;
     	likes = likes - ultraFanCost;
         document.getElementById('ultrafans').innerHTML = nf.format(ultrafans);
-        LPS += ultraFanLPS;
-	updateLPS();
+        DPS += ultraFanDPS;
+	updateDPS();
 	if (sounds == 1) {
 		document.querySelector('#PurchaseSound').play();
 	}
@@ -340,11 +343,12 @@ function doubleUltraFan(){
     	likes = likes - doubleUltraFanCost;
         updateLikes();
 	removeDoubleUltraFan();
-	doubleUltraFanLPS();
-	updateLPS();
+	doubleUltraFanDPS();
+	updateDPS();
 	if (sounds == 1) {
 		document.querySelector('#PurchaseSound').play();
 	}
+	document.getElementById("DoubleUltraFanBR").style.display = "none";
     }
 	else {
 		notEnoughLikes();
@@ -365,13 +369,13 @@ function recreateDoubleUltraFan()
    rctDoubleUltraFan.style.visibility="initial"; 
 }
 
-function doubleUltraFanLPS() {
-	var doubleUltraFansLPS = document.getElementById("DoubleUltraFans");
-	if (doubleUltraFansLPS.style.visibility == "hidden") {
-			ultraFanLPS = 16;
-			updateLPS();
+function doubleUltraFanDPS() {
+	var doubleUltraFansDPS = document.getElementById("DoubleUltraFans");
+	if (doubleUltraFansDPS.style.visibility == "hidden") {
+			ultraFanDPS = 16;
+			updateDPS();
 		} else {
-			ultraFanLPS = 8;
+			ultraFanDPS = 8;
 		}
 }
 
@@ -382,8 +386,8 @@ function addBot(){
         bots = bots + 1;
     	likes = likes - botCost;
         document.getElementById('bots').innerHTML = nf.format(bots);
-        LPS += botLPS;
-	updateLPS();
+        DPS += botDPS;
+	updateDPS();
 	if (sounds == 1) {
 		document.querySelector('#PurchaseSound').play();
 	}
@@ -402,11 +406,12 @@ function doubleBots(){
     	likes = likes - doubleBotsCost;
         updateLikes();
 	removeDoubleBots();
-	doubleBotsLPS();
-	updateLPS();
+	doubleBotsDPS();
+	updateDPS();
 	if (sounds == 1) {
 		document.querySelector('#PurchaseSound').play();
 	}
+	document.getElementById("DoubleBotBR").style.display = "none";
     }
 	else {
 		notEnoughLikes();
@@ -427,26 +432,26 @@ function recreateDoubleBots()
    rctDoubleBots.style.visibility="initial"; 
 }
 
-function doubleBotsLPS() {
-	var doubleBotsLPS = document.getElementById("DoubleBots");
-	if (doubleBotsLPS.style.visibility == "hidden") {
-			botLPS = 32;
-			updateLPS();
+function doubleBotsDPS() {
+	var doubleBotsDPS = document.getElementById("DoubleBots");
+	if (doubleBotsDPS.style.visibility == "hidden") {
+			botDPS = 32;
+			updateDPS();
 		} else {
-			botLPS = 16;
+			botDPS = 16;
 		}
 }
 
 //+1 CLICK
 function addClick(){
-    var addClickCost = Math.floor(20000 * Math.pow(1.1,LPC));
+    var addClickCost = Math.floor(20000 * Math.pow(1.1,number));
     if(likes >= addClickCost){
-        LPC += 1;
+        number = number + 1;
     	likes = likes - addClickCost;
-        document.getElementById('lpc').innerHTML = nf.format(LPC);
+        document.getElementById('number').innerHTML = nf.format(number);
 		document.getElementById('addClickCost').innerHTML = nf.format(nextCostAddClick);
         updateLikes();
-	updateLPC();
+	updateDPC();
 	if (sounds == 1) {
 		document.querySelector('#PurchaseSound').play();
 	}
@@ -454,7 +459,7 @@ function addClick(){
 	else {
 		notEnoughLikes();
 	};
-    var nextCostAddClick = Math.floor(20000 * Math.pow(1.1,LPC));
+    var nextCostAddClick = Math.floor(20000 * Math.pow(1.1,number));
     document.getElementById('addClickCost').innerHTML = nf.format(nextCostAddClick);
 };
 
@@ -462,17 +467,18 @@ function addClick(){
 function doubleClick(){
     var doubleClickCost = 45000;
     if(likes >= doubleClickCost){
-        LPC *= 2;
+        number = number * 2;
     	likes = likes - doubleClickCost;
-        document.getElementById('lpc').innerHTML = LPC;
-	var nextCostAddClick = Math.floor(20000 * Math.pow(1.1,LPC));
+        document.getElementById('number').innerHTML = number;
+	var nextCostAddClick = Math.floor(20000 * Math.pow(1.1,number));
 	document.getElementById('addClickCost').innerHTML = nf.format(nextCostAddClick);
         updateLikes();
 	removeDoubleClick();
-	updateLPC();
+	updateDPC();
 	if (sounds == 1) {
 		document.querySelector('#PurchaseSound').play();
 	}
+	document.getElementById("DoubleClickBR").style.display = "none";
     }
 	else {
 		notEnoughLikes();
@@ -523,24 +529,24 @@ function updateLikes(){
 	document.getElementById('likes').textContent = 'You have: ' + nf.format(likes) + ' likes!';
 }
 
-//FUNCTION OF UPDATING LPS
-function updateLPS(){
-	document.getElementById('lps').innerHTML = 'LPS: ' + nf.format(LPS);
-	document.getElementById('fanLPS').innerHTML = fanLPS;
-	document.getElementById('superFanLPS').innerHTML = superFanLPS;
-	document.getElementById('megaFanLPS').innerHTML = megaFanLPS;
-	document.getElementById('ultraFanLPS').innerHTML = ultraFanLPS;
-	document.getElementById('botLPS').innerHTML = botLPS;
+//FUNCTION OF UPDATING DPS
+function updateDPS(){
+	document.getElementById('dps').innerHTML = 'DPS: ' + DPS;
+	document.getElementById('fanDPS').innerHTML = fanDPS;
+	document.getElementById('superFanDPS').innerHTML = superFanDPS;
+	document.getElementById('megaFanDPS').innerHTML = megaFanDPS;
+	document.getElementById('ultraFanDPS').innerHTML = ultraFanDPS;
+	document.getElementById('botDPS').innerHTML = botDPS;
 }
 
-//FUNCTION OF UPDATING LPC
-function updateLPC(){
-	document.getElementById('lpc').innerHTML = 'LPC: ' + nf.format(LPC);
+//FUNCTION OF UPDATING DPC
+function updateDPC(){
+	document.getElementById('dpc').innerHTML = 'DPC: ' + number;
 }
 
 //TIME INTERVAL (LIKES PER SECOND)
 window.setInterval(function(){
-	likes += LPS;
+	likes = likes + DPS;
 	updateLikes();
 }, 1000);
 
