@@ -49,8 +49,8 @@
 					</div>
 					<span id="likes">You have: 0 likes!</span></p>
 					<div>
-						<span id="dps" data-toggle="tooltip" title="Number of Likes per Second">DPS: 0</span><br>
-						<span id="dpc" data-toggle="tooltip" title="Number of Likes per Click">DPC: 1</span>
+						<span id="lps" data-toggle="tooltip" title="Number of Likes per Second">LPS: 0</span><br>
+						<span id="lpc" data-toggle="tooltip" title="Number of Likes per Click">LPC: 1</span>
 					</div>
 					<audio id="LikeSound" src="sound/like.mp3"></audio>
 					<audio id="PurchaseSound" src="sound/purchase.mp3"></audio>
@@ -80,7 +80,7 @@
 							<td id="ItemCell">
 								<div id="ItemInfo">
 									Fans: <span id="fans">0</span><br />
-									DPS: <span id="fanDPS">1</span><br />
+									LPS: <span id="fanLPS">1</span><br />
 									Cost: <span id="fanCost">10</span>
 								</div>
 							</td>
@@ -103,7 +103,7 @@
 							<td id="ItemCell">
 								<div id="ItemInfo">
 									Super Fans: <span id="superfans">0</span><br />
-									DPS: <span id="superFanDPS">2</span><br />
+									LPS: <span id="superFanLPS">2</span><br />
 									Cost: <span id="superFanCost">100</span>
 								</div>
 							</td>
@@ -126,7 +126,7 @@
 							<td id="ItemCell">
 								<div id="ItemInfo">
 									Mega Fans: <span id="megafans">0</span><br />
-									DPS: <span id="megaFanDPS">4</span><br />
+									LPS: <span id="megaFanLPS">4</span><br />
 									Cost: <span id="megaFanCost">500</span>
 								</div>
 							</td>
@@ -150,7 +150,7 @@
 							<td id="ItemCell">
 								<div id="ItemInfo">
 									Ultra Fans: <span id="ultrafans">0</span><br />
-									DPS: <span id="ultraFanDPS">8</span><br />
+									LPS: <span id="ultraFanLPS">8</span><br />
 									Cost: <span id="ultraFanCost">1.000</span>
 								</div>
 							</td>
@@ -173,7 +173,7 @@
 							<td id="ItemCell">
 								<div id="ItemInfo">
 									Bots: <span id="bots">0</span><br />
-									DPS: <span id="botDPS">16</span><br />
+									LPS: <span id="botLPS">16</span><br />
 									Cost: <span id="botCost">5.000</span>
 								</div>
 							</td>
@@ -188,7 +188,7 @@
 								<div id="BuyButton" onClick="doubleFan()" title="Buy x2 Fans">
 									<center>
 										<i class="material-icons" id="like-icon" style="font-size: 50px; color: black; display: inline-flex; vertical-align: middle;">add</i><br>
-										<span style="padding-left: 5px; padding-right: 5px;">x2 Fans<br> (DPS)</span>
+										<span style="padding-left: 5px; padding-right: 5px;">x2 Fans<br> (LPS)</span>
 									</center>
 								</div>
 							</td>
@@ -210,7 +210,7 @@
 								<div id="BuyButton" onClick="doubleSuperFan()" title="Buy x2 Super Fans">
 									<center>
 										<i class="material-icons" id="like-icon" style="font-size: 50px; color: black; display: inline-flex; vertical-align: middle;">add</i><br>
-										<span style="padding-left: 5px; padding-right: 5px;">x2 Super Fans<br> (DPS)</span>
+										<span style="padding-left: 5px; padding-right: 5px;">x2 Super Fans<br> (LPS)</span>
 									</center>
 								</div>
 							</td>
@@ -232,7 +232,7 @@
 								<div id="BuyButton" onClick="doubleMegaFan()" title="Buy x2 Mega Fans">
 									<center>
 										<i class="material-icons" id="like-icon" style="font-size: 50px; color: black; display: inline-flex; vertical-align: middle;">add</i><br>
-										<span style="padding-left: 5px; padding-right: 5px;">x2 Mega Fans<br> (DPS)</span>
+										<span style="padding-left: 5px; padding-right: 5px;">x2 Mega Fans<br> (LPS)</span>
 									</center>
 								</div>
 							</td>
@@ -254,7 +254,7 @@
 								<div id="BuyButton" onClick="doubleUltraFan()" title="Buy x2 Ultra Fans">
 									<center>
 										<i class="material-icons" id="like-icon" style="font-size: 50px; color: black; display: inline-flex; vertical-align: middle;">add</i><br>
-										<span style="padding-left: 5px; padding-right: 5px;">x2 Ultra Fans<br> (DPS)</span>
+										<span style="padding-left: 5px; padding-right: 5px;">x2 Ultra Fans<br> (LPS)</span>
 									</center>
 								</div>
 							</td>
@@ -276,7 +276,7 @@
 								<div id="BuyButton" onClick="doubleBots()" title="Buy x2 Bots">
 									<center>
 										<i class="material-icons" id="like-icon" style="font-size: 50px; color: black; display: inline-flex; vertical-align: middle;">add</i><br>
-										<span style="padding-left: 5px; padding-right: 5px;">x2 Bots<br> (DPS)</span>
+										<span style="padding-left: 5px; padding-right: 5px;">x2 Bots<br> (LPS)</span>
 									</center>
 								</div>
 							</td>
@@ -295,17 +295,17 @@
 					<div id="AddClick" class="rounded">
 						<table id="ItemTable">
 							<td id="ItemCell">
-								<div id="BuyButton" onClick="addClick()" title="Buy +1 DPC (Likes per Click)">
+								<div id="BuyButton" onClick="addClick()" title="Buy +1 LPC (Likes per Click)">
 									<center>
 										<i class="material-icons" id="like-icon" style="font-size: 50px; color: black; display: inline-flex; vertical-align: middle;">add</i><br>
-										<span style="padding-left: 5px; padding-right: 5px;">+1 DPC<br> (Clicks)</span>
+										<span style="padding-left: 5px; padding-right: 5px;">+1 LPC<br> (Clicks)</span>
 									</center>
 								</div>
 							</td>
 							<td style="width: 5px;"></td>
 							<td id="ItemCell">
 								<div id="ItemInfo">
-									DPC: <span id="number">1</span><br>
+									LPC: <span id="number">1</span><br>
 									Cost: <span id="addClickCost">22.000</span>
 								</div>
 							</td>
@@ -317,10 +317,10 @@
 					<div id="DoubleClick" class="rounded">
 						<table id="ItemTable">
 							<td id="ItemCell">
-								<div id="BuyButton" onClick="doubleClick()" title="Buy x2 DPC (Likes per Click)">
+								<div id="BuyButton" onClick="doubleClick()" title="Buy x2 LPC (Likes per Click)">
 									<center>
 										<i class="material-icons" id="like-icon" style="font-size: 50px; color: black; display: inline-flex; vertical-align: middle;">add</i><br>
-										<span style="padding-left: 5px; padding-right: 5px;">x2 DPC<br> (Clicks)</span>
+										<span style="padding-left: 5px; padding-right: 5px;">x2 LPC<br> (Clicks)</span>
 									</center>
 								</div>
 							</td>
@@ -385,7 +385,7 @@
 						<span id="SettingsOption" class="showchangelog" title="Open the changelog">Open changelog</span>
 						<a id="SettingsOption" href="https://likeclicker.reddit.com" target="_blank" title="Subreddit of the game">Reddit</a>
 						<a id="SettingsOption" href="https://github.com/TechnoHerobrine/Like-Clicker" target="_blank" title="GitHub Repository of the game">GitHub</a>
-						<a id="SettingsOption" href="https://drive.google.com/open?id=1qDzl-CYn_U7xTdzeMPLvXIYGP8EyCOQo" target="_blank" title="Get Like Clicker for Android" download>Get Like Clicker for Android</a>
+						<a id="SettingsOption" href="https://drive.google.com/open?id=1qDzl-CYn_U7xTdzeMPLvXIYGP8EyCOQo" target="_blank" title="Get Like Clicker for Android">Get Like Clicker for Android</a>
 					</div>
 					<br>
 					<div>
