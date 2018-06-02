@@ -35,6 +35,50 @@
   font-feature-settings: 'liga';
 }
 
+@font-face {
+	font-family: 'fontelloicons';
+	src: url('fontelloicons/font/fontello.eot?44221376');
+	src: url('fontelloicons/font/fontello.eot?44221376#iefix') format('embedded-opentype'),
+		url('fontelloicons/font/fontello.woff?44221376') format('woff'),
+		url('fontelloicons/font/fontello.ttf?44221376') format('truetype'),
+		url('fontelloicons/font/fontello.svg?44221376#fontelloicons') format('svg');
+	font-weight: normal;
+	font-style: italic;
+}
+
+.fontelloicons:before {
+	text-decoration: none;
+	transition: color 0.3s ease;
+	font-family: 'fontelloicons';
+	speak: none;
+	display: inline-block;
+	font-variant: normal;
+}
+
+.fontelloicons.icon-reddit:before {
+    content: '\f281';
+}
+
+.fontelloicons.icon-github:before {
+    content: '\f09b';
+}
+
+.fontelloicons.icon-twitter:before {
+    content: '\f099';
+}
+
+.fontelloicons.icon-toggle-on:before {
+    content: '\f205';
+}
+
+.fontelloicons.icon-toggle-off:before {
+    content: '\f204';
+}
+
+.fontelloicons.icon-android:before {
+    content: '\f17b';
+}
+
 body {
 	font-family:'Arial';
 	background: url("../files/bg.jpg");
@@ -116,7 +160,7 @@ body {
 }
 
 #like-icon:hover {
-	color: #232323;
+	color: #3d3d3d;
 }
 
 body {

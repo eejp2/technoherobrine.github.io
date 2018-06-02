@@ -13,6 +13,7 @@ var megaFanLPS = 4;
 var ultraFanLPS = 8;
 var botLPS = 16;
 var sounds = 1;
+var darktheme = 0;
 
 //BUG CORRECTION OF THE ENTER KEY
 window.addEventListener("keydown", keyDown);
@@ -670,4 +671,114 @@ function enableDisableSounds()                                 //enable or disab
 		document.getElementById("soundenabled").style.visibility="hidden";
 		sounds = 1;
 	}
+}
+
+//DARK THEME
+function enableDisableDarkTheme()                                 //enable or disable the dark theme
+{ 
+	if (document.getElementById("darkthemeenabled").style.visibility == "hidden") {
+		document.getElementById("darkthemeenabled").style.display="block";
+		document.getElementById("darkthemeenabled").style.visibility="visible";
+
+		document.getElementById("darkthemedisabled").style.display="none";
+		document.getElementById("darkthemedisabled").style.visibility="hidden";
+		disableDarkTheme();
+	} else {
+		document.getElementById("darkthemedisabled").style.display="block";
+		document.getElementById("darkthemedisabled").style.visibility="visible";
+
+		document.getElementById("darkthemeenabled").style.display="none";
+		document.getElementById("darkthemeenabled").style.visibility="hidden";
+		enableDarkTheme();
+	}
+}
+
+function enableDarkTheme() {
+	darktheme = 1;
+	document.querySelector("body").style.color = "white";
+	document.querySelector("body").style.background = "url('files/bgdark.jpg')";
+	document.querySelector("#ShopPage").style.background = "url('files/bgdark2.jpg')";
+	document.querySelector("#SettingsPage").style.background = "url('files/bgdark2.jpg')";
+	document.querySelector("#like-icon").style.color = "white";
+	document.querySelector("#back-icon").style.color = "white";
+	document.querySelector("#options-icon").style.color = "white";
+	document.querySelector("#TopActionBar").style.color = "white";
+	document.querySelector("#TopActionBar").style.background = "#232323";
+	document.querySelector("#MoreFanIcon").style.color = "white";
+	document.querySelector("#MoreSuperFanIcon").style.color = "white";
+	document.querySelector("#MoreMegaFanIcon").style.color = "white";
+	document.querySelector("#MoreUltraFanIcon").style.color = "white";
+	document.querySelector("#MoreBotIcon").style.color = "white";
+	document.querySelector("#MoreDoubleFanIcon").style.color = "white";
+	document.querySelector("#MoreDoubleSuperFanIcon").style.color = "white";
+	document.querySelector("#MoreDoubleMegaFanIcon").style.color = "white";
+	document.querySelector("#MoreDoubleUltraFanIcon").style.color = "white";
+	document.querySelector("#MoreDoubleBotIcon").style.color = "white";
+	document.querySelector("#MoreClickIcon").style.color = "white";
+	document.querySelector("#MoreDoubleClickIcon").style.color = "white";
+	document.querySelector("#AddFan").style.backgroundColor = "#8e8e8e";
+	document.querySelector("#AddSuperFan").style.backgroundColor = "#8e8e8e";
+	document.querySelector("#AddMegaFan").style.backgroundColor = "#8e8e8e";
+	document.querySelector("#AddUltraFan").style.backgroundColor = "#8e8e8e";
+	document.querySelector("#AddBot").style.backgroundColor = "#8e8e8e";
+	document.querySelector("#DoubleFans").style.backgroundColor = "#8e8e8e";
+	document.querySelector("#DoubleSuperFans").style.backgroundColor = "#8e8e8e";
+	document.querySelector("#DoubleMegaFans").style.backgroundColor = "#8e8e8e";
+	document.querySelector("#DoubleUltraFans").style.backgroundColor = "#8e8e8e";
+	document.querySelector("#DoubleBots").style.backgroundColor = "#8e8e8e";
+	document.querySelector("#AddClick").style.backgroundColor = "#8e8e8e";
+	document.querySelector("#DoubleClick").style.backgroundColor = "#8e8e8e";
+}
+
+function disableDarkTheme() {
+	darktheme = 0;
+	document.querySelector("body").style.color = "black";
+	document.querySelector("body").style.background = "url(files/bg.jpg)";
+	document.querySelector("#ShopPage").style.background = "url('files/bg2.jpg')";
+	document.querySelector("#SettingsPage").style.background = "url('files/bg2.jpg')";
+	document.querySelector("#like-icon").style.color = "black";
+	document.querySelector("#back-icon").style.color = "black";
+	document.querySelector("#options-icon").style.color = "black";
+	document.querySelector("#TopActionBar").style.color = "black";
+	document.querySelector("#TopActionBar").style.background = "white";
+	document.querySelector("#MoreFanIcon").style.color = "black";
+	document.querySelector("#MoreSuperFanIcon").style.color = "black";
+	document.querySelector("#MoreMegaFanIcon").style.color = "black";
+	document.querySelector("#MoreUltraFanIcon").style.color = "black";
+	document.querySelector("#MoreBotIcon").style.color = "black";
+	document.querySelector("#MoreDoubleFanIcon").style.color = "black";
+	document.querySelector("#MoreDoubleSuperFanIcon").style.color = "black";
+	document.querySelector("#MoreDoubleMegaFanIcon").style.color = "black";
+	document.querySelector("#MoreDoubleUltraFanIcon").style.color = "black";
+	document.querySelector("#MoreDoubleBotIcon").style.color = "black";
+	document.querySelector("#MoreClickIcon").style.color = "black";
+	document.querySelector("#MoreDoubleClickIcon").style.color = "black";
+	document.querySelector("#AddFan").style.backgroundColor = "white";
+	document.querySelector("#AddSuperFan").style.backgroundColor = "white";
+	document.querySelector("#AddMegaFan").style.backgroundColor = "white";
+	document.querySelector("#AddUltraFan").style.backgroundColor = "white";
+	document.querySelector("#AddBot").style.backgroundColor = "white";
+	document.querySelector("#DoubleFans").style.backgroundColor = "white";
+	document.querySelector("#DoubleSuperFans").style.backgroundColor = "white";
+	document.querySelector("#DoubleMegaFans").style.backgroundColor = "white";
+	document.querySelector("#DoubleUltraFans").style.backgroundColor = "white";
+	document.querySelector("#DoubleBots").style.backgroundColor = "white";
+	document.querySelector("#AddClick").style.backgroundColor = "white";
+	document.querySelector("#DoubleClick").style.backgroundColor = "white";
+}
+
+function showLikeOverlay() {
+	if (darktheme == 0) {
+		document.querySelector("#like-icon").style.color = "#3d3d3d";
+	} else {
+		document.querySelector("#like-icon").style.color = "#adadad";
+	}
+}
+
+function hideLikeOverlay() {
+	if (darktheme == 0) {
+		document.querySelector("#like-icon").style.color = "black";
+	} else {
+		document.querySelector("#like-icon").style.color = "white";
+	}	
 }
